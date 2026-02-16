@@ -1,136 +1,131 @@
 interface IconProps {
   size?: number;
   color?: string;
-  strokeWidth?: number;
 }
 
-export function Compass({ size = 24, color = "currentColor", strokeWidth = 1 }: IconProps) {
+export function ArrowRight({ size = 24, color = "currentColor" }: IconProps) {
   return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" style={{ color, transition: "color 0.5s" }}>
-      <circle cx="12" cy="12" r="10" stroke="currentColor" />
-      <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" fill="none" stroke="currentColor" strokeWidth={strokeWidth} />
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" style={{ color }}>
+      <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }
 
-export function Building({ size = 24, color = "currentColor", strokeWidth = 1 }: IconProps) {
+export function Shield({ size = 24, color = "currentColor" }: IconProps) {
   return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" style={{ color, transition: "color 0.5s" }}>
-      <rect x="4" y="2" width="16" height="20" rx="1" />
-      <line x1="9" y1="22" x2="9" y2="18" />
-      <line x1="15" y1="22" x2="15" y2="18" />
-      <rect x="8" y="6" width="3" height="3" rx="0.5" />
-      <rect x="13" y="6" width="3" height="3" rx="0.5" />
-      <rect x="8" y="12" width="3" height="3" rx="0.5" />
-      <rect x="13" y="12" width="3" height="3" rx="0.5" />
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" style={{ color }}>
+      <path d="M12 2l8 4v6c0 5.25-3.38 8.24-8 10-4.62-1.76-8-4.75-8-10V6l8-4z" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M9 12l2 2 4-4" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }
 
-export function Strategy({ size = 24, color = "currentColor", strokeWidth = 1 }: IconProps) {
+export function Star({ size = 24, color = "currentColor" }: IconProps) {
   return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" style={{ color, transition: "color 0.5s" }}>
-      <path d="M2 12h4l3 -9l4 18l3 -9h6" />
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" style={{ color }}>
+      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }
 
-export function People({ size = 24, color = "currentColor", strokeWidth = 1 }: IconProps) {
+export function Crown({ size = 24, color = "currentColor" }: IconProps) {
   return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" style={{ color, transition: "color 0.5s" }}>
-      <circle cx="9" cy="7" r="3" />
-      <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
-      <circle cx="17" cy="7" r="2" />
-      <path d="M21 21v-1.5a3 3 0 0 0 -2 -2.83" />
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" style={{ color }}>
+      <path d="M2 20h20M4 17l1-12 5 5 2-6 2 6 5-5 1 12H4z" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }
 
-export function Lightbulb({ size = 24, color = "currentColor", strokeWidth = 1 }: IconProps) {
+/* Hotel-specific icons */
+
+export function HotelBed({ size = 24, color = "currentColor" }: IconProps) {
   return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" style={{ color, transition: "color 0.5s" }}>
-      <path d="M9 18h6" />
-      <path d="M10 22h4" />
-      <path d="M12 2a7 7 0 0 0 -4 12.7V17h8v-2.3A7 7 0 0 0 12 2z" />
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" style={{ color }}>
+      <path d="M3 7v11M21 7v11M3 18h18" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M3 11h18v3H3v-3z" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M6 11V8a1 1 0 011-1h3a1 1 0 011 1v3" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }
 
-export function Handshake({ size = 24, color = "currentColor", strokeWidth = 1 }: IconProps) {
+export function ConciergeBell({ size = 24, color = "currentColor" }: IconProps) {
   return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" style={{ color, transition: "color 0.5s" }}>
-      <path d="M11 17l-1 1a2.83 2.83 0 0 1 -4 0l-1 -1a2.83 2.83 0 0 1 0 -4l6 -6" />
-      <path d="M13 7l1 -1a2.83 2.83 0 0 1 4 0l1 1a2.83 2.83 0 0 1 0 4l-6 6" />
-      <line x1="2" y1="12" x2="6" y2="8" />
-      <line x1="18" y1="16" x2="22" y2="12" />
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" style={{ color }}>
+      <path d="M2 18h20" stroke="currentColor" strokeWidth="1" strokeLinecap="round" />
+      <path d="M4 18c0-4.42 3.58-8 8-8s8 3.58 8 8" stroke="currentColor" strokeWidth="1" strokeLinecap="round" />
+      <path d="M12 10V7" stroke="currentColor" strokeWidth="1" strokeLinecap="round" />
+      <circle cx="12" cy="6" r="1" stroke="currentColor" strokeWidth="1" />
+      <path d="M6 20h12" stroke="currentColor" strokeWidth="1" strokeLinecap="round" />
     </svg>
   );
 }
 
-export function Globe({ size = 24, color = "currentColor", strokeWidth = 1 }: IconProps) {
+export function KeyIcon({ size = 24, color = "currentColor" }: IconProps) {
   return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" style={{ color, transition: "color 0.5s" }}>
-      <circle cx="12" cy="12" r="10" />
-      <ellipse cx="12" cy="12" rx="4" ry="10" />
-      <line x1="2" y1="12" x2="22" y2="12" />
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" style={{ color }}>
+      <circle cx="8" cy="15" r="5" stroke="currentColor" strokeWidth="1" />
+      <path d="M11.5 11.5L21 2" stroke="currentColor" strokeWidth="1" strokeLinecap="round" />
+      <path d="M18 2h3v3" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M16 7l2-2" stroke="currentColor" strokeWidth="1" strokeLinecap="round" />
     </svg>
   );
 }
 
-export function Shield({ size = 24, color = "currentColor", strokeWidth = 1 }: IconProps) {
+export function Clipboard({ size = 24, color = "currentColor" }: IconProps) {
   return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" style={{ color, transition: "color 0.5s" }}>
-      <path d="M12 22s8 -4 8 -10V5l-8 -3 -8 3v7c0 6 8 10 8 10z" />
-      <polyline points="9 12 11 14 15 10" />
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" style={{ color }}>
+      <path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" />
+      <rect x="8" y="2" width="8" height="4" rx="1" stroke="currentColor" strokeWidth="1" />
+      <path d="M9 12h6M9 16h4" stroke="currentColor" strokeWidth="1" strokeLinecap="round" />
     </svg>
   );
 }
 
-export function Target({ size = 24, color = "currentColor", strokeWidth = 1 }: IconProps) {
+export function TrendingUp({ size = 24, color = "currentColor" }: IconProps) {
   return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" style={{ color, transition: "color 0.5s" }}>
-      <circle cx="12" cy="12" r="10" />
-      <circle cx="12" cy="12" r="6" />
-      <circle cx="12" cy="12" r="2" />
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" style={{ color }}>
+      <path d="M22 7l-8.5 8.5-5-5L2 17" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M16 7h6v6" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }
 
-export function Chart({ size = 24, color = "currentColor", strokeWidth = 1 }: IconProps) {
+export function UserCheck({ size = 24, color = "currentColor" }: IconProps) {
   return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" style={{ color, transition: "color 0.5s" }}>
-      <line x1="18" y1="20" x2="18" y2="10" />
-      <line x1="12" y1="20" x2="12" y2="4" />
-      <line x1="6" y1="20" x2="6" y2="14" />
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" style={{ color }}>
+      <path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" />
+      <circle cx="8.5" cy="7" r="4" stroke="currentColor" strokeWidth="1" />
+      <path d="M17 11l2 2 4-4" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }
 
-export function GraduationCap({ size = 24, color = "currentColor", strokeWidth = 1 }: IconProps) {
+export function Award({ size = 24, color = "currentColor" }: IconProps) {
   return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" style={{ color, transition: "color 0.5s" }}>
-      <polygon points="12 2 2 7 12 12 22 7 12 2" />
-      <path d="M6 9.5v6a6 3 0 0 0 12 0v-6" />
-      <line x1="22" y1="7" x2="22" y2="13" />
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" style={{ color }}>
+      <circle cx="12" cy="8" r="6" stroke="currentColor" strokeWidth="1" />
+      <path d="M8.21 13.89L7 23l5-3 5 3-1.21-9.12" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }
 
-export function ArrowRight({ size = 24, color = "currentColor", strokeWidth = 1 }: IconProps) {
+export function Building({ size = 24, color = "currentColor" }: IconProps) {
   return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" style={{ color, transition: "color 0.5s" }}>
-      <line x1="5" y1="12" x2="19" y2="12" />
-      <polyline points="12 5 19 12 12 19" />
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" style={{ color }}>
+      <path d="M3 22V6l9-4 9 4v16" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M3 22h18" stroke="currentColor" strokeWidth="1" strokeLinecap="round" />
+      <path d="M9 22v-4h6v4" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M8 10h1M12 10h1M16 10h1M8 14h1M12 14h1M16 14h1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
     </svg>
   );
 }
 
-export function Diamond({ size = 24, color = "currentColor", strokeWidth = 1 }: IconProps) {
+export function Globe({ size = 24, color = "currentColor" }: IconProps) {
   return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" style={{ color, transition: "color 0.5s" }}>
-      <path d="M6 3h12l4 6 -10 13L2 9z" />
-      <path d="M2 9h20" />
-      <path d="M10 3l-4 6 6 13 6 -13 -4 -6" />
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" style={{ color }}>
+      <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="1" />
+      <path d="M2 12h20" stroke="currentColor" strokeWidth="1" />
+      <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" stroke="currentColor" strokeWidth="1" />
     </svg>
   );
 }

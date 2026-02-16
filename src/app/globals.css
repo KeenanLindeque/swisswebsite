@@ -38,17 +38,12 @@ ul {
   color: var(--white);
 }
 
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(32px); }
-  to { opacity: 1; transform: translateY(0); }
+/* Smooth section transitions */
+section {
+  will-change: auto;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes lineGrow {
-  from { width: 0; }
-  to { width: 64px; }
+/* Smooth anchor scrolling offset for fixed navbar */
+[id] {
+  scroll-margin-top: 80px;
 }

@@ -3,9 +3,10 @@
 import { useState, useEffect } from "react";
 
 const navLinks = [
-  { label: "Solutions", href: "#solutions" },
-  { label: "Experience", href: "#experiences" },
-  { label: "About", href: "#about" },
+  { label: "Services", href: "#services" },
+  { label: "Recognition", href: "#recognition" },
+  { label: "Advisory", href: "#advisory" },
+  { label: "Insights", href: "#insights" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -44,16 +45,10 @@ export default function Navbar() {
           transition: "padding 0.5s cubic-bezier(0.16, 1, 0.3, 1)",
         }}
       >
-        {/* Logo */}
         <a href="#" style={{ display: "flex", alignItems: "center" }}>
-          <img
-            src="/logo.svg"
-            alt="Swiss Hospitality Company"
-            style={{ height: 28, width: "auto", display: "block" }}
-          />
+          <img src="/logo.svg" alt="Swiss Hospitality Company" style={{ height: 28, width: "auto", display: "block" }} />
         </a>
 
-        {/* Desktop */}
         <div className="nav-desktop" style={{ display: "flex", alignItems: "center", gap: 48 }}>
           {navLinks.map((link) => (
             <a
@@ -75,16 +70,9 @@ export default function Navbar() {
           ))}
         </div>
 
-        {/* Hamburger */}
         <button
           className="nav-mobile-btn"
-          style={{
-            display: "none",
-            background: "none",
-            border: "none",
-            cursor: "pointer",
-            padding: 8,
-          }}
+          style={{ display: "none", background: "none", border: "none", cursor: "pointer", padding: 8, zIndex: 101 }}
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Menu"
         >
@@ -96,34 +84,10 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobile overlay */}
       {mobileOpen && (
-        <div
-          style={{
-            position: "fixed",
-            inset: 0,
-            backgroundColor: "var(--blue)",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-            gap: 40,
-            zIndex: 99,
-          }}
-        >
+        <div style={{ position: "fixed", inset: 0, backgroundColor: "var(--blue)", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 40, zIndex: 99 }}>
           {navLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              style={{
-                color: "var(--white)",
-                fontSize: 28,
-                fontWeight: 300,
-                letterSpacing: "0.15em",
-                textTransform: "uppercase",
-              }}
-              onClick={() => setMobileOpen(false)}
-            >
+            <a key={link.label} href={link.href} style={{ color: "var(--white)", fontSize: 28, fontWeight: 300, letterSpacing: "0.15em", textTransform: "uppercase" }} onClick={() => setMobileOpen(false)}>
               {link.label}
             </a>
           ))}
