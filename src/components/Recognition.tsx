@@ -46,15 +46,18 @@ export default function Recognition() {
     <section id="recognition" style={{ padding: "160px 0", backgroundColor: "var(--blue)" }}>
       <div style={{ maxWidth: 1400, margin: "0 auto", padding: "0 48px" }}>
         <div ref={r1} style={{ ...s1, marginBottom: 24 }}>
-          <p style={{ color: "var(--silver)", fontSize: 12, letterSpacing: "0.4em", textTransform: "uppercase", fontWeight: 400, opacity: 0.4 }}>
-            03 — Recognition
+          <span style={{ fontSize: 80, fontWeight: 200, color: "var(--white)", opacity: 0.06, lineHeight: 1, display: "block", marginBottom: -12 }}>
+            03
+          </span>
+          <h2 style={{ fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 300, color: "var(--white)", lineHeight: 1.2, marginBottom: 16 }}>
+            Recognition Program
+          </h2>
+          <p style={{ fontSize: 15, fontWeight: 500, color: "var(--silver)", letterSpacing: "0.06em", fontStyle: "italic" }}>
+            Recognition Earned Through Assessment.
           </p>
         </div>
         <div ref={r2} style={{ ...s2, maxWidth: 640, marginBottom: 80 }}>
-          <h2 style={{ fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 300, color: "var(--white)", lineHeight: 1.2, marginBottom: 20 }}>
-            Recognition Earned Through Assessment
-          </h2>
-          <p style={{ fontSize: 17, color: "var(--silver)", fontWeight: 300, lineHeight: 1.8, opacity: 0.6 }}>
+          <p style={{ fontSize: 18, color: "var(--silver)", fontWeight: 300, lineHeight: 1.8, opacity: 0.6 }}>
             The Swiss Hospitality Recognition Program acknowledges hotels that demonstrate measurable excellence in service quality and operational integrity.
           </p>
         </div>
