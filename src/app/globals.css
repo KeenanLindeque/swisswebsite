@@ -2,6 +2,8 @@
   --white: #F3F3F5;
   --blue: #0f2347;
   --silver: #dadce2;
+  --gold: #c9a96e;
+  --gold-muted: rgba(201, 169, 110, 0.35);
 }
 
 * {
@@ -38,7 +40,6 @@ ul {
   color: var(--white);
 }
 
-/* GPU-accelerated transitions */
 section {
   will-change: auto;
   -webkit-backface-visibility: hidden;
@@ -50,7 +51,6 @@ img {
   backface-visibility: hidden;
 }
 
-/* Smooth anchor scrolling offset for fixed navbar */
 [id] {
   scroll-margin-top: 80px;
 }

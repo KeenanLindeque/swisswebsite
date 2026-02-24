@@ -46,21 +46,22 @@ export default function WhoWeServe() {
   });
 
   return (
-    <section style={{ padding: "120px 0", backgroundColor: "var(--blue)" }}>
+    <section style={{ padding: "140px 0", backgroundColor: "var(--blue)" }}>
       <div ref={ref} style={{ maxWidth: 1400, margin: "0 auto", padding: "0 48px" }}>
         <div style={{ ...anim(0), marginBottom: 24 }}>
-          <p style={{ color: "var(--silver)", fontSize: 12, letterSpacing: "0.4em", textTransform: "uppercase", fontWeight: 400, opacity: 0.4 }}>
+          <div style={{ width: 40, height: 1, background: "linear-gradient(to right, var(--gold), transparent)", marginBottom: 24 }} />
+          <p style={{ color: "var(--gold)", fontSize: 11, letterSpacing: "0.5em", textTransform: "uppercase", fontWeight: 400, opacity: 0.6 }}>
             Who We Serve
           </p>
         </div>
-        <div style={{ ...anim(0.1), maxWidth: 580, marginBottom: 72 }}>
-          <h2 style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.6rem)", fontWeight: 300, color: "var(--white)", lineHeight: 1.25 }}>
+        <div style={{ ...anim(0.1), maxWidth: 580, marginBottom: 80 }}>
+          <h2 style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.6rem)", fontWeight: 200, color: "var(--white)", lineHeight: 1.25 }}>
             Built for hotels that take{" "}
             <span style={{ fontWeight: 600 }}>quality seriously</span>
           </h2>
         </div>
 
-        <div className="wws-grid" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 24 }}>
+        <div className="wws-grid" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 1 }}>
           {audiences.map((a, i) => {
             const isHovered = hovered === i;
             return (
@@ -68,27 +69,27 @@ export default function WhoWeServe() {
                 key={a.title}
                 style={{
                   ...anim(0.15 + i * 0.1),
-                  padding: "48px 32px 40px",
-                  border: `1px solid ${isHovered ? "rgba(218,220,226,0.2)" : "rgba(218,220,226,0.06)"}`,
-                  backgroundColor: isHovered ? "rgba(218,220,226,0.04)" : "transparent",
-                  transition: "all 0.5s cubic-bezier(0.22, 1, 0.36, 1)",
+                  padding: "52px 36px 44px",
+                  border: `1px solid ${isHovered ? "rgba(201,169,110,0.2)" : "rgba(218,220,226,0.06)"}`,
+                  backgroundColor: isHovered ? "rgba(201,169,110,0.03)" : "transparent",
+                  transition: "all 0.6s cubic-bezier(0.22, 1, 0.36, 1)",
                   cursor: "default",
                 }}
                 onMouseEnter={() => setHovered(i)}
                 onMouseLeave={() => setHovered(null)}
               >
                 <div style={{
-                  marginBottom: 28,
-                  color: isHovered ? "var(--white)" : "var(--silver)",
-                  transition: "color 0.4s",
-                  opacity: isHovered ? 1 : 0.5,
+                  marginBottom: 32,
+                  color: isHovered ? "var(--gold)" : "var(--silver)",
+                  transition: "color 0.5s",
+                  opacity: isHovered ? 0.8 : 0.35,
                 }}>
                   <a.icon size={28} color="currentColor" />
                 </div>
-                <h3 style={{ fontSize: 18, fontWeight: 500, color: "var(--white)", marginBottom: 12, lineHeight: 1.3 }}>
+                <h3 style={{ fontSize: 18, fontWeight: 400, color: "var(--white)", marginBottom: 14, lineHeight: 1.3 }}>
                   {a.title}
                 </h3>
-                <p style={{ fontSize: 14, color: "var(--silver)", fontWeight: 300, lineHeight: 1.7, opacity: 0.5 }}>
+                <p style={{ fontSize: 14, color: "var(--silver)", fontWeight: 300, lineHeight: 1.8, opacity: 0.45 }}>
                   {a.description}
                 </p>
               </div>

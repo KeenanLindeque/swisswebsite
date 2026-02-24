@@ -41,7 +41,7 @@ export default function ScrollProgress() {
         left: 0,
         height: 2,
         width: "100%",
-        backgroundColor: "var(--silver)",
+        background: "linear-gradient(to right, var(--gold), rgba(201,169,110,0.4))",
         zIndex: 200,
         transformOrigin: "left",
         transform: "scaleX(0) translate3d(0,0,0)",

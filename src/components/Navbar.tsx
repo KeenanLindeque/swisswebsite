@@ -28,41 +28,41 @@ export default function Navbar() {
         left: 0,
         right: 0,
         zIndex: 100,
-        transition: "all 0.6s cubic-bezier(0.22, 1, 0.36, 1)",
+        transition: "all 0.7s cubic-bezier(0.22, 1, 0.36, 1)",
         backgroundColor: scrolled ? "rgba(15, 35, 71, 0.97)" : "transparent",
-        backdropFilter: scrolled ? "blur(20px)" : "none",
-        borderBottom: scrolled ? "1px solid rgba(218,220,226,0.08)" : "1px solid transparent",
+        backdropFilter: scrolled ? "blur(24px)" : "none",
+        borderBottom: scrolled ? "1px solid rgba(201,169,110,0.08)" : "1px solid transparent",
       }}
     >
       <div
         style={{
           maxWidth: 1400,
           margin: "0 auto",
-          padding: scrolled ? "16px 48px" : "28px 48px",
+          padding: scrolled ? "16px 48px" : "32px 48px",
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
-          transition: "padding 0.6s cubic-bezier(0.22, 1, 0.36, 1)",
+          transition: "padding 0.7s cubic-bezier(0.22, 1, 0.36, 1)",
         }}
       >
         <a href="#" style={{ display: "flex", alignItems: "center" }}>
           <img src="/logo.svg" alt="Swiss Hospitality Company" style={{ height: 28, width: "auto", display: "block" }} />
         </a>
 
-        <div className="nav-desktop" style={{ display: "flex", alignItems: "center", gap: 48 }}>
+        <div className="nav-desktop" style={{ display: "flex", alignItems: "center", gap: 52 }}>
           {navLinks.map((link) => (
             <a
               key={link.label}
               href={link.href}
               style={{
                 color: "var(--silver)",
-                fontSize: 13,
+                fontSize: 11,
                 fontWeight: 400,
-                letterSpacing: "0.12em",
+                letterSpacing: "0.2em",
                 textTransform: "uppercase",
-                transition: "color 0.3s",
+                transition: "color 0.4s",
               }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = "var(--white)")}
+              onMouseEnter={(e) => (e.currentTarget.style.color = "var(--gold)")}
               onMouseLeave={(e) => (e.currentTarget.style.color = "var(--silver)")}
             >
               {link.label}
@@ -85,9 +85,9 @@ export default function Navbar() {
       </div>
 
       {mobileOpen && (
-        <div style={{ position: "fixed", inset: 0, backgroundColor: "var(--blue)", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 40, zIndex: 99 }}>
+        <div style={{ position: "fixed", inset: 0, backgroundColor: "var(--blue)", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 48, zIndex: 99 }}>
           {navLinks.map((link) => (
-            <a key={link.label} href={link.href} style={{ color: "var(--white)", fontSize: 28, fontWeight: 300, letterSpacing: "0.15em", textTransform: "uppercase" }} onClick={() => setMobileOpen(false)}>
+            <a key={link.label} href={link.href} style={{ color: "var(--white)", fontSize: 24, fontWeight: 200, letterSpacing: "0.25em", textTransform: "uppercase" }} onClick={() => setMobileOpen(false)}>
               {link.label}
             </a>
           ))}

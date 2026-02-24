@@ -4,15 +4,15 @@ const words = [
   "Five-Star Hotels",
   "Luxury Resorts",
   "Boutique Properties",
-  "Hotel Groups",
-  "Mystery Guest Assessments",
-  "Check-in Experience",
-  "F&B Standards",
-  "Housekeeping Standards",
-  "Concierge Quality",
-  "Room Inspections",
-  "Guest Journey",
-  "Service Recovery",
+  "Palace Hotels",
+  "Grand Suites",
+  "Concierge Excellence",
+  "Michelin Dining",
+  "Spa & Wellness",
+  "Guest Experience",
+  "Service Culture",
+  "Swiss Precision",
+  "Certified Quality",
 ];
 
 export default function Marquee() {
@@ -22,10 +22,10 @@ export default function Marquee() {
     <div
       style={{
         overflow: "hidden",
-        padding: "28px 0",
+        padding: "32px 0",
         backgroundColor: "var(--blue)",
-        borderTop: "1px solid rgba(218,220,226,0.06)",
-        borderBottom: "1px solid rgba(218,220,226,0.06)",
+        borderTop: "1px solid rgba(201,169,110,0.08)",
+        borderBottom: "1px solid rgba(201,169,110,0.08)",
       }}
     >
       <div className="marquee-track" style={{ display: "flex", gap: 0, whiteSpace: "nowrap" }}>
@@ -33,13 +33,13 @@ export default function Marquee() {
           <span
             key={`${word}-${i}`}
             style={{
-              fontSize: 12,
-              letterSpacing: "0.3em",
+              fontSize: 11,
+              letterSpacing: "0.35em",
               textTransform: "uppercase",
-              color: "var(--silver)",
+              color: "var(--gold)",
               fontWeight: 300,
               opacity: 0.2,
-              padding: "0 28px",
+              padding: "0 32px",
               flexShrink: 0,
             }}
           >
@@ -54,7 +54,7 @@ export default function Marquee() {
           100% { transform: translateX(-50%); }
         }
         .marquee-track {
-          animation: marquee 80s linear infinite;
+          animation: marquee 90s linear infinite;
         }
         .marquee-track:hover {
           animation-play-state: paused;

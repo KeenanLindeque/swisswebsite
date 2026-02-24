@@ -43,7 +43,8 @@ export default function ServiceDetail({
   const bg = dark ? "var(--blue)" : "var(--white)";
   const text = dark ? "var(--white)" : "var(--blue)";
   const muted = dark ? "var(--silver)" : "#717580";
-  const border = dark ? "rgba(218,220,226,0.08)" : "var(--silver)";
+  const border = dark ? "rgba(201,169,110,0.08)" : "rgba(218,220,226,0.35)";
+  const accent = dark ? "var(--gold)" : "var(--gold)";
 
   const [headerRef, headerVis] = useVisible(0.2);
   const [columnsRef, columnsVis] = useVisible(0.1);
@@ -63,13 +64,12 @@ export default function ServiceDetail({
     <section
       id={id}
       style={{
-        padding: "120px 0",
+        padding: "140px 0",
         backgroundColor: bg,
         borderTop: `1px solid ${border}`,
       }}
     >
       <div style={{ maxWidth: 1400, margin: "0 auto", padding: "0 48px" }}>
-        {/* Header row */}
         <div
           ref={headerRef}
           className="svc-header"
@@ -77,29 +77,28 @@ export default function ServiceDetail({
             display: "flex",
             alignItems: "flex-start",
             gap: 80,
-            marginBottom: 80,
+            marginBottom: 88,
             flexDirection: reversed ? "row-reverse" : "row",
           }}
         >
           <div style={{ ...anim(headerVis, 0), flex: "0 0 360px" }}>
-            <span style={{ fontSize: 80, fontWeight: 200, color: text, opacity: 0.06, lineHeight: 1, display: "block", marginBottom: -12 }}>
+            <span style={{ fontSize: 72, fontWeight: 200, color: text, opacity: 0.04, lineHeight: 1, display: "block", marginBottom: -8 }}>
               {number}
             </span>
-            <h3 style={{ fontSize: "clamp(1.8rem, 3vw, 2.6rem)", fontWeight: 300, color: text, lineHeight: 1.2, marginBottom: 16 }}>
+            <h3 style={{ fontSize: "clamp(1.8rem, 3vw, 2.6rem)", fontWeight: 200, color: text, lineHeight: 1.2, marginBottom: 16 }}>
               {title}
             </h3>
-            <p style={{ fontSize: 15, fontWeight: 500, color: muted, letterSpacing: "0.06em", fontStyle: "italic" }}>
+            <p style={{ fontSize: 14, fontWeight: 400, color: accent, letterSpacing: "0.08em", fontStyle: "italic", opacity: 0.7 }}>
               {tagline}
             </p>
           </div>
           <div style={{ ...anim(headerVis, 0.15), flex: 1 }}>
-            <p style={{ fontSize: 18, lineHeight: 1.8, color: text, fontWeight: 300, opacity: 0.75, maxWidth: 600 }}>
+            <p style={{ fontSize: 17, lineHeight: 1.9, color: text, fontWeight: 300, opacity: 0.7, maxWidth: 580 }}>
               {description}
             </p>
           </div>
         </div>
 
-        {/* Content columns with staggered items */}
         <div
           ref={columnsRef}
           className="svc-columns"
@@ -111,30 +110,30 @@ export default function ServiceDetail({
               style={{
                 ...anim(columnsVis, colIdx * 0.15),
                 flex: "1 1 280px",
-                padding: "32px 0",
+                padding: "36px 0",
                 borderTop: `1px solid ${border}`,
               }}
             >
-              <h4 style={{ fontSize: 13, fontWeight: 500, color: text, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 24, opacity: 0.5 }}>
+              <h4 style={{ fontSize: 11, fontWeight: 500, color: accent, letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: 28, opacity: 0.6 }}>
                 {col.heading}
               </h4>
-              <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: 12 }}>
+              <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: 14 }}>
                 {col.list.map((li, liIdx) => (
                   <li
                     key={li}
                     style={{
                       fontSize: 15,
                       color: muted,
-                      lineHeight: 1.6,
+                      lineHeight: 1.7,
                       display: "flex",
                       alignItems: "flex-start",
-                      gap: 12,
+                      gap: 14,
                       opacity: columnsVis ? 1 : 0,
                       transform: columnsVis ? "translateX(0)" : "translateX(-12px)",
-                      transition: `opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1) ${colIdx * 0.15 + liIdx * 0.06}s, transform 0.6s cubic-bezier(0.22, 1, 0.36, 1) ${colIdx * 0.15 + liIdx * 0.06}s`,
+                      transition: `opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1) ${colIdx * 0.15 + liIdx * 0.06}s, transform 0.7s cubic-bezier(0.22, 1, 0.36, 1) ${colIdx * 0.15 + liIdx * 0.06}s`,
                     }}
                   >
-                    <span style={{ width: 4, height: 4, borderRadius: "50%", backgroundColor: dark ? "var(--silver)" : "var(--blue)", opacity: 0.2, marginTop: 9, flexShrink: 0 }} />
+                    <span style={{ width: 3, height: 3, borderRadius: "50%", backgroundColor: accent, opacity: 0.3, marginTop: 10, flexShrink: 0 }} />
                     {li}
                   </li>
                 ))}
@@ -144,7 +143,7 @@ export default function ServiceDetail({
         </div>
 
         {footnote && (
-          <p style={{ marginTop: 48, fontSize: 16, fontStyle: "italic", color: muted, fontWeight: 300, opacity: 0.6 }}>
+          <p style={{ marginTop: 56, fontSize: 15, fontStyle: "italic", color: muted, fontWeight: 300, opacity: 0.5 }}>
             {footnote}
           </p>
         )}

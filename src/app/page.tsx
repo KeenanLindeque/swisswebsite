@@ -17,33 +17,26 @@ export default function Home() {
       <ScrollProgress />
       <Navbar />
 
-      {/* DARK — Hero with Alpine background */}
       <Hero />
 
-      {/* DARK — Marquee (thin strip, part of hero) */}
       <Marquee />
 
-      {/* WHITE — What we do pillars */}
       <WhatWeDo />
 
-      {/* IMAGE BREAK — White above → Dark below */}
       <ImageDivider
-        src="/images/alpine-lake.jpg"
-        alt="Alpine mountain landscape"
-        height={520}
-        overlayOpacity={0.15}
-        position="center 40%"
+        src="/images/hotel-lobby.jpg"
+        alt="Luxury hotel lobby with marble interiors"
+        height={560}
+        overlayOpacity={0.2}
+        position="center 45%"
         fadeTop="rgba(243, 243, 245, 0.6)"
         fadeBottom="rgba(15, 35, 71, 0.5)"
       />
 
-      {/* DARK — Who we serve */}
       <WhoWeServe />
 
-      {/* DARK — Stats (visual continuation with subtle separator) */}
       <Stats />
 
-      {/* WHITE — Service 01: Mystery Guest Assessments */}
       <ServiceDetail
         id="services"
         number="01"
@@ -76,7 +69,6 @@ export default function Home() {
         }}
       />
 
-      {/* DARK — Service 02: Quality & Operational Certification */}
       <ServiceDetail
         number="02"
         title="Quality & Operational Certification"
@@ -108,21 +100,18 @@ export default function Home() {
         }}
       />
 
-      {/* IMAGE BREAK — Dark above → Dark below */}
       <ImageDivider
-        src="/images/alpine-peaks.jpg"
-        alt="Swiss Alpine peaks under starlit sky"
-        height={440}
+        src="/images/hotel-corridor.jpg"
+        alt="Elegant hotel corridor with refined lighting"
+        height={480}
         overlayOpacity={0.25}
-        position="center 60%"
+        position="center 50%"
         fadeTop="rgba(15, 35, 71, 0.5)"
         fadeBottom="rgba(15, 35, 71, 0.5)"
       />
 
-      {/* DARK — Recognition */}
       <Recognition />
 
-      {/* WHITE — Service 04: Executive Quality Advisory */}
       <ServiceDetail
         id="advisory"
         number="04"
@@ -143,7 +132,6 @@ export default function Home() {
         footnote="We provide diagnostic clarity and strategic direction — not ongoing retainers."
       />
 
-      {/* DARK — Service 05: Industry Insights */}
       <ServiceDetail
         id="insights"
         number="05"
@@ -165,21 +153,18 @@ export default function Home() {
         ]}
       />
 
-      {/* IMAGE BREAK — Dark above → White below */}
       <ImageDivider
-        src="/images/alpine-valley.jpg"
-        alt="Swiss alpine valley at dawn"
-        height={400}
-        overlayOpacity={0.1}
+        src="/images/hotel-suite.jpg"
+        alt="Luxury hotel suite with refined furnishings"
+        height={440}
+        overlayOpacity={0.15}
         position="center 50%"
         fadeTop="rgba(15, 35, 71, 0.5)"
         fadeBottom="rgba(243, 243, 245, 0.5)"
       />
 
-      {/* WHITE — Document Templates */}
       <Documents />
 
-      {/* WHITE → DARK — Footer */}
       <Footer />
     </>
   );

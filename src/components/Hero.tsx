@@ -4,11 +4,11 @@ import { useEffect, useState } from "react";
 import { ArrowRight } from "./Icons";
 
 export default function Hero() {
-  const [phase, setPhase] = useState(0); // 0 = hidden, 1 = bg visible, 2 = content visible
+  const [phase, setPhase] = useState(0);
 
   useEffect(() => {
     requestAnimationFrame(() => setPhase(1));
-    const timer = setTimeout(() => setPhase(2), 400);
+    const timer = setTimeout(() => setPhase(2), 500);
     return () => clearTimeout(timer);
   }, []);
 
@@ -16,9 +16,9 @@ export default function Hero() {
 
   const t = (delay: number) => ({
     opacity: phase >= 2 ? 1 : 0,
-    transform: phase >= 2 ? "translate3d(0,0,0)" : "translate3d(0,28px,0)",
-    transition: `opacity 1.4s ${ease} ${delay}s, transform 1.4s ${ease} ${delay}s`,
-    willChange: "opacity, transform",
+    transform: phase >= 2 ? "translate3d(0,0,0)" : "translate3d(0,36px,0)",
+    transition: `opacity 1.6s ${ease} ${delay}s, transform 1.6s ${ease} ${delay}s`,
+    willChange: "opacity, transform" as const,
   });
 
   return (
@@ -32,67 +32,67 @@ export default function Hero() {
         overflow: "hidden",
       }}
     >
-      {/* Background image — slow cinematic zoom-out */}
+      {/* Background — luxury hotel facade */}
       <div
         style={{
           position: "absolute",
           inset: 0,
-          backgroundImage: "url(/images/matterhorn.jpg)",
+          backgroundImage: "url(/images/hotel-facade.jpg)",
           backgroundSize: "cover",
-          backgroundPosition: "center 30%",
-          transform: phase >= 1 ? "scale(1) translate3d(0,0,0)" : "scale(1.08) translate3d(0,0,0)",
+          backgroundPosition: "center 35%",
+          transform: phase >= 1 ? "scale(1) translate3d(0,0,0)" : "scale(1.06) translate3d(0,0,0)",
           opacity: phase >= 1 ? 1 : 0,
-          transition: `transform 18s ${ease}, opacity 2.4s ${ease}`,
+          transition: `transform 20s ${ease}, opacity 2.8s ${ease}`,
           willChange: "transform, opacity",
         }}
       />
 
-      {/* Dark overlay — fades in slightly after bg */}
+      {/* Gradient overlay — deep, rich */}
       <div
         style={{
           position: "absolute",
           inset: 0,
-          background: "linear-gradient(135deg, rgba(15, 35, 71, 0.88) 0%, rgba(15, 35, 71, 0.72) 50%, rgba(15, 35, 71, 0.82) 100%)",
+          background: "linear-gradient(160deg, rgba(15,35,71,0.92) 0%, rgba(15,35,71,0.7) 40%, rgba(15,35,71,0.85) 100%)",
           opacity: phase >= 1 ? 1 : 0,
-          transition: `opacity 2s ${ease} 0.2s`,
+          transition: `opacity 2.2s ${ease} 0.3s`,
         }}
       />
 
-      {/* Bottom fade to white (next section) */}
+      {/* Bottom vignette */}
       <div
         style={{
           position: "absolute",
           bottom: 0,
           left: 0,
           right: 0,
-          height: 200,
-          background: "linear-gradient(to top, var(--white) 0%, transparent 100%)",
-          opacity: 0.08,
+          height: 300,
+          background: "linear-gradient(to top, rgba(15,35,71,0.5) 0%, transparent 100%)",
         }}
       />
 
-      {/* Grain */}
-      <div style={{ position: "absolute", inset: 0, opacity: 0.03, backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`, backgroundSize: "200px 200px" }} />
+      {/* Subtle grain */}
+      <div style={{ position: "absolute", inset: 0, opacity: 0.025, backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`, backgroundSize: "200px 200px" }} />
 
-      <div style={{ maxWidth: 1400, margin: "0 auto", padding: "180px 48px 140px", position: "relative", zIndex: 10, width: "100%" }}>
-        <div style={{ maxWidth: 860 }}>
-          <div style={{ ...t(0.0), width: 48, height: 1, backgroundColor: "var(--silver)", opacity: 0.5, marginBottom: 40 }} />
+      <div style={{ maxWidth: 1400, margin: "0 auto", padding: "200px 48px 160px", position: "relative", zIndex: 10, width: "100%" }}>
+        <div style={{ maxWidth: 820 }}>
+          {/* Gold accent line */}
+          <div style={{ ...t(0.0), width: 56, height: 1, background: "linear-gradient(to right, var(--gold), transparent)", marginBottom: 48 }} />
 
-          <p style={{ ...t(0.12), color: "var(--silver)", fontSize: 12, letterSpacing: "0.4em", textTransform: "uppercase", marginBottom: 40, fontWeight: 400 }}>
+          <p style={{ ...t(0.12), color: "var(--gold)", fontSize: 11, letterSpacing: "0.5em", textTransform: "uppercase", marginBottom: 48, fontWeight: 400 }}>
             Independent Hotel Quality Certification
           </p>
 
-          <h1 style={{ ...t(0.28), fontSize: "clamp(2.6rem, 6vw, 4.8rem)", fontWeight: 300, color: "var(--white)", lineHeight: 1.08, marginBottom: 40, letterSpacing: "-0.02em" }}>
+          <h1 style={{ ...t(0.28), fontSize: "clamp(2.8rem, 6vw, 5rem)", fontWeight: 200, color: "var(--white)", lineHeight: 1.06, marginBottom: 48, letterSpacing: "-0.025em" }}>
             We certify the world&apos;s
             <br />
-            <span style={{ fontWeight: 600 }}>finest hotels</span>
+            <span style={{ fontWeight: 600, letterSpacing: "-0.02em" }}>finest hotels</span>
           </h1>
 
-          <p style={{ ...t(0.44), color: "var(--silver)", fontSize: 18, maxWidth: 600, fontWeight: 300, lineHeight: 1.8, marginBottom: 56, opacity: 0.8 }}>
-            Swiss Hospitality Company delivers mystery guest assessments, quality certification, and recognition programs for hotels, resorts, and hospitality operators worldwide. We measure what your guests actually experience.
+          <p style={{ ...t(0.44), color: "var(--silver)", fontSize: 17, maxWidth: 560, fontWeight: 300, lineHeight: 1.9, marginBottom: 64 }}>
+            Mystery guest assessments, quality certification, and recognition programs for hotels, resorts, and hospitality operators worldwide.
           </p>
 
-          <div style={{ ...t(0.6), display: "flex", gap: 40, alignItems: "center", flexWrap: "wrap" }}>
+          <div style={{ ...t(0.6), display: "flex", gap: 48, alignItems: "center", flexWrap: "wrap" }}>
             <a
               href="#what-we-do"
               style={{
@@ -101,18 +101,18 @@ export default function Hero() {
                 gap: 12,
                 color: "var(--blue)",
                 backgroundColor: "var(--white)",
-                fontSize: 13,
-                letterSpacing: "0.12em",
+                fontSize: 11,
+                letterSpacing: "0.2em",
                 textTransform: "uppercase",
                 fontWeight: 500,
-                padding: "18px 40px",
-                transition: `all 0.5s ${ease}`,
+                padding: "20px 48px",
+                transition: `all 0.6s ${ease}`,
                 border: "1px solid var(--white)",
               }}
               onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = "transparent"; e.currentTarget.style.color = "var(--white)"; }}
               onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = "var(--white)"; e.currentTarget.style.color = "var(--blue)"; }}
             >
-              How It Works
+              Discover
             </a>
             <a
               href="#services"
@@ -120,41 +120,43 @@ export default function Hero() {
                 display: "inline-flex",
                 alignItems: "center",
                 gap: 10,
-                color: "var(--silver)",
-                fontSize: 13,
-                letterSpacing: "0.12em",
+                color: "var(--gold)",
+                fontSize: 11,
+                letterSpacing: "0.2em",
                 textTransform: "uppercase",
                 fontWeight: 400,
                 paddingBottom: 4,
-                borderBottom: "1px solid rgba(218,220,226,0.3)",
-                transition: `border-color 0.5s ${ease}, color 0.5s ${ease}`,
+                borderBottom: "1px solid var(--gold-muted)",
+                transition: `border-color 0.6s ${ease}, color 0.6s ${ease}`,
               }}
-              onMouseEnter={(e) => { e.currentTarget.style.borderBottomColor = "var(--white)"; e.currentTarget.style.color = "var(--white)"; }}
-              onMouseLeave={(e) => { e.currentTarget.style.borderBottomColor = "rgba(218,220,226,0.3)"; e.currentTarget.style.color = "var(--silver)"; }}
+              onMouseEnter={(e) => { e.currentTarget.style.borderBottomColor = "var(--gold)"; e.currentTarget.style.color = "var(--white)"; }}
+              onMouseLeave={(e) => { e.currentTarget.style.borderBottomColor = "var(--gold-muted)"; e.currentTarget.style.color = "var(--gold)"; }}
             >
               Our Services
-              <ArrowRight size={14} color="currentColor" />
+              <ArrowRight size={13} color="currentColor" />
             </a>
           </div>
         </div>
       </div>
 
-      {/* Scroll line — gentle pulse */}
+      {/* Scroll indicator */}
       <div style={{
-        position: "absolute", bottom: 48, left: "50%", transform: "translateX(-50%)", zIndex: 10,
+        position: "absolute", bottom: 56, left: "50%", transform: "translateX(-50%)", zIndex: 10,
         opacity: phase >= 2 ? 1 : 0,
-        transition: `opacity 1.4s ${ease} 1.2s`,
+        transition: `opacity 1.6s ${ease} 1.4s`,
+        display: "flex", flexDirection: "column", alignItems: "center", gap: 12,
       }}>
-        <div className="hero-scroll-line" style={{ width: 1, height: 48, background: "linear-gradient(to bottom, var(--silver), transparent)", opacity: 0.3 }} />
+        <span style={{ fontSize: 8, letterSpacing: "0.4em", textTransform: "uppercase", color: "var(--gold)", opacity: 0.4 }}>Scroll</span>
+        <div className="hero-scroll-line" style={{ width: 1, height: 40, background: "linear-gradient(to bottom, var(--gold), transparent)", opacity: 0.3 }} />
       </div>
 
       <style>{`
         @keyframes hero-pulse {
           0%, 100% { opacity: 0.3; }
-          50% { opacity: 0.6; }
+          50% { opacity: 0.5; }
         }
         .hero-scroll-line {
-          animation: hero-pulse 3s ease-in-out infinite;
+          animation: hero-pulse 3.5s ease-in-out infinite;
         }
       `}</style>
     </section>

@@ -43,30 +43,29 @@ export default function Recognition() {
   const [hovered, setHovered] = useState<number | null>(null);
 
   return (
-    <section id="recognition" style={{ padding: "160px 0", backgroundColor: "var(--blue)" }}>
+    <section id="recognition" style={{ padding: "180px 0", backgroundColor: "var(--blue)" }}>
       <div style={{ maxWidth: 1400, margin: "0 auto", padding: "0 48px" }}>
         <div ref={r1} style={{ ...s1, marginBottom: 24 }}>
-          <span style={{ fontSize: 80, fontWeight: 200, color: "var(--white)", opacity: 0.06, lineHeight: 1, display: "block", marginBottom: -12 }}>
+          <span style={{ fontSize: 72, fontWeight: 200, color: "var(--white)", opacity: 0.04, lineHeight: 1, display: "block", marginBottom: -8 }}>
             03
           </span>
-          <h2 style={{ fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 300, color: "var(--white)", lineHeight: 1.2, marginBottom: 16 }}>
+          <h2 style={{ fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 200, color: "var(--white)", lineHeight: 1.2, marginBottom: 16 }}>
             Recognition Program
           </h2>
-          <p style={{ fontSize: 15, fontWeight: 500, color: "var(--silver)", letterSpacing: "0.06em", fontStyle: "italic" }}>
+          <p style={{ fontSize: 14, fontWeight: 400, color: "var(--gold)", letterSpacing: "0.08em", fontStyle: "italic", opacity: 0.7 }}>
             Recognition Earned Through Assessment.
           </p>
         </div>
-        <div ref={r2} style={{ ...s2, maxWidth: 640, marginBottom: 80 }}>
-          <p style={{ fontSize: 18, color: "var(--silver)", fontWeight: 300, lineHeight: 1.8, opacity: 0.6 }}>
+        <div ref={r2} style={{ ...s2, maxWidth: 640, marginBottom: 88 }}>
+          <p style={{ fontSize: 17, color: "var(--silver)", fontWeight: 300, lineHeight: 1.9, opacity: 0.55 }}>
             The Swiss Hospitality Recognition Program acknowledges hotels that demonstrate measurable excellence in service quality and operational integrity.
           </p>
         </div>
 
-        {/* 3 Tier Cards */}
         <div
           ref={r3}
           className="rec-grid"
-          style={{ ...s3, display: "flex", gap: 24, marginBottom: 80 }}
+          style={{ ...s3, display: "flex", gap: 1, marginBottom: 88 }}
         >
           {levels.map((level, i) => {
             const isHovered = hovered === i;
@@ -75,23 +74,22 @@ export default function Recognition() {
                 key={level.title}
                 style={{
                   flex: 1,
-                  padding: "56px 40px 48px",
-                  border: `1px solid ${isHovered ? "rgba(218,220,226,0.15)" : "rgba(218,220,226,0.06)"}`,
-                  borderRadius: 0,
-                  transition: "all 0.5s cubic-bezier(0.22, 1, 0.36, 1)",
-                  backgroundColor: isHovered ? "rgba(218,220,226,0.04)" : "transparent",
+                  padding: "60px 44px 52px",
+                  border: `1px solid ${isHovered ? "rgba(201,169,110,0.2)" : "rgba(218,220,226,0.06)"}`,
+                  transition: "all 0.6s cubic-bezier(0.22, 1, 0.36, 1)",
+                  backgroundColor: isHovered ? "rgba(201,169,110,0.03)" : "transparent",
                   cursor: "default",
                 }}
                 onMouseEnter={() => setHovered(i)}
                 onMouseLeave={() => setHovered(null)}
               >
-                <div style={{ marginBottom: 32, color: isHovered ? "var(--white)" : "var(--silver)", transition: "color 0.4s" }}>
+                <div style={{ marginBottom: 36, color: isHovered ? "var(--gold)" : "var(--silver)", transition: "color 0.5s", opacity: isHovered ? 0.7 : 0.3 }}>
                   <level.icon size={28} color="currentColor" />
                 </div>
-                <h3 style={{ fontSize: 22, fontWeight: 400, color: "var(--white)", marginBottom: 16 }}>
+                <h3 style={{ fontSize: 22, fontWeight: 300, color: "var(--white)", marginBottom: 16 }}>
                   {level.title}
                 </h3>
-                <p style={{ fontSize: 15, color: "var(--silver)", lineHeight: 1.7, fontWeight: 300, opacity: 0.6 }}>
+                <p style={{ fontSize: 15, color: "var(--silver)", lineHeight: 1.8, fontWeight: 300, opacity: 0.5 }}>
                   {level.description}
                 </p>
               </div>
@@ -99,7 +97,6 @@ export default function Recognition() {
           })}
         </div>
 
-        {/* Bottom grid: Principles + Benefits */}
         <div
           ref={r4}
           className="rec-bottom"
@@ -107,12 +104,12 @@ export default function Recognition() {
             ...s4,
             display: "flex",
             gap: 80,
-            paddingTop: 48,
-            borderTop: "1px solid rgba(218,220,226,0.08)",
+            paddingTop: 52,
+            borderTop: "1px solid rgba(201,169,110,0.08)",
           }}
         >
           <div style={{ flex: 1 }}>
-            <h4 style={{ fontSize: 13, fontWeight: 500, color: "var(--white)", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 20, opacity: 0.5 }}>
+            <h4 style={{ fontSize: 11, fontWeight: 400, color: "var(--gold)", letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: 24, opacity: 0.5 }}>
               Recognition Is
             </h4>
             <div style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
@@ -120,12 +117,12 @@ export default function Recognition() {
                 <span
                   key={p}
                   style={{
-                    padding: "8px 20px",
-                    border: "1px solid rgba(218,220,226,0.12)",
-                    fontSize: 14,
+                    padding: "10px 22px",
+                    border: "1px solid rgba(201,169,110,0.12)",
+                    fontSize: 13,
                     color: "var(--silver)",
                     fontWeight: 300,
-                    letterSpacing: "0.02em",
+                    letterSpacing: "0.03em",
                   }}
                 >
                   {p}
@@ -134,13 +131,13 @@ export default function Recognition() {
             </div>
           </div>
           <div style={{ flex: 1 }}>
-            <h4 style={{ fontSize: 13, fontWeight: 500, color: "var(--white)", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 20, opacity: 0.5 }}>
+            <h4 style={{ fontSize: 11, fontWeight: 400, color: "var(--gold)", letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: 24, opacity: 0.5 }}>
               Qualified Hotels Receive
             </h4>
-            <ul style={{ display: "flex", flexDirection: "column", gap: 12, listStyle: "none" }}>
+            <ul style={{ display: "flex", flexDirection: "column", gap: 14, listStyle: "none" }}>
               {benefits.map((b) => (
-                <li key={b} style={{ display: "flex", alignItems: "center", gap: 12, color: "var(--silver)", fontSize: 15, fontWeight: 300 }}>
-                  <span style={{ width: 4, height: 4, borderRadius: "50%", backgroundColor: "var(--silver)", opacity: 0.3 }} />
+                <li key={b} style={{ display: "flex", alignItems: "center", gap: 14, color: "var(--silver)", fontSize: 15, fontWeight: 300 }}>
+                  <span style={{ width: 3, height: 3, borderRadius: "50%", backgroundColor: "var(--gold)", opacity: 0.3 }} />
                   {b}
                 </li>
               ))}
@@ -148,7 +145,7 @@ export default function Recognition() {
           </div>
         </div>
 
-        <p style={{ marginTop: 48, fontSize: 16, fontStyle: "italic", color: "var(--silver)", fontWeight: 300, opacity: 0.4 }}>
+        <p style={{ marginTop: 56, fontSize: 15, fontStyle: "italic", color: "var(--silver)", fontWeight: 300, opacity: 0.35 }}>
           Recognition reflects verified performance, not sponsorship.
         </p>
       </div>
