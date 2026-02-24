@@ -31,7 +31,7 @@ export default function Navbar() {
         transition: "all 0.7s cubic-bezier(0.22, 1, 0.36, 1)",
         backgroundColor: scrolled ? "rgba(15, 35, 71, 0.97)" : "transparent",
         backdropFilter: scrolled ? "blur(24px)" : "none",
-        borderBottom: scrolled ? "1px solid rgba(201,169,110,0.08)" : "1px solid transparent",
+        borderBottom: scrolled ? "1px solid rgba(218,220,226,0.08)" : "1px solid transparent",
       }}
     >
       <div
@@ -62,7 +62,7 @@ export default function Navbar() {
                 textTransform: "uppercase",
                 transition: "color 0.4s",
               }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = "var(--gold)")}
+              onMouseEnter={(e) => (e.currentTarget.style.color = "var(--white)")}
               onMouseLeave={(e) => (e.currentTarget.style.color = "var(--silver)")}
             >
               {link.label}

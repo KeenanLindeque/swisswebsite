@@ -19,8 +19,8 @@ export default function Footer() {
       >
         <div style={{ maxWidth: 1400, margin: "0 auto", padding: "0 48px", textAlign: "center" }}>
           <div ref={r1} style={s1}>
-            <div style={{ width: 40, height: 1, background: "linear-gradient(to right, var(--gold), transparent)", margin: "0 auto 32px" }} />
-            <p style={{ color: "var(--gold)", fontSize: 11, letterSpacing: "0.5em", textTransform: "uppercase", fontWeight: 400, marginBottom: 48 }}>
+            <div style={{ width: 40, height: 1, backgroundColor: "var(--blue)", opacity: 0.12, margin: "0 auto 32px" }} />
+            <p style={{ color: "var(--blue)", fontSize: 11, letterSpacing: "0.5em", textTransform: "uppercase", fontWeight: 400, opacity: 0.35, marginBottom: 48 }}>
               Get in Touch
             </p>
             <h2 style={{ fontSize: "clamp(2rem, 4vw, 3.4rem)", fontWeight: 200, color: "var(--blue)", lineHeight: 1.15, marginBottom: 28, maxWidth: 700, margin: "0 auto 28px" }}>
@@ -58,7 +58,7 @@ export default function Footer() {
         style={{
           padding: "52px 0",
           backgroundColor: "var(--blue)",
-          borderTop: "1px solid rgba(201,169,110,0.06)",
+          borderTop: "1px solid rgba(218,220,226,0.06)",
         }}
       >
         <div ref={r2} style={{ ...s2, maxWidth: 1400, margin: "0 auto", padding: "0 48px", display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 24 }}>

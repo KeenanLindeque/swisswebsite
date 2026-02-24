@@ -60,8 +60,8 @@ export default function WhatWeDo() {
     <section id="what-we-do" style={{ padding: "160px 0 140px", backgroundColor: "var(--white)" }}>
       <div ref={ref} style={{ maxWidth: 1400, margin: "0 auto", padding: "0 48px" }}>
         <div style={{ ...anim(0), marginBottom: 24 }}>
-          <div style={{ width: 40, height: 1, background: "linear-gradient(to right, var(--gold), transparent)", marginBottom: 24 }} />
-          <p style={{ color: "var(--gold)", fontSize: 11, letterSpacing: "0.5em", textTransform: "uppercase", fontWeight: 400 }}>
+          <div style={{ width: 40, height: 1, backgroundColor: "var(--blue)", opacity: 0.12, marginBottom: 24 }} />
+          <p style={{ color: "var(--blue)", fontSize: 11, letterSpacing: "0.5em", textTransform: "uppercase", fontWeight: 400, opacity: 0.35 }}>
             What We Do
           </p>
         </div>
@@ -95,8 +95,8 @@ export default function WhatWeDo() {
                 <span style={{
                   fontSize: 11,
                   fontWeight: 400,
-                  color: isHovered ? "var(--gold)" : "var(--blue)",
-                  opacity: isHovered ? 0.6 : 0.15,
+                  color: "var(--blue)",
+                  opacity: isHovered ? 0.4 : 0.15,
                   letterSpacing: "0.1em",
                   minWidth: 32,
                   paddingTop: 4,
@@ -146,7 +146,7 @@ export default function WhatWeDo() {
                   paddingTop: 8,
                 }}>
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                    <path d="M5 12h14M12 5l7 7-7 7" stroke="var(--gold)" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" />
+                    <path d="M5 12h14M12 5l7 7-7 7" stroke="var(--blue)" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </div>
               </div>

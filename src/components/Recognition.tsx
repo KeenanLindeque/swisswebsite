@@ -52,7 +52,7 @@ export default function Recognition() {
           <h2 style={{ fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 200, color: "var(--white)", lineHeight: 1.2, marginBottom: 16 }}>
             Recognition Program
           </h2>
-          <p style={{ fontSize: 14, fontWeight: 400, color: "var(--gold)", letterSpacing: "0.08em", fontStyle: "italic", opacity: 0.7 }}>
+          <p style={{ fontSize: 14, fontWeight: 400, color: "var(--silver)", letterSpacing: "0.08em", fontStyle: "italic", opacity: 0.5 }}>
             Recognition Earned Through Assessment.
           </p>
         </div>
@@ -75,15 +75,15 @@ export default function Recognition() {
                 style={{
                   flex: 1,
                   padding: "60px 44px 52px",
-                  border: `1px solid ${isHovered ? "rgba(201,169,110,0.2)" : "rgba(218,220,226,0.06)"}`,
+                  border: `1px solid ${isHovered ? "rgba(218,220,226,0.15)" : "rgba(218,220,226,0.06)"}`,
                   transition: "all 0.6s cubic-bezier(0.22, 1, 0.36, 1)",
-                  backgroundColor: isHovered ? "rgba(201,169,110,0.03)" : "transparent",
+                  backgroundColor: isHovered ? "rgba(218,220,226,0.03)" : "transparent",
                   cursor: "default",
                 }}
                 onMouseEnter={() => setHovered(i)}
                 onMouseLeave={() => setHovered(null)}
               >
-                <div style={{ marginBottom: 36, color: isHovered ? "var(--gold)" : "var(--silver)", transition: "color 0.5s", opacity: isHovered ? 0.7 : 0.3 }}>
+                <div style={{ marginBottom: 36, color: isHovered ? "var(--white)" : "var(--silver)", transition: "color 0.5s", opacity: isHovered ? 0.7 : 0.3 }}>
                   <level.icon size={28} color="currentColor" />
                 </div>
                 <h3 style={{ fontSize: 22, fontWeight: 300, color: "var(--white)", marginBottom: 16 }}>
@@ -105,11 +105,11 @@ export default function Recognition() {
             display: "flex",
             gap: 80,
             paddingTop: 52,
-            borderTop: "1px solid rgba(201,169,110,0.08)",
+            borderTop: "1px solid rgba(218,220,226,0.08)",
           }}
         >
           <div style={{ flex: 1 }}>
-            <h4 style={{ fontSize: 11, fontWeight: 400, color: "var(--gold)", letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: 24, opacity: 0.5 }}>
+            <h4 style={{ fontSize: 11, fontWeight: 400, color: "var(--silver)", letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: 24, opacity: 0.4 }}>
               Recognition Is
             </h4>
             <div style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
@@ -118,7 +118,7 @@ export default function Recognition() {
                   key={p}
                   style={{
                     padding: "10px 22px",
-                    border: "1px solid rgba(201,169,110,0.12)",
+                    border: "1px solid rgba(218,220,226,0.12)",
                     fontSize: 13,
                     color: "var(--silver)",
                     fontWeight: 300,
@@ -131,13 +131,13 @@ export default function Recognition() {
             </div>
           </div>
           <div style={{ flex: 1 }}>
-            <h4 style={{ fontSize: 11, fontWeight: 400, color: "var(--gold)", letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: 24, opacity: 0.5 }}>
+            <h4 style={{ fontSize: 11, fontWeight: 400, color: "var(--silver)", letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: 24, opacity: 0.4 }}>
               Qualified Hotels Receive
             </h4>
             <ul style={{ display: "flex", flexDirection: "column", gap: 14, listStyle: "none" }}>
               {benefits.map((b) => (
                 <li key={b} style={{ display: "flex", alignItems: "center", gap: 14, color: "var(--silver)", fontSize: 15, fontWeight: 300 }}>
-                  <span style={{ width: 3, height: 3, borderRadius: "50%", backgroundColor: "var(--gold)", opacity: 0.3 }} />
+                  <span style={{ width: 3, height: 3, borderRadius: "50%", backgroundColor: "var(--silver)", opacity: 0.3 }} />
                   {b}
                 </li>
               ))}

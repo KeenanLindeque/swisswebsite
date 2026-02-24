@@ -44,9 +44,9 @@ function StatItem({ value, suffix, label, visible, delay }: { value: number; suf
     >
       <div style={{ fontSize: "clamp(2.4rem, 5vw, 4.2rem)", fontWeight: 200, color: "var(--white)", lineHeight: 1, marginBottom: 12 }}>
         {count}
-        <span style={{ fontSize: "0.5em", color: "var(--gold)", opacity: 0.5 }}>{suffix}</span>
+        <span style={{ fontSize: "0.5em", color: "var(--silver)", opacity: 0.4 }}>{suffix}</span>
       </div>
-      <p style={{ fontSize: 11, color: "var(--gold)", letterSpacing: "0.2em", textTransform: "uppercase", fontWeight: 300, opacity: 0.35 }}>
+      <p style={{ fontSize: 11, color: "var(--silver)", letterSpacing: "0.2em", textTransform: "uppercase", fontWeight: 300, opacity: 0.35 }}>
         {label}
       </p>
     </div>
@@ -71,7 +71,7 @@ export default function Stats() {
   }, []);
 
   return (
-    <section style={{ padding: "110px 0", backgroundColor: "var(--blue)", borderTop: "1px solid rgba(201,169,110,0.06)" }}>
+    <section style={{ padding: "110px 0", backgroundColor: "var(--blue)", borderTop: "1px solid rgba(218,220,226,0.06)" }}>
       <div
         ref={ref}
         className="stats-grid"

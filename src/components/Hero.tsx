@@ -76,9 +76,9 @@ export default function Hero() {
       <div style={{ maxWidth: 1400, margin: "0 auto", padding: "200px 48px 160px", position: "relative", zIndex: 10, width: "100%" }}>
         <div style={{ maxWidth: 820 }}>
           {/* Gold accent line */}
-          <div style={{ ...t(0.0), width: 56, height: 1, background: "linear-gradient(to right, var(--gold), transparent)", marginBottom: 48 }} />
+          <div style={{ ...t(0.0), width: 48, height: 1, backgroundColor: "var(--silver)", opacity: 0.4, marginBottom: 48 }} />
 
-          <p style={{ ...t(0.12), color: "var(--gold)", fontSize: 11, letterSpacing: "0.5em", textTransform: "uppercase", marginBottom: 48, fontWeight: 400 }}>
+          <p style={{ ...t(0.12), color: "var(--silver)", fontSize: 11, letterSpacing: "0.5em", textTransform: "uppercase", marginBottom: 48, fontWeight: 400, opacity: 0.6 }}>
             Independent Hotel Quality Certification
           </p>
 
@@ -120,17 +120,17 @@ export default function Hero() {
                 display: "inline-flex",
                 alignItems: "center",
                 gap: 10,
-                color: "var(--gold)",
+                color: "var(--silver)",
                 fontSize: 11,
                 letterSpacing: "0.2em",
                 textTransform: "uppercase",
                 fontWeight: 400,
                 paddingBottom: 4,
-                borderBottom: "1px solid var(--gold-muted)",
+                borderBottom: "1px solid rgba(218,220,226,0.3)",
                 transition: `border-color 0.6s ${ease}, color 0.6s ${ease}`,
               }}
-              onMouseEnter={(e) => { e.currentTarget.style.borderBottomColor = "var(--gold)"; e.currentTarget.style.color = "var(--white)"; }}
-              onMouseLeave={(e) => { e.currentTarget.style.borderBottomColor = "var(--gold-muted)"; e.currentTarget.style.color = "var(--gold)"; }}
+              onMouseEnter={(e) => { e.currentTarget.style.borderBottomColor = "var(--white)"; e.currentTarget.style.color = "var(--white)"; }}
+              onMouseLeave={(e) => { e.currentTarget.style.borderBottomColor = "rgba(218,220,226,0.3)"; e.currentTarget.style.color = "var(--silver)"; }}
             >
               Our Services
               <ArrowRight size={13} color="currentColor" />
@@ -146,8 +146,8 @@ export default function Hero() {
         transition: `opacity 1.6s ${ease} 1.4s`,
         display: "flex", flexDirection: "column", alignItems: "center", gap: 12,
       }}>
-        <span style={{ fontSize: 8, letterSpacing: "0.4em", textTransform: "uppercase", color: "var(--gold)", opacity: 0.4 }}>Scroll</span>
-        <div className="hero-scroll-line" style={{ width: 1, height: 40, background: "linear-gradient(to bottom, var(--gold), transparent)", opacity: 0.3 }} />
+        <span style={{ fontSize: 8, letterSpacing: "0.4em", textTransform: "uppercase", color: "var(--silver)", opacity: 0.3 }}>Scroll</span>
+        <div className="hero-scroll-line" style={{ width: 1, height: 40, background: "linear-gradient(to bottom, var(--silver), transparent)", opacity: 0.3 }} />
       </div>
 
       <style>{`

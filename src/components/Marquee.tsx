@@ -24,8 +24,8 @@ export default function Marquee() {
         overflow: "hidden",
         padding: "32px 0",
         backgroundColor: "var(--blue)",
-        borderTop: "1px solid rgba(201,169,110,0.08)",
-        borderBottom: "1px solid rgba(201,169,110,0.08)",
+        borderTop: "1px solid rgba(218,220,226,0.06)",
+        borderBottom: "1px solid rgba(218,220,226,0.06)",
       }}
     >
       <div className="marquee-track" style={{ display: "flex", gap: 0, whiteSpace: "nowrap" }}>
@@ -36,7 +36,7 @@ export default function Marquee() {
               fontSize: 11,
               letterSpacing: "0.35em",
               textTransform: "uppercase",
-              color: "var(--gold)",
+              color: "var(--silver)",
               fontWeight: 300,
               opacity: 0.2,
               padding: "0 32px",

@@ -43,8 +43,8 @@ export default function ServiceDetail({
   const bg = dark ? "var(--blue)" : "var(--white)";
   const text = dark ? "var(--white)" : "var(--blue)";
   const muted = dark ? "var(--silver)" : "#717580";
-  const border = dark ? "rgba(201,169,110,0.08)" : "rgba(218,220,226,0.35)";
-  const accent = dark ? "var(--gold)" : "var(--gold)";
+  const border = dark ? "rgba(218,220,226,0.08)" : "rgba(218,220,226,0.35)";
+  const accent = dark ? "var(--silver)" : "var(--blue)";
 
   const [headerRef, headerVis] = useVisible(0.2);
   const [columnsRef, columnsVis] = useVisible(0.1);
@@ -88,7 +88,7 @@ export default function ServiceDetail({
             <h3 style={{ fontSize: "clamp(1.8rem, 3vw, 2.6rem)", fontWeight: 200, color: text, lineHeight: 1.2, marginBottom: 16 }}>
               {title}
             </h3>
-            <p style={{ fontSize: 14, fontWeight: 400, color: accent, letterSpacing: "0.08em", fontStyle: "italic", opacity: 0.7 }}>
+            <p style={{ fontSize: 14, fontWeight: 400, color: muted, letterSpacing: "0.08em", fontStyle: "italic", opacity: 0.6 }}>
               {tagline}
             </p>
           </div>
@@ -114,7 +114,7 @@ export default function ServiceDetail({
                 borderTop: `1px solid ${border}`,
               }}
             >
-              <h4 style={{ fontSize: 11, fontWeight: 500, color: accent, letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: 28, opacity: 0.6 }}>
+              <h4 style={{ fontSize: 11, fontWeight: 500, color: text, letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: 28, opacity: 0.4 }}>
                 {col.heading}
               </h4>
               <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: 14 }}>
@@ -133,7 +133,7 @@ export default function ServiceDetail({
                       transition: `opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1) ${colIdx * 0.15 + liIdx * 0.06}s, transform 0.7s cubic-bezier(0.22, 1, 0.36, 1) ${colIdx * 0.15 + liIdx * 0.06}s`,
                     }}
                   >
-                    <span style={{ width: 3, height: 3, borderRadius: "50%", backgroundColor: accent, opacity: 0.3, marginTop: 10, flexShrink: 0 }} />
+                    <span style={{ width: 3, height: 3, borderRadius: "50%", backgroundColor: dark ? "var(--silver)" : "var(--blue)", opacity: 0.2, marginTop: 10, flexShrink: 0 }} />
                     {li}
                   </li>
                 ))}

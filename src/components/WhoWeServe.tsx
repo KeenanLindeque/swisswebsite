@@ -49,8 +49,8 @@ export default function WhoWeServe() {
     <section style={{ padding: "140px 0", backgroundColor: "var(--blue)" }}>
       <div ref={ref} style={{ maxWidth: 1400, margin: "0 auto", padding: "0 48px" }}>
         <div style={{ ...anim(0), marginBottom: 24 }}>
-          <div style={{ width: 40, height: 1, background: "linear-gradient(to right, var(--gold), transparent)", marginBottom: 24 }} />
-          <p style={{ color: "var(--gold)", fontSize: 11, letterSpacing: "0.5em", textTransform: "uppercase", fontWeight: 400, opacity: 0.6 }}>
+          <div style={{ width: 40, height: 1, backgroundColor: "var(--silver)", opacity: 0.15, marginBottom: 24 }} />
+          <p style={{ color: "var(--silver)", fontSize: 11, letterSpacing: "0.5em", textTransform: "uppercase", fontWeight: 400, opacity: 0.35 }}>
             Who We Serve
           </p>
         </div>
@@ -70,8 +70,8 @@ export default function WhoWeServe() {
                 style={{
                   ...anim(0.15 + i * 0.1),
                   padding: "52px 36px 44px",
-                  border: `1px solid ${isHovered ? "rgba(201,169,110,0.2)" : "rgba(218,220,226,0.06)"}`,
-                  backgroundColor: isHovered ? "rgba(201,169,110,0.03)" : "transparent",
+                  border: `1px solid ${isHovered ? "rgba(218,220,226,0.15)" : "rgba(218,220,226,0.06)"}`,
+                  backgroundColor: isHovered ? "rgba(218,220,226,0.03)" : "transparent",
                   transition: "all 0.6s cubic-bezier(0.22, 1, 0.36, 1)",
                   cursor: "default",
                 }}
@@ -80,9 +80,9 @@ export default function WhoWeServe() {
               >
                 <div style={{
                   marginBottom: 32,
-                  color: isHovered ? "var(--gold)" : "var(--silver)",
+                  color: isHovered ? "var(--white)" : "var(--silver)",
                   transition: "color 0.5s",
-                  opacity: isHovered ? 0.8 : 0.35,
+                  opacity: isHovered ? 0.7 : 0.35,
                 }}>
                   <a.icon size={28} color="currentColor" />
                 </div>
