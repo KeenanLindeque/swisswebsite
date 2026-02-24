@@ -51,8 +51,9 @@ export default function WhatWeDo() {
 
   const anim = (delay: number) => ({
     opacity: visible ? 1 : 0,
-    transform: visible ? "translateY(0)" : "translateY(32px)",
-    transition: `opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1) ${delay}s, transform 0.9s cubic-bezier(0.16, 1, 0.3, 1) ${delay}s`,
+    transform: visible ? "translate3d(0,0,0)" : "translate3d(0,24px,0)",
+    transition: `opacity 1.8s cubic-bezier(0.22, 1, 0.36, 1) ${delay}s, transform 1.8s cubic-bezier(0.22, 1, 0.36, 1) ${delay}s`,
+    willChange: "opacity, transform" as const,
   });
 
   return (
@@ -86,7 +87,7 @@ export default function WhatWeDo() {
                   padding: "40px 0",
                   borderTop: "1px solid var(--silver)",
                   cursor: "default",
-                  transition: "padding-left 0.5s cubic-bezier(0.16, 1, 0.3, 1)",
+                  transition: "padding-left 0.6s cubic-bezier(0.22, 1, 0.36, 1)",
                   paddingLeft: isHovered ? 16 : 0,
                 }}
                 onMouseEnter={() => setHovered(i)}
@@ -115,7 +116,7 @@ export default function WhatWeDo() {
                   flexShrink: 0,
                   backgroundColor: isHovered ? "var(--blue)" : "transparent",
                   border: `1px solid ${isHovered ? "var(--blue)" : "var(--silver)"}`,
-                  transition: "all 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
+                  transition: "all 0.5s cubic-bezier(0.22, 1, 0.36, 1)",
                   color: isHovered ? "var(--white)" : "var(--blue)",
                 }}>
                   <p.icon size={20} color="currentColor" />
@@ -143,7 +144,7 @@ export default function WhatWeDo() {
                 <div style={{
                   opacity: isHovered ? 1 : 0,
                   transform: isHovered ? "translateX(0)" : "translateX(-8px)",
-                  transition: "all 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
+                  transition: "all 0.5s cubic-bezier(0.22, 1, 0.36, 1)",
                   display: "flex",
                   alignItems: "center",
                   paddingTop: 8,

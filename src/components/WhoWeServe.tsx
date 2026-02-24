@@ -41,8 +41,8 @@ export default function WhoWeServe() {
 
   const anim = (delay: number) => ({
     opacity: visible ? 1 : 0,
-    transform: visible ? "translateY(0)" : "translateY(32px)",
-    transition: `opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1) ${delay}s, transform 0.9s cubic-bezier(0.16, 1, 0.3, 1) ${delay}s`,
+    transform: visible ? "translate3d(0,0,0)" : "translate3d(0,32px,0)",
+    transition: `opacity 1.8s cubic-bezier(0.22, 1, 0.36, 1) ${delay}s, transform 1.8s cubic-bezier(0.22, 1, 0.36, 1) ${delay}s`,
   });
 
   return (
@@ -71,7 +71,7 @@ export default function WhoWeServe() {
                   padding: "48px 32px 40px",
                   border: `1px solid ${isHovered ? "rgba(218,220,226,0.2)" : "rgba(218,220,226,0.06)"}`,
                   backgroundColor: isHovered ? "rgba(218,220,226,0.04)" : "transparent",
-                  transition: "all 0.5s cubic-bezier(0.16, 1, 0.3, 1)",
+                  transition: "all 0.5s cubic-bezier(0.22, 1, 0.36, 1)",
                   cursor: "default",
                 }}
                 onMouseEnter={() => setHovered(i)}

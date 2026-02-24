@@ -149,7 +149,7 @@ function TogglesSwitches() {
           <div key={label} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", cursor: "pointer" }} onClick={() => flip(i)}>
             <span style={{ fontSize: 13, color: "var(--blue)", fontWeight: 300, opacity: toggles[i] ? 1 : 0.4, transition: "opacity 0.3s" }}>{label}</span>
             <div style={{ width: 38, height: 20, borderRadius: 10, backgroundColor: toggles[i] ? "var(--blue)" : "var(--silver)", transition: "background-color 0.3s", position: "relative", flexShrink: 0 }}>
-              <div style={{ width: 16, height: 16, borderRadius: "50%", backgroundColor: "var(--white)", position: "absolute", top: 2, left: toggles[i] ? 20 : 2, transition: "left 0.3s cubic-bezier(0.16,1,0.3,1)", boxShadow: "0 1px 3px rgba(0,0,0,0.1)" }} />
+              <div style={{ width: 16, height: 16, borderRadius: "50%", backgroundColor: "var(--white)", position: "absolute", top: 2, left: toggles[i] ? 20 : 2, transition: "left 0.3s cubic-bezier(0.22,1,0.36,1)", boxShadow: "0 1px 3px rgba(0,0,0,0.1)" }} />
             </div>
           </div>
         ))}
@@ -337,7 +337,7 @@ function NotificationToasts() {
                 border: "1px solid var(--silver)",
                 opacity: gone ? 0.25 : 1,
                 transform: gone ? "translateX(8px)" : "translateX(0)",
-                transition: "all 0.5s cubic-bezier(0.16,1,0.3,1)",
+                transition: "all 0.5s cubic-bezier(0.22,1,0.36,1)",
                 cursor: "pointer",
                 textDecoration: gone ? "line-through" : "none",
               }}
@@ -364,8 +364,8 @@ export default function BrandBento() {
 
   const anim = (delay: number) => ({
     opacity: vis ? 1 : 0,
-    transform: vis ? "translateY(0)" : "translateY(24px)",
-    transition: `opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1) ${delay}s, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) ${delay}s`,
+    transform: vis ? "translate3d(0,0,0)" : "translate3d(0,24px,0)",
+    transition: `opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1) ${delay}s, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1) ${delay}s`,
   });
 
   const cell = (delay: number): React.CSSProperties => ({

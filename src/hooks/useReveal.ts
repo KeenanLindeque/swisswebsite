@@ -38,8 +38,9 @@ export function useReveal({
 
   const style: CSSProperties = {
     opacity: visible ? 1 : 0,
-    transform: visible ? "translateY(0)" : `translateY(${y}px)`,
-    transition: `opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1) ${delay}s, transform 0.9s cubic-bezier(0.16, 1, 0.3, 1) ${delay}s`,
+    transform: visible ? "translate3d(0,0,0)" : `translate3d(0,${y}px,0)`,
+    transition: `opacity 1.8s cubic-bezier(0.22, 1, 0.36, 1) ${delay}s, transform 1.8s cubic-bezier(0.22, 1, 0.36, 1) ${delay}s`,
+    willChange: "opacity, transform",
   };
 
   return [ref, style];

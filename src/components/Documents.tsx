@@ -4,6 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import InvoicePage from "./documents/InvoicePage";
 import EvaluationReport from "./documents/EvaluationReport";
 import TypographyGuide from "./documents/TypographyGuide";
+import BrandGuidelines from "./documents/BrandGuidelines";
 
 /* ── Shared document styles ─────────────── */
 function DocStyles() {
@@ -70,8 +71,9 @@ function useVisible(threshold = 0.05) {
 
 const tabs = [
   { id: "invoice", label: "Invoice" },
-  { id: "evaluation", label: "Hotel Evaluation Report" },
-  { id: "typography", label: "Typography Guide" },
+  { id: "evaluation", label: "Evaluation Report" },
+  { id: "brand", label: "Brand Guidelines" },
+  { id: "typography", label: "Typography" },
 ];
 
 export default function Documents() {
@@ -166,6 +168,8 @@ export default function Documents() {
         ? "SHC-Invoice-2026.pdf"
         : activeTab === "evaluation"
         ? "SHC-Evaluation-Report-2026.pdf"
+        : activeTab === "brand"
+        ? "SHC-Brand-Guidelines-2026.pdf"
         : "SHC-Typography-Guide.pdf";
       pdf.save(filename);
     } catch (err) {
@@ -177,8 +181,9 @@ export default function Documents() {
 
   const anim = (delay: number) => ({
     opacity: vis ? 1 : 0,
-    transform: vis ? "translateY(0)" : "translateY(24px)",
-    transition: `opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1) ${delay}s, transform 0.9s cubic-bezier(0.16, 1, 0.3, 1) ${delay}s`,
+    transform: vis ? "translate3d(0,0,0)" : "translate3d(0,24px,0)",
+    transition: `opacity 1.8s cubic-bezier(0.22, 1, 0.36, 1) ${delay}s, transform 1.8s cubic-bezier(0.22, 1, 0.36, 1) ${delay}s`,
+    willChange: "opacity, transform" as const,
   });
 
   return (
@@ -243,6 +248,7 @@ export default function Documents() {
           <div ref={docRef} style={{ transition: "opacity 0.4s" }}>
             {activeTab === "invoice" && <InvoicePage />}
             {activeTab === "evaluation" && <EvaluationReport />}
+            {activeTab === "brand" && <BrandGuidelines />}
             {activeTab === "typography" && <TypographyGuide />}
           </div>
         </div>

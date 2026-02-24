@@ -78,7 +78,7 @@ export default function Recognition() {
                   padding: "56px 40px 48px",
                   border: `1px solid ${isHovered ? "rgba(218,220,226,0.15)" : "rgba(218,220,226,0.06)"}`,
                   borderRadius: 0,
-                  transition: "all 0.5s cubic-bezier(0.16, 1, 0.3, 1)",
+                  transition: "all 0.5s cubic-bezier(0.22, 1, 0.36, 1)",
                   backgroundColor: isHovered ? "rgba(218,220,226,0.04)" : "transparent",
                   cursor: "default",
                 }}

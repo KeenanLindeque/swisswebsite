@@ -40,7 +40,7 @@ export default function Footer() {
                 letterSpacing: "0.15em",
                 textTransform: "uppercase",
                 fontWeight: 400,
-                transition: "all 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
+                transition: "all 0.4s cubic-bezier(0.22, 1, 0.36, 1)",
                 border: "1px solid var(--blue)",
               }}
               onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = "transparent"; e.currentTarget.style.color = "var(--blue)"; }}

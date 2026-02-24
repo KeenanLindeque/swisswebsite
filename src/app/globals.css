@@ -38,9 +38,16 @@ ul {
   color: var(--white);
 }
 
-/* Smooth section transitions */
+/* GPU-accelerated transitions */
 section {
   will-change: auto;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+img {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 /* Smooth anchor scrolling offset for fixed navbar */

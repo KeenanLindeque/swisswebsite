@@ -28,7 +28,7 @@ export default function Navbar() {
         left: 0,
         right: 0,
         zIndex: 100,
-        transition: "all 0.5s cubic-bezier(0.16, 1, 0.3, 1)",
+        transition: "all 0.6s cubic-bezier(0.22, 1, 0.36, 1)",
         backgroundColor: scrolled ? "rgba(15, 35, 71, 0.97)" : "transparent",
         backdropFilter: scrolled ? "blur(20px)" : "none",
         borderBottom: scrolled ? "1px solid rgba(218,220,226,0.08)" : "1px solid transparent",
@@ -42,7 +42,7 @@ export default function Navbar() {
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
-          transition: "padding 0.5s cubic-bezier(0.16, 1, 0.3, 1)",
+          transition: "padding 0.6s cubic-bezier(0.22, 1, 0.36, 1)",
         }}
       >
         <a href="#" style={{ display: "flex", alignItems: "center" }}>

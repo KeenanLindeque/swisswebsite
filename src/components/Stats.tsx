@@ -38,8 +38,8 @@ function StatItem({ value, suffix, label, visible, delay }: { value: number; suf
         textAlign: "center",
         padding: "0 24px",
         opacity: visible ? 1 : 0,
-        transform: visible ? "translateY(0)" : "translateY(24px)",
-        transition: `all 0.8s cubic-bezier(0.16, 1, 0.3, 1) ${delay}s`,
+        transform: visible ? "translate3d(0,0,0)" : "translate3d(0,24px,0)",
+        transition: `all 0.8s cubic-bezier(0.22, 1, 0.36, 1) ${delay}s`,
       }}
     >
       <div style={{ fontSize: "clamp(2.4rem, 5vw, 4rem)", fontWeight: 200, color: "var(--white)", lineHeight: 1, marginBottom: 8 }}>

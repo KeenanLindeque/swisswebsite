@@ -50,8 +50,8 @@ export default function ServiceDetail({
 
   const anim = (visible: boolean, delay: number) => ({
     opacity: visible ? 1 : 0,
-    transform: visible ? "translateY(0)" : "translateY(32px)",
-    transition: `opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1) ${delay}s, transform 0.9s cubic-bezier(0.16, 1, 0.3, 1) ${delay}s`,
+    transform: visible ? "translate3d(0,0,0)" : "translate3d(0,32px,0)",
+    transition: `opacity 1.8s cubic-bezier(0.22, 1, 0.36, 1) ${delay}s, transform 1.8s cubic-bezier(0.22, 1, 0.36, 1) ${delay}s`,
   });
 
   const allColumns = [
@@ -131,7 +131,7 @@ export default function ServiceDetail({
                       gap: 12,
                       opacity: columnsVis ? 1 : 0,
                       transform: columnsVis ? "translateX(0)" : "translateX(-12px)",
-                      transition: `opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1) ${colIdx * 0.15 + liIdx * 0.06}s, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) ${colIdx * 0.15 + liIdx * 0.06}s`,
+                      transition: `opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1) ${colIdx * 0.15 + liIdx * 0.06}s, transform 0.6s cubic-bezier(0.22, 1, 0.36, 1) ${colIdx * 0.15 + liIdx * 0.06}s`,
                     }}
                   >
                     <span style={{ width: 4, height: 4, borderRadius: "50%", backgroundColor: dark ? "var(--silver)" : "var(--blue)", opacity: 0.2, marginTop: 9, flexShrink: 0 }} />
