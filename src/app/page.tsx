@@ -101,11 +101,11 @@ export default function Home() {
       />
 
       <ImageDivider
-        src="/images/hotel-corridor.jpg"
-        alt="Elegant hotel corridor with refined lighting"
+        src="/images/mountain-chalet.jpg"
+        alt="Swiss mountain chalet in alpine setting"
         height={480}
-        overlayOpacity={0.25}
-        position="center 50%"
+        overlayOpacity={0.2}
+        position="center 40%"
         fadeTop="rgba(15, 35, 71, 0.5)"
         fadeBottom="rgba(15, 35, 71, 0.5)"
       />
@@ -154,11 +154,11 @@ export default function Home() {
       />
 
       <ImageDivider
-        src="/images/hotel-suite.jpg"
-        alt="Luxury hotel suite with refined furnishings"
+        src="/images/hotel-terrace.jpg"
+        alt="Hotel terrace overlooking the landscape"
         height={440}
         overlayOpacity={0.15}
-        position="center 50%"
+        position="center 40%"
         fadeTop="rgba(15, 35, 71, 0.5)"
         fadeBottom="rgba(243, 243, 245, 0.5)"
       />
