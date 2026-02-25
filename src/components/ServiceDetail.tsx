@@ -20,7 +20,9 @@ function useVisible(threshold = 0.15) {
   const [visible, setVisible] = useState(false);
   const [mounted, setMounted] = useState(false);
   useEffect(() => {
-    const raf = requestAnimationFrame(() => setMounted(true));
+    const raf = requestAnimationFrame(() => {
+      requestAnimationFrame(() => setMounted(true));
+    });
     return () => cancelAnimationFrame(raf);
   }, []);
   useEffect(() => {

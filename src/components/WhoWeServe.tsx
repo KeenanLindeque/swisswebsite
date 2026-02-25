@@ -33,7 +33,9 @@ export default function WhoWeServe() {
   const [hovered, setHovered] = useState<number | null>(null);
 
   useEffect(() => {
-    const raf = requestAnimationFrame(() => setMounted(true));
+    const raf = requestAnimationFrame(() => {
+      requestAnimationFrame(() => setMounted(true));
+    });
     return () => cancelAnimationFrame(raf);
   }, []);
 

@@ -93,7 +93,9 @@ export default function Stats() {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    const raf = requestAnimationFrame(() => setMounted(true));
+    const raf = requestAnimationFrame(() => {
+      requestAnimationFrame(() => setMounted(true));
+    });
     return () => cancelAnimationFrame(raf);
   }, []);
 
