@@ -71,7 +71,7 @@ export default function ServiceDetail({
     <section
       id={id}
       style={{
-        padding: "140px 0",
+        padding: "200px 0",
         backgroundColor: bg,
         borderTop: `1px solid ${border}`,
       }}
@@ -84,7 +84,7 @@ export default function ServiceDetail({
             display: "flex",
             alignItems: "flex-start",
             gap: 80,
-            marginBottom: 88,
+            marginBottom: 120,
             flexDirection: reversed ? "row-reverse" : "row",
           }}
         >
@@ -96,20 +96,20 @@ export default function ServiceDetail({
               lineHeight: 1,
               display: "block",
               marginBottom: -8,
-              transition: "opacity 1.5s cubic-bezier(0.22, 1, 0.36, 1)",
+              transition: "opacity 2s cubic-bezier(0.22, 1, 0.36, 1)",
               opacity: headerVis ? 0.04 : 0,
             }}>
               {number}
             </span>
-            <h3 style={{ fontSize: "clamp(1.8rem, 3vw, 2.6rem)", fontWeight: 200, color: text, lineHeight: 1.2, marginBottom: 16 }}>
+            <h3 style={{ fontSize: "clamp(1.8rem, 3vw, 2.6rem)", fontWeight: 200, color: text, lineHeight: 1.2, marginBottom: 16, letterSpacing: "-0.01em" }}>
               {title}
             </h3>
-            <p style={{ fontSize: 14, fontWeight: 400, color: muted, letterSpacing: "0.08em", fontStyle: "italic", opacity: 0.6 }}>
+            <p style={{ fontSize: 13, fontWeight: 400, color: muted, letterSpacing: "0.05em", fontStyle: "italic", opacity: 0.5 }}>
               {tagline}
             </p>
           </div>
           <div style={{ ...anim(headerVis, 0.18), flex: 1 }}>
-            <p style={{ fontSize: 17, lineHeight: 1.9, color: text, fontWeight: 300, opacity: 0.7, maxWidth: 580 }}>
+            <p style={{ fontSize: 17, lineHeight: 1.9, color: text, fontWeight: 300, opacity: 0.55, maxWidth: 580 }}>
               {description}
             </p>
           </div>
@@ -126,14 +126,14 @@ export default function ServiceDetail({
               style={{
                 ...anim(columnsVis, colIdx * 0.15),
                 flex: "1 1 280px",
-                padding: "36px 0",
+                padding: "44px 0",
                 borderTop: `1px solid ${border}`,
               }}
             >
-              <h4 style={{ fontSize: 11, fontWeight: 500, color: text, letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: 28, opacity: 0.4 }}>
+              <h4 style={{ fontSize: 10, fontWeight: 500, color: text, letterSpacing: "0.25em", textTransform: "uppercase", marginBottom: 32, opacity: 0.35 }}>
                 {col.heading}
               </h4>
-              <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: 14 }}>
+              <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: 16 }}>
                 {col.list.map((li, liIdx) => (
                   <li
                     key={li}
@@ -142,12 +142,13 @@ export default function ServiceDetail({
                       fontSize: 15,
                       color: muted,
                       lineHeight: 1.7,
+                      fontWeight: 300,
                       display: "flex",
                       alignItems: "flex-start",
                       gap: 14,
-                      opacity: columnsVis ? 1 : 0,
+                      opacity: columnsVis ? 0.75 : 0,
                       transform: columnsVis ? "translateX(0)" : "translateX(-16px)",
-                      transition: `opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1) ${colIdx * 0.15 + liIdx * 0.07}s, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1) ${colIdx * 0.15 + liIdx * 0.07}s`,
+                      transition: `opacity 1s cubic-bezier(0.22, 1, 0.36, 1) ${colIdx * 0.15 + liIdx * 0.07}s, transform 1s cubic-bezier(0.22, 1, 0.36, 1) ${colIdx * 0.15 + liIdx * 0.07}s`,
                     }}
                   >
                     <span style={{
@@ -155,10 +156,10 @@ export default function ServiceDetail({
                       height: 3,
                       borderRadius: "50%",
                       backgroundColor: dark ? "var(--silver)" : "var(--blue)",
-                      opacity: 0.2,
+                      opacity: 0.15,
                       marginTop: 10,
                       flexShrink: 0,
-                      transition: "transform 0.4s cubic-bezier(0.22, 1, 0.36, 1)",
+                      transition: "transform 0.6s cubic-bezier(0.22, 1, 0.36, 1)",
                     }} />
                     {li}
                   </li>
@@ -169,18 +170,25 @@ export default function ServiceDetail({
         </div>
 
         {footnote && (
-          <p style={{ marginTop: 56, fontSize: 15, fontStyle: "italic", color: muted, fontWeight: 300, opacity: 0.5 }}>
+          <p style={{ marginTop: 64, fontSize: 15, fontStyle: "italic", color: muted, fontWeight: 300, opacity: 0.4 }}>
             {footnote}
           </p>
         )}
       </div>
 
       <style>{`
+        .svc-list-item:hover {
+          opacity: 1 !important;
+        }
+        .svc-list-item {
+          transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1) !important;
+        }
         .svc-list-item:hover span:first-child {
-          transform: scale(1.8);
+          transform: scale(2);
+          opacity: 0.4 !important;
         }
         @media (max-width: 900px) {
-          .svc-header { flex-direction: column !important; gap: 32px !important; }
+          .svc-header { flex-direction: column !important; gap: 40px !important; }
           .svc-header > div:first-child { flex: 1 !important; }
         }
       `}</style>

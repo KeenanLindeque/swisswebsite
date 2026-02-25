@@ -66,18 +66,18 @@ export default function WhatWeDo() {
   });
 
   return (
-    <section id="what-we-do" style={{ padding: "160px 0 140px", backgroundColor: "var(--white)" }}>
+    <section id="what-we-do" style={{ padding: "200px 0 180px", backgroundColor: "var(--white)" }}>
       <div ref={ref} style={{ maxWidth: 1400, margin: "0 auto", padding: "0 48px" }}>
         <div style={{ ...anim(0), marginBottom: 24 }}>
-          <div className="wwd-accent" style={{ width: 40, height: 1, backgroundColor: "var(--blue)", opacity: 0.12, marginBottom: 24 }} />
-          <p style={{ color: "var(--blue)", fontSize: 11, letterSpacing: "0.5em", textTransform: "uppercase", fontWeight: 400, opacity: 0.35 }}>
+          <div className="wwd-accent" style={{ width: 40, height: 1, backgroundColor: "var(--blue)", opacity: 0.1, marginBottom: 24 }} />
+          <p style={{ color: "var(--blue)", fontSize: 10, letterSpacing: "0.25em", textTransform: "uppercase", fontWeight: 400, opacity: 0.35 }}>
             What We Do
           </p>
         </div>
-        <div style={{ ...anim(0.1), maxWidth: 720, marginBottom: 96 }}>
-          <h2 style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)", fontWeight: 200, color: "var(--blue)", lineHeight: 1.25 }}>
+        <div style={{ ...anim(0.1), maxWidth: 720, marginBottom: 120 }}>
+          <h2 style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)", fontWeight: 200, color: "var(--blue)", lineHeight: 1.25, letterSpacing: "-0.02em" }}>
             Five ways we help you{" "}
-            <span style={{ fontWeight: 600 }}>earn it.</span>
+            <span style={{ fontWeight: 500, letterSpacing: "-0.01em" }}>earn it.</span>
           </h2>
         </div>
 
@@ -95,9 +95,9 @@ export default function WhatWeDo() {
                   alignItems: "flex-start",
                   gap: 44,
                   padding: "44px 0",
-                  borderTop: "1px solid rgba(218,220,226,0.4)",
+                  borderTop: "1px solid rgba(15,35,71,0.08)",
                   cursor: "default",
-                  transition: "padding-left 0.7s cubic-bezier(0.22, 1, 0.36, 1)",
+                  transition: "padding-left 1s cubic-bezier(0.22, 1, 0.36, 1)",
                   paddingLeft: isHovered ? 20 : 0,
                 }}
                 onMouseEnter={() => setHovered(i)}
@@ -112,8 +112,8 @@ export default function WhatWeDo() {
                   width: 2,
                   height: isHovered ? "50%" : "0%",
                   backgroundColor: "var(--blue)",
-                  opacity: 0.15,
-                  transition: "height 0.7s cubic-bezier(0.22, 1, 0.36, 1)",
+                  opacity: 0.1,
+                  transition: "height 1s cubic-bezier(0.22, 1, 0.36, 1)",
                   borderRadius: 1,
                 }} />
 
@@ -121,11 +121,11 @@ export default function WhatWeDo() {
                   fontSize: 12,
                   fontWeight: 500,
                   color: "var(--blue)",
-                  opacity: isHovered ? 0.6 : 0.3,
+                  opacity: isHovered ? 0.5 : 0.25,
                   letterSpacing: "0.1em",
                   minWidth: 32,
                   paddingTop: 4,
-                  transition: "all 0.5s cubic-bezier(0.22, 1, 0.36, 1)",
+                  transition: "all 1s cubic-bezier(0.22, 1, 0.36, 1)",
                 }}>
                   {p.number}
                 </span>
@@ -138,8 +138,8 @@ export default function WhatWeDo() {
                   justifyContent: "center",
                   flexShrink: 0,
                   backgroundColor: isHovered ? "var(--blue)" : "transparent",
-                  border: `1px solid ${isHovered ? "var(--blue)" : "rgba(218,220,226,0.5)"}`,
-                  transition: "all 0.6s cubic-bezier(0.22, 1, 0.36, 1)",
+                  border: `1px solid ${isHovered ? "var(--blue)" : "rgba(15,35,71,0.1)"}`,
+                  transition: "all 1s cubic-bezier(0.22, 1, 0.36, 1)",
                   color: isHovered ? "var(--white)" : "var(--blue)",
                   transform: isHovered ? "scale(1.06)" : "scale(1)",
                 }}>
@@ -147,17 +147,17 @@ export default function WhatWeDo() {
                 </div>
 
                 <div style={{ flex: 1 }}>
-                  <h3 style={{ fontSize: 20, fontWeight: 400, color: "var(--blue)", marginBottom: 8, lineHeight: 1.3, letterSpacing: "-0.01em" }}>
+                  <h3 style={{ fontSize: 20, fontWeight: 300, color: "var(--blue)", marginBottom: 12, lineHeight: 1.3, letterSpacing: "-0.01em" }}>
                     {p.title}
                   </h3>
                   <p style={{
                     fontSize: 15,
-                    color: "#717580",
+                    color: "var(--blue)",
                     fontWeight: 300,
                     lineHeight: 1.8,
                     maxWidth: 500,
-                    opacity: isHovered ? 1 : 0.55,
-                    transition: "opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1)",
+                    opacity: isHovered ? 0.75 : 0.5,
+                    transition: "opacity 1s cubic-bezier(0.22, 1, 0.36, 1)",
                   }}>
                     {p.description}
                   </p>
@@ -166,19 +166,19 @@ export default function WhatWeDo() {
                 <div style={{
                   opacity: isHovered ? 1 : 0,
                   transform: isHovered ? "translateX(0)" : "translateX(-12px)",
-                  transition: "all 0.6s cubic-bezier(0.22, 1, 0.36, 1)",
+                  transition: "all 1s cubic-bezier(0.22, 1, 0.36, 1)",
                   display: "flex",
                   alignItems: "center",
                   paddingTop: 8,
                 }}>
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                    <path d="M5 12h14M12 5l7 7-7 7" stroke="var(--blue)" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" />
+                    <path d="M5 12h14M12 5l7 7-7 7" stroke="var(--blue)" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" opacity="0.3" />
                   </svg>
                 </div>
               </div>
             );
           })}
-          <div style={{ borderTop: "1px solid rgba(218,220,226,0.4)" }} />
+          <div style={{ borderTop: "1px solid rgba(15,35,71,0.08)" }} />
         </div>
       </div>
 

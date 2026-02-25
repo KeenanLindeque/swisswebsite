@@ -62,15 +62,16 @@ export default function Navbar() {
               style={{
                 position: "relative",
                 color: "var(--silver)",
-                fontSize: 11,
+                fontSize: 10,
                 fontWeight: 400,
-                letterSpacing: "0.2em",
+                letterSpacing: "0.25em",
                 textTransform: "uppercase",
-                transition: "color 0.5s cubic-bezier(0.22, 1, 0.36, 1)",
+                transition: "color 0.8s cubic-bezier(0.22, 1, 0.36, 1)",
                 paddingBottom: 3,
+                opacity: 0.6,
               }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = "var(--white)")}
-              onMouseLeave={(e) => (e.currentTarget.style.color = "var(--silver)")}
+              onMouseEnter={(e) => { e.currentTarget.style.color = "var(--white)"; e.currentTarget.style.opacity = "1"; }}
+              onMouseLeave={(e) => { e.currentTarget.style.color = "var(--silver)"; e.currentTarget.style.opacity = "0.6"; }}
             >
               {link.label}
             </a>

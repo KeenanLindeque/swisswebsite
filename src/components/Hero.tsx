@@ -77,20 +77,20 @@ export default function Hero() {
         <div style={{ maxWidth: 820 }}>
           {/* Accent line with grow animation */}
           <div style={{ ...t(0.0), overflow: "hidden" }}>
-            <div className="hero-accent-line" style={{ width: 48, height: 1, backgroundColor: "var(--silver)", opacity: 0.35, marginBottom: 48, transformOrigin: "left" }} />
+            <div className="hero-accent-line" style={{ width: 48, height: 1, backgroundColor: "var(--silver)", opacity: 0.15, marginBottom: 48, transformOrigin: "left" }} />
           </div>
 
-          <p style={{ ...t(0.15), color: "var(--silver)", fontSize: 11, letterSpacing: "0.5em", textTransform: "uppercase", marginBottom: 48, fontWeight: 400, opacity: 0.5 }}>
+          <p style={{ ...t(0.15), color: "var(--silver)", fontSize: 10, letterSpacing: "0.25em", textTransform: "uppercase", marginBottom: 48, fontWeight: 400, opacity: 0.4 }}>
             Independent Hotel Quality Certification
           </p>
 
-          <h1 style={{ ...t(0.32), fontSize: "clamp(2.2rem, 4.5vw, 3.6rem)", fontWeight: 200, color: "var(--white)", lineHeight: 1.12, marginBottom: 48, letterSpacing: "-0.02em" }}>
+          <h1 style={{ ...t(0.32), fontSize: "clamp(2.2rem, 4.5vw, 3.6rem)", fontWeight: 200, color: "var(--white)", lineHeight: 1.12, marginBottom: 48, letterSpacing: "-0.03em" }}>
             Excellence claimed is nothing.
             <br />
-            <span style={{ fontWeight: 600, letterSpacing: "-0.015em" }}>Excellence certified is everything.</span>
+            <span style={{ fontWeight: 500, letterSpacing: "-0.02em", opacity: 0.9 }}>Excellence certified is everything.</span>
           </h1>
 
-          <p style={{ ...t(0.5), color: "var(--silver)", fontSize: 17, maxWidth: 560, fontWeight: 300, lineHeight: 1.9, marginBottom: 64 }}>
+          <p style={{ ...t(0.5), color: "var(--silver)", fontSize: 16, maxWidth: 560, fontWeight: 300, lineHeight: 2, marginBottom: 64, opacity: 0.55 }}>
             Certified hotels command higher trust, stronger loyalty, and a reputation competitors can&apos;t replicate. Independent assessment and recognition — for properties ready to separate themselves from the rest.
           </p>
 
@@ -105,12 +105,12 @@ export default function Hero() {
                 gap: 12,
                 color: "var(--blue)",
                 backgroundColor: "var(--white)",
-                fontSize: 11,
-                letterSpacing: "0.2em",
+                fontSize: 10,
+                letterSpacing: "0.25em",
                 textTransform: "uppercase",
                 fontWeight: 500,
                 padding: "20px 48px",
-                transition: `all 0.7s ${ease}`,
+                transition: `all 1s ${ease}`,
                 border: "1px solid var(--white)",
                 overflow: "hidden",
               }}
@@ -126,16 +126,17 @@ export default function Hero() {
                 alignItems: "center",
                 gap: 10,
                 color: "var(--silver)",
-                fontSize: 11,
-                letterSpacing: "0.2em",
+                fontSize: 10,
+                letterSpacing: "0.25em",
                 textTransform: "uppercase",
                 fontWeight: 400,
                 paddingBottom: 4,
-                borderBottom: "1px solid rgba(218,220,226,0.3)",
-                transition: `border-color 0.7s ${ease}, color 0.7s ${ease}`,
+                borderBottom: "1px solid rgba(218,220,226,0.1)",
+                transition: `border-color 1s ${ease}, color 1s ${ease}`,
+                opacity: 0.7,
               }}
-              onMouseEnter={(e) => { e.currentTarget.style.borderBottomColor = "var(--white)"; e.currentTarget.style.color = "var(--white)"; }}
-              onMouseLeave={(e) => { e.currentTarget.style.borderBottomColor = "rgba(218,220,226,0.3)"; e.currentTarget.style.color = "var(--silver)"; }}
+              onMouseEnter={(e) => { e.currentTarget.style.borderBottomColor = "var(--white)"; e.currentTarget.style.color = "var(--white)"; e.currentTarget.style.opacity = "1"; }}
+              onMouseLeave={(e) => { e.currentTarget.style.borderBottomColor = "rgba(218,220,226,0.1)"; e.currentTarget.style.color = "var(--silver)"; e.currentTarget.style.opacity = "0.7"; }}
             >
               How It Works
               <ArrowRight size={13} color="currentColor" />

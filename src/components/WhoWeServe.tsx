@@ -55,18 +55,18 @@ export default function WhoWeServe() {
   });
 
   return (
-    <section style={{ padding: "140px 0", backgroundColor: "var(--blue)" }}>
+    <section style={{ padding: "200px 0", backgroundColor: "var(--blue)" }}>
       <div ref={ref} style={{ maxWidth: 1400, margin: "0 auto", padding: "0 48px" }}>
         <div style={{ ...anim(0), marginBottom: 24 }}>
-          <div style={{ width: 40, height: 1, backgroundColor: "var(--silver)", opacity: 0.15, marginBottom: 24 }} />
-          <p style={{ color: "var(--silver)", fontSize: 11, letterSpacing: "0.5em", textTransform: "uppercase", fontWeight: 400, opacity: 0.35 }}>
+          <div style={{ width: 40, height: 1, backgroundColor: "var(--silver)", opacity: 0.1, marginBottom: 24 }} />
+          <p style={{ color: "var(--silver)", fontSize: 10, letterSpacing: "0.25em", textTransform: "uppercase", fontWeight: 400, opacity: 0.35 }}>
             Who We Serve
           </p>
         </div>
-        <div style={{ ...anim(0.1), maxWidth: 580, marginBottom: 80 }}>
-          <h2 style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.6rem)", fontWeight: 200, color: "var(--white)", lineHeight: 1.25 }}>
+        <div style={{ ...anim(0.1), maxWidth: 580, marginBottom: 120 }}>
+          <h2 style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.6rem)", fontWeight: 200, color: "var(--white)", lineHeight: 1.25, letterSpacing: "-0.02em" }}>
             Built for hotels that refuse to{" "}
-            <span style={{ fontWeight: 600 }}>guess.</span>
+            <span style={{ fontWeight: 500, letterSpacing: "-0.01em" }}>guess.</span>
           </h2>
         </div>
 
@@ -81,9 +81,9 @@ export default function WhoWeServe() {
                   ...anim(0.15 + i * 0.1),
                   position: "relative",
                   padding: "52px 36px 44px",
-                  border: `1px solid ${isHovered ? "rgba(218,220,226,0.18)" : "rgba(218,220,226,0.06)"}`,
-                  backgroundColor: isHovered ? "rgba(218,220,226,0.04)" : "transparent",
-                  transition: "all 0.7s cubic-bezier(0.22, 1, 0.36, 1)",
+                  border: `1px solid ${isHovered ? "rgba(218,220,226,0.08)" : "transparent"}`,
+                  backgroundColor: isHovered ? "rgba(255,255,255,0.02)" : "transparent",
+                  transition: "all 1s cubic-bezier(0.22, 1, 0.36, 1)",
                   cursor: "default",
                   overflow: "hidden",
                   transform: isHovered ? "translateY(-4px)" : undefined,
@@ -99,11 +99,11 @@ export default function WhoWeServe() {
                     left: 0,
                     right: 0,
                     bottom: 0,
-                    background: "linear-gradient(135deg, transparent 30%, rgba(218,220,226,0.06) 50%, transparent 70%)",
+                    background: "linear-gradient(135deg, transparent 30%, rgba(218,220,226,0.04) 50%, transparent 70%)",
                     backgroundSize: "200% 200%",
                     backgroundPosition: isHovered ? "0% 0%" : "100% 100%",
                     opacity: isHovered ? 1 : 0,
-                    transition: "background-position 1s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1)",
+                    transition: "background-position 1.2s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1)",
                     pointerEvents: "none",
                   }}
                 />
@@ -111,16 +111,16 @@ export default function WhoWeServe() {
                 <div style={{
                   marginBottom: 32,
                   color: isHovered ? "var(--white)" : "var(--silver)",
-                  transition: "all 0.6s cubic-bezier(0.22, 1, 0.36, 1)",
-                  opacity: isHovered ? 0.8 : 0.35,
-                  transform: isHovered ? "scale(1.08)" : "scale(1)",
+                  transition: "all 0.8s cubic-bezier(0.22, 1, 0.36, 1)",
+                  opacity: isHovered ? 0.7 : 0.3,
+                  transform: isHovered ? "scale(1.04)" : "scale(1)",
                 }}>
                   <a.icon size={28} color="currentColor" />
                 </div>
-                <h3 style={{ fontSize: 18, fontWeight: 400, color: "var(--white)", marginBottom: 14, lineHeight: 1.3, position: "relative" }}>
+                <h3 style={{ fontSize: 18, fontWeight: 300, color: "var(--white)", marginBottom: 16, lineHeight: 1.3, position: "relative" }}>
                   {a.title}
                 </h3>
-                <p style={{ fontSize: 14, color: "var(--silver)", fontWeight: 300, lineHeight: 1.8, opacity: isHovered ? 0.6 : 0.4, transition: "opacity 0.6s", position: "relative" }}>
+                <p style={{ fontSize: 14, color: "var(--silver)", fontWeight: 300, lineHeight: 1.8, opacity: isHovered ? 0.55 : 0.35, transition: "opacity 0.8s", position: "relative" }}>
                   {a.description}
                 </p>
               </div>

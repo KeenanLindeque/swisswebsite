@@ -16,22 +16,22 @@ export default function Footer() {
       <section
         id="contact"
         style={{
-          padding: "180px 0",
+          padding: "220px 0",
           backgroundColor: "var(--white)",
-          borderTop: "1px solid rgba(218,220,226,0.4)",
+          borderTop: "1px solid rgba(15,35,71,0.08)",
         }}
       >
         <div style={{ maxWidth: 1400, margin: "0 auto", padding: "0 48px", textAlign: "center" }}>
           <div ref={r1} style={s1}>
-            <div style={{ width: 40, height: 1, backgroundColor: "var(--blue)", opacity: 0.12, margin: "0 auto 32px" }} />
-            <p style={{ color: "var(--blue)", fontSize: 11, letterSpacing: "0.5em", textTransform: "uppercase", fontWeight: 400, opacity: 0.35, marginBottom: 48 }}>
+            <div style={{ width: 40, height: 1, backgroundColor: "var(--blue)", opacity: 0.1, margin: "0 auto 32px" }} />
+            <p style={{ color: "var(--blue)", fontSize: 10, letterSpacing: "0.25em", textTransform: "uppercase", fontWeight: 400, opacity: 0.35, marginBottom: 48 }}>
               Limited Availability
             </p>
-            <h2 style={{ fontSize: "clamp(2rem, 4vw, 3.4rem)", fontWeight: 200, color: "var(--blue)", lineHeight: 1.15, marginBottom: 28, maxWidth: 700, margin: "0 auto 28px" }}>
+            <h2 style={{ fontSize: "clamp(2rem, 4vw, 3.4rem)", fontWeight: 200, color: "var(--blue)", lineHeight: 1.15, marginBottom: 28, maxWidth: 700, margin: "0 auto 28px", letterSpacing: "-0.01em" }}>
               Your competitors are already<br />
-              <span style={{ fontWeight: 600 }}>asking about us.</span>
+              <span style={{ fontWeight: 500, letterSpacing: "-0.01em" }}>asking about us.</span>
             </h2>
-            <p style={{ fontSize: 16, color: "#717580", fontWeight: 300, lineHeight: 1.9, maxWidth: 480, margin: "0 auto 56px" }}>
+            <p style={{ fontSize: 16, color: "#717580", fontWeight: 300, lineHeight: 1.9, maxWidth: 480, margin: "0 auto 56px", opacity: 0.8 }}>
               We accept a limited number of assessment engagements per quarter to maintain the independence and depth our clients expect. If you&apos;re serious about quality, let&apos;s talk.
             </p>
             <a
@@ -40,14 +40,14 @@ export default function Footer() {
               style={{
                 position: "relative",
                 display: "inline-block",
-                padding: "20px 64px",
+                padding: "24px 72px",
                 backgroundColor: ctaHover ? "transparent" : "var(--blue)",
                 color: ctaHover ? "var(--blue)" : "var(--white)",
-                fontSize: 11,
-                letterSpacing: "0.2em",
+                fontSize: 10,
+                letterSpacing: "0.25em",
                 textTransform: "uppercase",
-                fontWeight: 400,
-                transition: "all 0.7s cubic-bezier(0.22, 1, 0.36, 1)",
+                fontWeight: 500,
+                transition: "all 1s cubic-bezier(0.22, 1, 0.36, 1)",
                 border: "1px solid var(--blue)",
                 overflow: "hidden",
               }}
@@ -66,9 +66,9 @@ export default function Footer() {
       {/* Footer */}
       <footer
         style={{
-          padding: "52px 0",
+          padding: "64px 0",
           backgroundColor: "var(--blue)",
-          borderTop: "1px solid rgba(218,220,226,0.06)",
+          borderTop: "1px solid rgba(218,220,226,0.04)",
         }}
       >
         <div ref={r2} style={{ ...s2, maxWidth: 1400, margin: "0 auto", padding: "0 48px", display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 24 }}>
@@ -76,8 +76,12 @@ export default function Footer() {
             href="#"
             className="footer-logo"
             style={{ display: "flex", alignItems: "center" }}
+            onClick={(e) => {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
           >
-            <img src="/logo.svg" alt="Swiss Hospitality Company" style={{ height: 22, width: "auto", transition: "transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.4s" }} />
+            <img src="/logo.svg" alt="Swiss Hospitality Company" style={{ height: 22, width: "auto", transition: "transform 1s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.8s" }} />
           </a>
           <div style={{ display: "flex", alignItems: "center", gap: 32 }}>
             <button
@@ -85,24 +89,24 @@ export default function Footer() {
               className="footer-templates-btn"
               style={{
                 background: "none",
-                border: "1px solid rgba(218,220,226,0.1)",
+                border: "1px solid rgba(218,220,226,0.08)",
                 color: "var(--silver)",
                 fontSize: 9,
-                letterSpacing: "0.15em",
+                letterSpacing: "0.2em",
                 textTransform: "uppercase",
                 fontWeight: 300,
-                padding: "6px 14px",
+                padding: "8px 16px",
                 cursor: "pointer",
-                opacity: 0.3,
-                transition: "all 0.5s cubic-bezier(0.22, 1, 0.36, 1)",
+                opacity: 0.25,
+                transition: "all 0.8s cubic-bezier(0.22, 1, 0.36, 1)",
                 fontFamily: "inherit",
               }}
-              onMouseEnter={(e) => { e.currentTarget.style.opacity = "0.7"; e.currentTarget.style.borderColor = "rgba(218,220,226,0.3)"; }}
-              onMouseLeave={(e) => { e.currentTarget.style.opacity = "0.3"; e.currentTarget.style.borderColor = "rgba(218,220,226,0.1)"; }}
+              onMouseEnter={(e) => { e.currentTarget.style.opacity = "0.7"; e.currentTarget.style.borderColor = "rgba(218,220,226,0.2)"; }}
+              onMouseLeave={(e) => { e.currentTarget.style.opacity = "0.25"; e.currentTarget.style.borderColor = "rgba(218,220,226,0.08)"; }}
             >
               {showDocs ? "Hide" : "Templates"}
             </button>
-            <p style={{ fontSize: 12, color: "var(--silver)", opacity: 0.3, fontWeight: 300, letterSpacing: "0.04em" }}>
+            <p style={{ fontSize: 11, color: "var(--silver)", opacity: 0.25, fontWeight: 300, letterSpacing: "0.06em" }}>
               &copy; {new Date().getFullYear()} Swiss Hospitality Company. All rights reserved.
             </p>
           </div>
@@ -118,7 +122,7 @@ export default function Footer() {
           width: 60%;
           height: 100%;
           background: linear-gradient(90deg, transparent, rgba(218,220,226,0.1), transparent);
-          transition: left 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+          transition: left 1s cubic-bezier(0.22, 1, 0.36, 1);
           pointer-events: none;
         }
         .footer-cta:hover::after {

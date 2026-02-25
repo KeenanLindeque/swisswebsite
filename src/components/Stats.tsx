@@ -14,12 +14,12 @@ function useCounter(target: number, visible: boolean) {
   useEffect(() => {
     if (!visible) return;
     let frame: number;
-    const duration = 2600;
+    const duration = 3800;
     const start = performance.now();
     const step = (now: number) => {
       const elapsed = now - start;
       const progress = Math.min(elapsed / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 4);
+      const eased = 1 - Math.pow(1 - progress, 5);
       setCount(Math.round(eased * target));
       if (progress < 1) frame = requestAnimationFrame(step);
     };
@@ -41,7 +41,7 @@ function StatItem({ value, suffix, label, visible, delay, isLast }: { value: num
         padding: "0 24px",
         opacity: visible ? 1 : 0,
         transform: visible ? "translate3d(0,0,0)" : "translate3d(0,24px,0)",
-        transition: `all 1.2s cubic-bezier(0.22, 1, 0.36, 1) ${delay}s`,
+        transition: `all 1.6s cubic-bezier(0.22, 1, 0.36, 1) ${delay}s`,
         display: "flex",
         alignItems: "center",
         gap: 0,
@@ -53,24 +53,24 @@ function StatItem({ value, suffix, label, visible, delay, isLast }: { value: num
       <div style={{ flex: 1 }}>
         <div style={{
           fontSize: "clamp(2.4rem, 5vw, 4.2rem)",
-          fontWeight: 200,
+          fontWeight: 100,
           color: "var(--white)",
           lineHeight: 1,
           marginBottom: 12,
-          transition: "transform 0.6s cubic-bezier(0.22, 1, 0.36, 1)",
+          transition: "transform 1s cubic-bezier(0.22, 1, 0.36, 1)",
           transform: hovered ? "scale(1.04)" : "scale(1)",
         }}>
           {count}
-          <span style={{ fontSize: "0.5em", color: "var(--silver)", opacity: 0.4, transition: "opacity 0.5s", ...(hovered ? { opacity: 0.7 } : {}) }}>{suffix}</span>
+          <span style={{ fontSize: "0.5em", color: "var(--silver)", opacity: 0.3, transition: "opacity 0.8s", ...(hovered ? { opacity: 0.6 } : {}) }}>{suffix}</span>
         </div>
         <p style={{
-          fontSize: 11,
+          fontSize: 10,
           color: "var(--silver)",
-          letterSpacing: "0.2em",
+          letterSpacing: "0.25em",
           textTransform: "uppercase",
           fontWeight: 300,
-          opacity: hovered ? 0.55 : 0.3,
-          transition: "opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1)",
+          opacity: hovered ? 0.6 : 0.25,
+          transition: "opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1)",
         }}>
           {label}
         </p>
@@ -79,7 +79,7 @@ function StatItem({ value, suffix, label, visible, delay, isLast }: { value: num
         <div style={{
           width: 1,
           height: 48,
-          background: "linear-gradient(to bottom, transparent, rgba(218,220,226,0.12), transparent)",
+          background: "linear-gradient(to bottom, transparent, rgba(218,220,226,0.08), transparent)",
           flexShrink: 0,
         }} />
       )}
@@ -114,7 +114,7 @@ export default function Stats() {
   }, [mounted]);
 
   return (
-    <section style={{ padding: "110px 0", backgroundColor: "var(--blue)", borderTop: "1px solid rgba(218,220,226,0.06)" }}>
+    <section style={{ padding: "160px 0", backgroundColor: "var(--blue)", borderTop: "1px solid rgba(218,220,226,0.04)" }}>
       <div
         ref={ref}
         className="stats-grid"
