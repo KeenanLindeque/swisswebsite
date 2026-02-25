@@ -8,7 +8,7 @@ export default function Hero() {
 
   useEffect(() => {
     requestAnimationFrame(() => setPhase(1));
-    const timer = setTimeout(() => setPhase(2), 500);
+    const timer = setTimeout(() => setPhase(2), 600);
     return () => clearTimeout(timer);
   }, []);
 
@@ -16,8 +16,8 @@ export default function Hero() {
 
   const t = (delay: number) => ({
     opacity: phase >= 2 ? 1 : 0,
-    transform: phase >= 2 ? "translate3d(0,0,0)" : "translate3d(0,36px,0)",
-    transition: `opacity 1.6s ${ease} ${delay}s, transform 1.6s ${ease} ${delay}s`,
+    transform: phase >= 2 ? "translate3d(0,0,0)" : "translate3d(0,44px,0)",
+    transition: `opacity 2s ${ease} ${delay}s, transform 2s ${ease} ${delay}s`,
     willChange: "opacity, transform" as const,
   });
 
@@ -32,29 +32,29 @@ export default function Hero() {
         overflow: "hidden",
       }}
     >
-      {/* Background — luxury hotel facade */}
+      {/* Background — continuous slow Ken Burns */}
       <div
+        className="hero-bg"
         style={{
           position: "absolute",
           inset: 0,
           backgroundImage: "url(/images/hotel-facade.jpg)",
           backgroundSize: "cover",
           backgroundPosition: "center 35%",
-          transform: phase >= 1 ? "scale(1) translate3d(0,0,0)" : "scale(1.06) translate3d(0,0,0)",
           opacity: phase >= 1 ? 1 : 0,
-          transition: `transform 20s ${ease}, opacity 2.8s ${ease}`,
+          transition: `opacity 3s ${ease}`,
           willChange: "transform, opacity",
         }}
       />
 
-      {/* Gradient overlay — deep, rich */}
+      {/* Gradient overlay */}
       <div
         style={{
           position: "absolute",
           inset: 0,
           background: "linear-gradient(160deg, rgba(15,35,71,0.92) 0%, rgba(15,35,71,0.7) 40%, rgba(15,35,71,0.85) 100%)",
           opacity: phase >= 1 ? 1 : 0,
-          transition: `opacity 2.2s ${ease} 0.3s`,
+          transition: `opacity 2.4s ${ease} 0.3s`,
         }}
       />
 
@@ -71,31 +71,35 @@ export default function Hero() {
       />
 
       {/* Subtle grain */}
-      <div style={{ position: "absolute", inset: 0, opacity: 0.025, backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`, backgroundSize: "200px 200px" }} />
+      <div style={{ position: "absolute", inset: 0, opacity: 0.02, backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`, backgroundSize: "200px 200px", pointerEvents: "none" }} />
 
       <div style={{ maxWidth: 1400, margin: "0 auto", padding: "200px 48px 160px", position: "relative", zIndex: 10, width: "100%" }}>
         <div style={{ maxWidth: 820 }}>
-          {/* Gold accent line */}
-          <div style={{ ...t(0.0), width: 48, height: 1, backgroundColor: "var(--silver)", opacity: 0.4, marginBottom: 48 }} />
+          {/* Accent line with grow animation */}
+          <div style={{ ...t(0.0), overflow: "hidden" }}>
+            <div className="hero-accent-line" style={{ width: 48, height: 1, backgroundColor: "var(--silver)", opacity: 0.35, marginBottom: 48, transformOrigin: "left" }} />
+          </div>
 
-          <p style={{ ...t(0.12), color: "var(--silver)", fontSize: 11, letterSpacing: "0.5em", textTransform: "uppercase", marginBottom: 48, fontWeight: 400, opacity: 0.6 }}>
+          <p style={{ ...t(0.15), color: "var(--silver)", fontSize: 11, letterSpacing: "0.5em", textTransform: "uppercase", marginBottom: 48, fontWeight: 400, opacity: 0.5 }}>
             Independent Hotel Quality Certification
           </p>
 
-          <h1 style={{ ...t(0.28), fontSize: "clamp(2.8rem, 6vw, 5rem)", fontWeight: 200, color: "var(--white)", lineHeight: 1.06, marginBottom: 48, letterSpacing: "-0.025em" }}>
-            We certify the world&apos;s
+          <h1 style={{ ...t(0.32), fontSize: "clamp(2.8rem, 6vw, 5rem)", fontWeight: 200, color: "var(--white)", lineHeight: 1.06, marginBottom: 48, letterSpacing: "-0.025em" }}>
+            Excellence claimed is nothing.
             <br />
-            <span style={{ fontWeight: 600, letterSpacing: "-0.02em" }}>finest hotels</span>
+            <span style={{ fontWeight: 600, letterSpacing: "-0.02em" }}>Excellence certified is everything.</span>
           </h1>
 
-          <p style={{ ...t(0.44), color: "var(--silver)", fontSize: 17, maxWidth: 560, fontWeight: 300, lineHeight: 1.9, marginBottom: 64 }}>
-            Mystery guest assessments, quality certification, and recognition programs for hotels, resorts, and hospitality operators worldwide.
+          <p style={{ ...t(0.5), color: "var(--silver)", fontSize: 17, maxWidth: 560, fontWeight: 300, lineHeight: 1.9, marginBottom: 64 }}>
+            Certified hotels command higher trust, stronger loyalty, and a reputation competitors can&apos;t replicate. Independent assessment and recognition — for properties ready to separate themselves from the rest.
           </p>
 
-          <div style={{ ...t(0.6), display: "flex", gap: 48, alignItems: "center", flexWrap: "wrap" }}>
+          <div style={{ ...t(0.68), display: "flex", gap: 48, alignItems: "center", flexWrap: "wrap" }}>
             <a
               href="#what-we-do"
+              className="hero-cta-primary"
               style={{
+                position: "relative",
                 display: "inline-flex",
                 alignItems: "center",
                 gap: 12,
@@ -106,13 +110,14 @@ export default function Hero() {
                 textTransform: "uppercase",
                 fontWeight: 500,
                 padding: "20px 48px",
-                transition: `all 0.6s ${ease}`,
+                transition: `all 0.7s ${ease}`,
                 border: "1px solid var(--white)",
+                overflow: "hidden",
               }}
               onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = "transparent"; e.currentTarget.style.color = "var(--white)"; }}
               onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = "var(--white)"; e.currentTarget.style.color = "var(--blue)"; }}
             >
-              Discover
+              See What We Find
             </a>
             <a
               href="#services"
@@ -127,36 +132,54 @@ export default function Hero() {
                 fontWeight: 400,
                 paddingBottom: 4,
                 borderBottom: "1px solid rgba(218,220,226,0.3)",
-                transition: `border-color 0.6s ${ease}, color 0.6s ${ease}`,
+                transition: `border-color 0.7s ${ease}, color 0.7s ${ease}`,
               }}
               onMouseEnter={(e) => { e.currentTarget.style.borderBottomColor = "var(--white)"; e.currentTarget.style.color = "var(--white)"; }}
               onMouseLeave={(e) => { e.currentTarget.style.borderBottomColor = "rgba(218,220,226,0.3)"; e.currentTarget.style.color = "var(--silver)"; }}
             >
-              Our Services
+              How It Works
               <ArrowRight size={13} color="currentColor" />
             </a>
           </div>
         </div>
       </div>
 
-      {/* Scroll indicator */}
-      <div style={{
-        position: "absolute", bottom: 56, left: "50%", transform: "translateX(-50%)", zIndex: 10,
-        opacity: phase >= 2 ? 1 : 0,
-        transition: `opacity 1.6s ${ease} 1.4s`,
-        display: "flex", flexDirection: "column", alignItems: "center", gap: 12,
-      }}>
-        <span style={{ fontSize: 8, letterSpacing: "0.4em", textTransform: "uppercase", color: "var(--silver)", opacity: 0.3 }}>Scroll</span>
-        <div className="hero-scroll-line" style={{ width: 1, height: 40, background: "linear-gradient(to bottom, var(--silver), transparent)", opacity: 0.3 }} />
-      </div>
 
       <style>{`
-        @keyframes hero-pulse {
-          0%, 100% { opacity: 0.3; }
-          50% { opacity: 0.5; }
+        @keyframes heroKenBurns {
+          0% { transform: scale(1) translate3d(0,0,0); }
+          100% { transform: scale(1.08) translate3d(-1%, -0.5%, 0); }
+        }
+        .hero-bg {
+          animation: heroKenBurns 30s ease-in-out infinite alternate;
+        }
+        @keyframes heroPulse {
+          0%, 100% { opacity: 0.25; }
+          50% { opacity: 0.45; }
         }
         .hero-scroll-line {
-          animation: hero-pulse 3.5s ease-in-out infinite;
+          animation: heroPulse 4s ease-in-out infinite;
+        }
+        @keyframes heroAccentGrow {
+          from { transform: scaleX(0); }
+          to { transform: scaleX(1); }
+        }
+        .hero-accent-line {
+          animation: heroAccentGrow 1.6s cubic-bezier(0.22, 1, 0.36, 1) 0.8s both;
+        }
+        .hero-cta-primary::after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 60%;
+          height: 100%;
+          background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+          transition: left 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+          pointer-events: none;
+        }
+        .hero-cta-primary:hover::after {
+          left: 120%;
         }
       `}</style>
     </section>

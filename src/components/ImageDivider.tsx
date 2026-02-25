@@ -62,8 +62,9 @@ export default function ImageDivider({
         overflow: "hidden",
       }}
     >
-      {/* Image with parallax */}
+      {/* Image with parallax + Ken Burns when visible */}
       <div
+        className={visible ? "img-divider-bg img-divider-bg--visible" : "img-divider-bg"}
         style={{
           position: "absolute",
           top: "-25%",
@@ -85,6 +86,7 @@ export default function ImageDivider({
           inset: 0,
           backgroundColor: "var(--blue)",
           opacity: overlayOpacity,
+          transition: "opacity 1.2s cubic-bezier(0.22, 1, 0.36, 1)",
         }}
       />
 
@@ -95,7 +97,7 @@ export default function ImageDivider({
           top: 0,
           left: 0,
           right: 0,
-          height: 120,
+          height: 80,
           background: `linear-gradient(to bottom, ${fadeTop}, transparent)`,
           pointerEvents: "none",
         }}
@@ -108,13 +110,20 @@ export default function ImageDivider({
           bottom: 0,
           left: 0,
           right: 0,
-          height: 120,
+          height: 80,
           background: `linear-gradient(to top, ${fadeBottom}, transparent)`,
           pointerEvents: "none",
         }}
       />
 
       <style>{`
+        @keyframes imgDividerKenBurns {
+          0% { transform: scale(1); }
+          100% { transform: scale(1.06); }
+        }
+        .img-divider-bg--visible {
+          animation: imgDividerKenBurns 20s ease-in-out infinite alternate;
+        }
         @media (max-width: 768px) {
           .img-divider { height: 300px !important; }
         }

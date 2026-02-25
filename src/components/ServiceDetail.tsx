@@ -44,7 +44,6 @@ export default function ServiceDetail({
   const text = dark ? "var(--white)" : "var(--blue)";
   const muted = dark ? "var(--silver)" : "#717580";
   const border = dark ? "rgba(218,220,226,0.08)" : "rgba(218,220,226,0.35)";
-  const accent = dark ? "var(--silver)" : "var(--blue)";
 
   const [headerRef, headerVis] = useVisible(0.2);
   const [columnsRef, columnsVis] = useVisible(0.1);
@@ -52,7 +51,7 @@ export default function ServiceDetail({
   const anim = (visible: boolean, delay: number) => ({
     opacity: visible ? 1 : 0,
     transform: visible ? "translate3d(0,0,0)" : "translate3d(0,32px,0)",
-    transition: `opacity 1.8s cubic-bezier(0.22, 1, 0.36, 1) ${delay}s, transform 1.8s cubic-bezier(0.22, 1, 0.36, 1) ${delay}s`,
+    transition: `opacity 2s cubic-bezier(0.22, 1, 0.36, 1) ${delay}s, transform 2s cubic-bezier(0.22, 1, 0.36, 1) ${delay}s`,
   });
 
   const allColumns = [
@@ -82,7 +81,17 @@ export default function ServiceDetail({
           }}
         >
           <div style={{ ...anim(headerVis, 0), flex: "0 0 360px" }}>
-            <span style={{ fontSize: 72, fontWeight: 200, color: text, opacity: 0.04, lineHeight: 1, display: "block", marginBottom: -8 }}>
+            <span style={{
+              fontSize: 72,
+              fontWeight: 200,
+              color: text,
+              opacity: 0.04,
+              lineHeight: 1,
+              display: "block",
+              marginBottom: -8,
+              transition: "opacity 1.5s cubic-bezier(0.22, 1, 0.36, 1)",
+              ...(headerVis ? { opacity: 0.04 } : { opacity: 0 }),
+            }}>
               {number}
             </span>
             <h3 style={{ fontSize: "clamp(1.8rem, 3vw, 2.6rem)", fontWeight: 200, color: text, lineHeight: 1.2, marginBottom: 16 }}>
@@ -92,7 +101,7 @@ export default function ServiceDetail({
               {tagline}
             </p>
           </div>
-          <div style={{ ...anim(headerVis, 0.15), flex: 1 }}>
+          <div style={{ ...anim(headerVis, 0.18), flex: 1 }}>
             <p style={{ fontSize: 17, lineHeight: 1.9, color: text, fontWeight: 300, opacity: 0.7, maxWidth: 580 }}>
               {description}
             </p>
@@ -121,6 +130,7 @@ export default function ServiceDetail({
                 {col.list.map((li, liIdx) => (
                   <li
                     key={li}
+                    className="svc-list-item"
                     style={{
                       fontSize: 15,
                       color: muted,
@@ -129,11 +139,20 @@ export default function ServiceDetail({
                       alignItems: "flex-start",
                       gap: 14,
                       opacity: columnsVis ? 1 : 0,
-                      transform: columnsVis ? "translateX(0)" : "translateX(-12px)",
-                      transition: `opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1) ${colIdx * 0.15 + liIdx * 0.06}s, transform 0.7s cubic-bezier(0.22, 1, 0.36, 1) ${colIdx * 0.15 + liIdx * 0.06}s`,
+                      transform: columnsVis ? "translateX(0)" : "translateX(-16px)",
+                      transition: `opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1) ${colIdx * 0.15 + liIdx * 0.07}s, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1) ${colIdx * 0.15 + liIdx * 0.07}s`,
                     }}
                   >
-                    <span style={{ width: 3, height: 3, borderRadius: "50%", backgroundColor: dark ? "var(--silver)" : "var(--blue)", opacity: 0.2, marginTop: 10, flexShrink: 0 }} />
+                    <span style={{
+                      width: 3,
+                      height: 3,
+                      borderRadius: "50%",
+                      backgroundColor: dark ? "var(--silver)" : "var(--blue)",
+                      opacity: 0.2,
+                      marginTop: 10,
+                      flexShrink: 0,
+                      transition: "transform 0.4s cubic-bezier(0.22, 1, 0.36, 1)",
+                    }} />
                     {li}
                   </li>
                 ))}
@@ -150,6 +169,9 @@ export default function ServiceDetail({
       </div>
 
       <style>{`
+        .svc-list-item:hover span:first-child {
+          transform: scale(1.8);
+        }
         @media (max-width: 900px) {
           .svc-header { flex-direction: column !important; gap: 32px !important; }
           .svc-header > div:first-child { flex: 1 !important; }

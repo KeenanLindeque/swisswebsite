@@ -1,18 +1,18 @@
 "use client";
 
 const words = [
-  "Five-Star Hotels",
-  "Luxury Resorts",
-  "Boutique Properties",
-  "Palace Hotels",
-  "Grand Suites",
-  "Concierge Excellence",
-  "Michelin Dining",
-  "Spa & Wellness",
+  "Independent Certification",
+  "Mystery Assessments",
+  "Operational Excellence",
   "Guest Experience",
   "Service Culture",
   "Swiss Precision",
-  "Certified Quality",
+  "Quality Benchmarking",
+  "Trusted by 250+ Hotels",
+  "40+ Countries",
+  "98% Retention",
+  "Assessment-Based Recognition",
+  "The Standard in Hospitality",
 ];
 
 export default function Marquee() {
@@ -22,25 +22,27 @@ export default function Marquee() {
     <div
       style={{
         overflow: "hidden",
-        padding: "32px 0",
+        padding: "36px 0",
         backgroundColor: "var(--blue)",
-        borderTop: "1px solid rgba(218,220,226,0.06)",
-        borderBottom: "1px solid rgba(218,220,226,0.06)",
+        borderTop: "1px solid rgba(218,220,226,0.04)",
+        borderBottom: "1px solid rgba(218,220,226,0.04)",
       }}
     >
       <div className="marquee-track" style={{ display: "flex", gap: 0, whiteSpace: "nowrap" }}>
         {repeated.map((word, i) => (
           <span
             key={`${word}-${i}`}
+            className="marquee-word"
             style={{
               fontSize: 11,
               letterSpacing: "0.35em",
               textTransform: "uppercase",
               color: "var(--silver)",
               fontWeight: 300,
-              opacity: 0.2,
-              padding: "0 32px",
+              opacity: 0.18,
+              padding: "0 36px",
               flexShrink: 0,
+              transition: "opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1)",
             }}
           >
             {word}
@@ -54,10 +56,13 @@ export default function Marquee() {
           100% { transform: translateX(-50%); }
         }
         .marquee-track {
-          animation: marquee 90s linear infinite;
+          animation: marquee 100s linear infinite;
         }
         .marquee-track:hover {
           animation-play-state: paused;
+        }
+        .marquee-word:hover {
+          opacity: 0.5 !important;
         }
       `}</style>
     </div>

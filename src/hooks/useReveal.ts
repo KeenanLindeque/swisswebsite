@@ -12,7 +12,7 @@ interface RevealOptions {
 export function useReveal({
   threshold = 0.15,
   delay = 0,
-  y = 40,
+  y = 36,
   once = true,
 }: RevealOptions = {}): [React.RefObject<HTMLDivElement | null>, CSSProperties] {
   const ref = useRef<HTMLDivElement>(null);
@@ -39,7 +39,7 @@ export function useReveal({
   const style: CSSProperties = {
     opacity: visible ? 1 : 0,
     transform: visible ? "translate3d(0,0,0)" : `translate3d(0,${y}px,0)`,
-    transition: `opacity 1.8s cubic-bezier(0.22, 1, 0.36, 1) ${delay}s, transform 1.8s cubic-bezier(0.22, 1, 0.36, 1) ${delay}s`,
+    transition: `opacity 2s cubic-bezier(0.22, 1, 0.36, 1) ${delay}s, transform 2s cubic-bezier(0.22, 1, 0.36, 1) ${delay}s`,
     willChange: "opacity, transform",
   };
 

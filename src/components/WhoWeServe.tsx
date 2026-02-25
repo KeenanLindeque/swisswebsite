@@ -7,22 +7,22 @@ const audiences = [
   {
     icon: Building,
     title: "Luxury & Five-Star Hotels",
-    description: "Independent properties and branded luxury hotels seeking objective quality validation and guest experience benchmarking.",
+    description: "You invest millions in your property. We tell you if your team is delivering the experience your brand promises — or quietly undermining it.",
   },
   {
     icon: HotelBed,
     title: "Boutique Hotels & Resorts",
-    description: "Distinctive properties where service culture and guest intimacy define the brand promise.",
+    description: "Your reputation is built on intimacy and detail. One bad stay can undo years of word-of-mouth. We find the cracks before your guests do.",
   },
   {
     icon: Globe,
     title: "Hotel Groups & Chains",
-    description: "Multi-property operators requiring consistent quality oversight across regions and brands.",
+    description: "Consistency across 5, 50, or 500 properties isn't a hope — it's a measurement. We provide the only objective benchmark that scales.",
   },
   {
     icon: KeyIcon,
     title: "Owners & Asset Managers",
-    description: "Investors and ownership groups who need independent verification that operational standards match their expectations.",
+    description: "Your operator says everything is fine. Your reviews say otherwise. We give you independent verification — no politics, no spin.",
   },
 ];
 
@@ -56,8 +56,8 @@ export default function WhoWeServe() {
         </div>
         <div style={{ ...anim(0.1), maxWidth: 580, marginBottom: 80 }}>
           <h2 style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.6rem)", fontWeight: 200, color: "var(--white)", lineHeight: 1.25 }}>
-            Built for hotels that take{" "}
-            <span style={{ fontWeight: 600 }}>quality seriously</span>
+            Built for hotels that refuse to{" "}
+            <span style={{ fontWeight: 600 }}>guess.</span>
           </h2>
         </div>
 
@@ -67,29 +67,51 @@ export default function WhoWeServe() {
             return (
               <div
                 key={a.title}
+                className="wws-card"
                 style={{
                   ...anim(0.15 + i * 0.1),
+                  position: "relative",
                   padding: "52px 36px 44px",
-                  border: `1px solid ${isHovered ? "rgba(218,220,226,0.15)" : "rgba(218,220,226,0.06)"}`,
-                  backgroundColor: isHovered ? "rgba(218,220,226,0.03)" : "transparent",
-                  transition: "all 0.6s cubic-bezier(0.22, 1, 0.36, 1)",
+                  border: `1px solid ${isHovered ? "rgba(218,220,226,0.18)" : "rgba(218,220,226,0.06)"}`,
+                  backgroundColor: isHovered ? "rgba(218,220,226,0.04)" : "transparent",
+                  transition: "all 0.7s cubic-bezier(0.22, 1, 0.36, 1)",
                   cursor: "default",
+                  overflow: "hidden",
+                  transform: isHovered ? "translateY(-4px)" : undefined,
                 }}
                 onMouseEnter={() => setHovered(i)}
                 onMouseLeave={() => setHovered(null)}
               >
+                {/* Shimmer overlay — only visible on hover */}
+                <div
+                  style={{
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    background: "linear-gradient(135deg, transparent 30%, rgba(218,220,226,0.06) 50%, transparent 70%)",
+                    backgroundSize: "200% 200%",
+                    backgroundPosition: isHovered ? "0% 0%" : "100% 100%",
+                    opacity: isHovered ? 1 : 0,
+                    transition: "background-position 1s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1)",
+                    pointerEvents: "none",
+                  }}
+                />
+
                 <div style={{
                   marginBottom: 32,
                   color: isHovered ? "var(--white)" : "var(--silver)",
-                  transition: "color 0.5s",
-                  opacity: isHovered ? 0.7 : 0.35,
+                  transition: "all 0.6s cubic-bezier(0.22, 1, 0.36, 1)",
+                  opacity: isHovered ? 0.8 : 0.35,
+                  transform: isHovered ? "scale(1.08)" : "scale(1)",
                 }}>
                   <a.icon size={28} color="currentColor" />
                 </div>
-                <h3 style={{ fontSize: 18, fontWeight: 400, color: "var(--white)", marginBottom: 14, lineHeight: 1.3 }}>
+                <h3 style={{ fontSize: 18, fontWeight: 400, color: "var(--white)", marginBottom: 14, lineHeight: 1.3, position: "relative" }}>
                   {a.title}
                 </h3>
-                <p style={{ fontSize: 14, color: "var(--silver)", fontWeight: 300, lineHeight: 1.8, opacity: 0.45 }}>
+                <p style={{ fontSize: 14, color: "var(--silver)", fontWeight: 300, lineHeight: 1.8, opacity: isHovered ? 0.6 : 0.4, transition: "opacity 0.6s", position: "relative" }}>
                   {a.description}
                 </p>
               </div>

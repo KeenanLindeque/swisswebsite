@@ -28,10 +28,10 @@ export default function Navbar() {
         left: 0,
         right: 0,
         zIndex: 100,
-        transition: "all 0.7s cubic-bezier(0.22, 1, 0.36, 1)",
+        transition: "all 0.8s cubic-bezier(0.22, 1, 0.36, 1)",
         backgroundColor: scrolled ? "rgba(15, 35, 71, 0.97)" : "transparent",
         backdropFilter: scrolled ? "blur(24px)" : "none",
-        borderBottom: scrolled ? "1px solid rgba(218,220,226,0.08)" : "1px solid transparent",
+        borderBottom: scrolled ? "1px solid rgba(218,220,226,0.06)" : "1px solid transparent",
       }}
     >
       <div
@@ -42,11 +42,15 @@ export default function Navbar() {
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
-          transition: "padding 0.7s cubic-bezier(0.22, 1, 0.36, 1)",
+          transition: "padding 0.8s cubic-bezier(0.22, 1, 0.36, 1)",
         }}
       >
-        <a href="#" style={{ display: "flex", alignItems: "center" }}>
-          <img src="/logo.svg" alt="Swiss Hospitality Company" style={{ height: 28, width: "auto", display: "block" }} />
+        <a
+          href="#"
+          className="nav-logo"
+          style={{ display: "flex", alignItems: "center" }}
+        >
+          <img src="/logo.svg" alt="Swiss Hospitality Company" style={{ height: 28, width: "auto", display: "block", transition: "transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.4s" }} />
         </a>
 
         <div className="nav-desktop" style={{ display: "flex", alignItems: "center", gap: 52 }}>
@@ -54,13 +58,16 @@ export default function Navbar() {
             <a
               key={link.label}
               href={link.href}
+              className="nav-link"
               style={{
+                position: "relative",
                 color: "var(--silver)",
                 fontSize: 11,
                 fontWeight: 400,
                 letterSpacing: "0.2em",
                 textTransform: "uppercase",
-                transition: "color 0.4s",
+                transition: "color 0.5s cubic-bezier(0.22, 1, 0.36, 1)",
+                paddingBottom: 3,
               }}
               onMouseEnter={(e) => (e.currentTarget.style.color = "var(--white)")}
               onMouseLeave={(e) => (e.currentTarget.style.color = "var(--silver)")}
@@ -77,9 +84,9 @@ export default function Navbar() {
           aria-label="Menu"
         >
           <div style={{ width: 24, display: "flex", flexDirection: "column", gap: mobileOpen ? 0 : 6, alignItems: "flex-end" }}>
-            <span style={{ display: "block", height: 1, backgroundColor: "var(--white)", transition: "all 0.3s", width: 24, transform: mobileOpen ? "rotate(45deg) translateY(0.5px)" : "none" }} />
-            {!mobileOpen && <span style={{ display: "block", height: 1, backgroundColor: "var(--white)", width: 16, transition: "all 0.3s" }} />}
-            <span style={{ display: "block", height: 1, backgroundColor: "var(--white)", transition: "all 0.3s", width: 24, transform: mobileOpen ? "rotate(-45deg) translateY(-0.5px)" : "none" }} />
+            <span style={{ display: "block", height: 1, backgroundColor: "var(--white)", transition: "all 0.4s cubic-bezier(0.22, 1, 0.36, 1)", width: 24, transform: mobileOpen ? "rotate(45deg) translateY(0.5px)" : "none" }} />
+            {!mobileOpen && <span style={{ display: "block", height: 1, backgroundColor: "var(--white)", width: 16, transition: "all 0.4s cubic-bezier(0.22, 1, 0.36, 1)" }} />}
+            <span style={{ display: "block", height: 1, backgroundColor: "var(--white)", transition: "all 0.4s cubic-bezier(0.22, 1, 0.36, 1)", width: 24, transform: mobileOpen ? "rotate(-45deg) translateY(-0.5px)" : "none" }} />
           </div>
         </button>
       </div>
@@ -95,6 +102,24 @@ export default function Navbar() {
       )}
 
       <style>{`
+        .nav-logo:hover img {
+          transform: scale(1.03);
+          opacity: 0.85;
+        }
+        .nav-link::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 0;
+          height: 1px;
+          background: var(--white);
+          opacity: 0.4;
+          transition: width 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .nav-link:hover::after {
+          width: 100%;
+        }
         @media (max-width: 768px) {
           .nav-desktop { display: none !important; }
           .nav-mobile-btn { display: block !important; }

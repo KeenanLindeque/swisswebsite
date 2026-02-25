@@ -3,10 +3,10 @@
 import { useEffect, useRef, useState } from "react";
 
 const stats = [
-  { value: 250, suffix: "+", label: "Hotels Assessed" },
-  { value: 40, suffix: "+", label: "Countries" },
-  { value: 98, suffix: "%", label: "Client Retention" },
-  { value: 15, suffix: "+", label: "Years of Excellence" },
+  { value: 250, suffix: "+", label: "Hotels Assessed Worldwide" },
+  { value: 40, suffix: "+", label: "Countries & Territories" },
+  { value: 98, suffix: "%", label: "Client Retention Rate" },
+  { value: 15, suffix: "+", label: "Years Setting the Standard" },
 ];
 
 function useCounter(target: number, visible: boolean) {
@@ -14,7 +14,7 @@ function useCounter(target: number, visible: boolean) {
   useEffect(() => {
     if (!visible) return;
     let frame: number;
-    const duration = 2200;
+    const duration = 2600;
     const start = performance.now();
     const step = (now: number) => {
       const elapsed = now - start;
@@ -29,8 +29,10 @@ function useCounter(target: number, visible: boolean) {
   return count;
 }
 
-function StatItem({ value, suffix, label, visible, delay }: { value: number; suffix: string; label: string; visible: boolean; delay: number }) {
+function StatItem({ value, suffix, label, visible, delay, isLast }: { value: number; suffix: string; label: string; visible: boolean; delay: number; isLast: boolean }) {
   const count = useCounter(value, visible);
+  const [hovered, setHovered] = useState(false);
+
   return (
     <div
       style={{
@@ -39,16 +41,48 @@ function StatItem({ value, suffix, label, visible, delay }: { value: number; suf
         padding: "0 24px",
         opacity: visible ? 1 : 0,
         transform: visible ? "translate3d(0,0,0)" : "translate3d(0,24px,0)",
-        transition: `all 1s cubic-bezier(0.22, 1, 0.36, 1) ${delay}s`,
+        transition: `all 1.2s cubic-bezier(0.22, 1, 0.36, 1) ${delay}s`,
+        display: "flex",
+        alignItems: "center",
+        gap: 0,
+        cursor: "default",
       }}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
     >
-      <div style={{ fontSize: "clamp(2.4rem, 5vw, 4.2rem)", fontWeight: 200, color: "var(--white)", lineHeight: 1, marginBottom: 12 }}>
-        {count}
-        <span style={{ fontSize: "0.5em", color: "var(--silver)", opacity: 0.4 }}>{suffix}</span>
+      <div style={{ flex: 1 }}>
+        <div style={{
+          fontSize: "clamp(2.4rem, 5vw, 4.2rem)",
+          fontWeight: 200,
+          color: "var(--white)",
+          lineHeight: 1,
+          marginBottom: 12,
+          transition: "transform 0.6s cubic-bezier(0.22, 1, 0.36, 1)",
+          transform: hovered ? "scale(1.04)" : "scale(1)",
+        }}>
+          {count}
+          <span style={{ fontSize: "0.5em", color: "var(--silver)", opacity: 0.4, transition: "opacity 0.5s", ...(hovered ? { opacity: 0.7 } : {}) }}>{suffix}</span>
+        </div>
+        <p style={{
+          fontSize: 11,
+          color: "var(--silver)",
+          letterSpacing: "0.2em",
+          textTransform: "uppercase",
+          fontWeight: 300,
+          opacity: hovered ? 0.55 : 0.3,
+          transition: "opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1)",
+        }}>
+          {label}
+        </p>
       </div>
-      <p style={{ fontSize: 11, color: "var(--silver)", letterSpacing: "0.2em", textTransform: "uppercase", fontWeight: 300, opacity: 0.35 }}>
-        {label}
-      </p>
+      {!isLast && (
+        <div style={{
+          width: 1,
+          height: 48,
+          background: "linear-gradient(to bottom, transparent, rgba(218,220,226,0.12), transparent)",
+          flexShrink: 0,
+        }} />
+      )}
     </div>
   );
 }
@@ -84,7 +118,7 @@ export default function Stats() {
         }}
       >
         {stats.map((s, i) => (
-          <StatItem key={s.label} {...s} visible={visible} delay={i * 0.12} />
+          <StatItem key={s.label} {...s} visible={visible} delay={i * 0.12} isLast={i === stats.length - 1} />
         ))}
       </div>
       <style>{`

@@ -8,31 +8,31 @@ const pillars = [
     icon: UserCheck,
     number: "01",
     title: "Mystery Guest Assessments",
-    description: "Anonymous, on-site hotel assessments by trained hospitality professionals — from check-in to check-out.",
+    description: "We stay at your hotel as a real guest and document the entire experience — so you see exactly what your guests see.",
   },
   {
     icon: Clipboard,
     number: "02",
-    title: "Quality & Operational Certification",
-    description: "Systematic evaluation of SOP compliance, service culture, staff preparedness, and quality governance across your hotel.",
+    title: "Quality Certification",
+    description: "An independent, department-by-department certification of your hotel's operational standards and service delivery.",
   },
   {
     icon: Award,
     number: "03",
-    title: "Hotel Recognition Program",
-    description: "Assessment-based recognition for hotels that demonstrate measurable excellence in service and operations.",
+    title: "Recognition Program",
+    description: "Hotels that meet our standard earn the most credible quality recognition in the industry. Less than 12% qualify.",
   },
   {
     icon: ConciergeBell,
     number: "04",
     title: "Executive Advisory",
-    description: "Post-assessment strategic guidance for hotel leadership — service design, recovery strategy, and leadership alignment.",
+    description: "A focused session with your leadership team to turn assessment findings into a clear action plan.",
   },
   {
     icon: TrendingUp,
     number: "05",
     title: "Hospitality Intelligence",
-    description: "Independent insights on service quality trends, operational performance signals, and emerging patterns across hotel markets.",
+    description: "Data-driven insights from hundreds of assessments — what top-performing hotels do differently.",
   },
 ];
 
@@ -60,15 +60,15 @@ export default function WhatWeDo() {
     <section id="what-we-do" style={{ padding: "160px 0 140px", backgroundColor: "var(--white)" }}>
       <div ref={ref} style={{ maxWidth: 1400, margin: "0 auto", padding: "0 48px" }}>
         <div style={{ ...anim(0), marginBottom: 24 }}>
-          <div style={{ width: 40, height: 1, backgroundColor: "var(--blue)", opacity: 0.12, marginBottom: 24 }} />
+          <div className="wwd-accent" style={{ width: 40, height: 1, backgroundColor: "var(--blue)", opacity: 0.12, marginBottom: 24 }} />
           <p style={{ color: "var(--blue)", fontSize: 11, letterSpacing: "0.5em", textTransform: "uppercase", fontWeight: 400, opacity: 0.35 }}>
             What We Do
           </p>
         </div>
         <div style={{ ...anim(0.1), maxWidth: 720, marginBottom: 96 }}>
           <h2 style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)", fontWeight: 200, color: "var(--blue)", lineHeight: 1.25 }}>
-            We send trained assessors into your hotel as real guests. They evaluate every touchpoint. You get an{" "}
-            <span style={{ fontWeight: 600 }}>honest, independent report</span> of what your guests actually experience.
+            Five ways we help you{" "}
+            <span style={{ fontWeight: 600 }}>earn it.</span>
           </h2>
         </div>
 
@@ -78,8 +78,10 @@ export default function WhatWeDo() {
             return (
               <div
                 key={p.number}
+                className="wwd-row"
                 style={{
                   ...anim(0.15 + i * 0.08),
+                  position: "relative",
                   display: "flex",
                   alignItems: "flex-start",
                   gap: 44,
@@ -92,11 +94,25 @@ export default function WhatWeDo() {
                 onMouseEnter={() => setHovered(i)}
                 onMouseLeave={() => setHovered(null)}
               >
+                {/* Subtle left accent line on hover */}
+                <div style={{
+                  position: "absolute",
+                  left: 0,
+                  top: "50%",
+                  transform: "translateY(-50%)",
+                  width: 2,
+                  height: isHovered ? "50%" : "0%",
+                  backgroundColor: "var(--blue)",
+                  opacity: 0.15,
+                  transition: "height 0.7s cubic-bezier(0.22, 1, 0.36, 1)",
+                  borderRadius: 1,
+                }} />
+
                 <span style={{
-                  fontSize: 11,
-                  fontWeight: 400,
+                  fontSize: 12,
+                  fontWeight: 500,
                   color: "var(--blue)",
-                  opacity: isHovered ? 0.4 : 0.15,
+                  opacity: isHovered ? 0.6 : 0.3,
                   letterSpacing: "0.1em",
                   minWidth: 32,
                   paddingTop: 4,
@@ -116,6 +132,7 @@ export default function WhatWeDo() {
                   border: `1px solid ${isHovered ? "var(--blue)" : "rgba(218,220,226,0.5)"}`,
                   transition: "all 0.6s cubic-bezier(0.22, 1, 0.36, 1)",
                   color: isHovered ? "var(--white)" : "var(--blue)",
+                  transform: isHovered ? "scale(1.06)" : "scale(1)",
                 }}>
                   <p.icon size={20} color="currentColor" />
                 </div>
@@ -130,8 +147,8 @@ export default function WhatWeDo() {
                     fontWeight: 300,
                     lineHeight: 1.8,
                     maxWidth: 500,
-                    opacity: isHovered ? 1 : 0.6,
-                    transition: "opacity 0.5s",
+                    opacity: isHovered ? 1 : 0.55,
+                    transition: "opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1)",
                   }}>
                     {p.description}
                   </p>
@@ -139,7 +156,7 @@ export default function WhatWeDo() {
 
                 <div style={{
                   opacity: isHovered ? 1 : 0,
-                  transform: isHovered ? "translateX(0)" : "translateX(-8px)",
+                  transform: isHovered ? "translateX(0)" : "translateX(-12px)",
                   transition: "all 0.6s cubic-bezier(0.22, 1, 0.36, 1)",
                   display: "flex",
                   alignItems: "center",

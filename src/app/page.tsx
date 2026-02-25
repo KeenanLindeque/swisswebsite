@@ -23,13 +23,13 @@ export default function Home() {
       <WhatWeDo />
 
       <ImageDivider
-        src="/images/hotel-lobby.jpg"
-        alt="Luxury hotel lobby with marble interiors"
+        src="/images/hotel-bedroom.jpg"
+        alt="Luxury hotel suite with morning light"
         height={560}
-        overlayOpacity={0.2}
-        position="center 45%"
-        fadeTop="rgba(243, 243, 245, 0.6)"
-        fadeBottom="rgba(15, 35, 71, 0.5)"
+        overlayOpacity={0.08}
+        position="center 40%"
+        fadeTop="rgba(243, 243, 245, 0.25)"
+        fadeBottom="rgba(15, 35, 71, 0.2)"
       />
 
       <WhoWeServe />
@@ -40,73 +40,70 @@ export default function Home() {
         id="services"
         number="01"
         title="Mystery Guest Assessments"
-        tagline="Discreet. Independent. Measured."
-        description="We check into your hotel as a real guest. From the moment we book to the moment we leave, every interaction is observed and documented. You receive a complete picture of your guest journey — not what staff think happens, but what actually happens."
+        tagline="We check in. Your staff won't know."
+        description="We stay at your hotel as a real guest and assess the entire journey — from booking to check-out. You get the unfiltered truth about what your guests actually experience."
         items={[
           {
-            heading: "We Assess",
+            heading: "What We Assess",
             list: [
-              "Pre-arrival communication & booking",
-              "Arrival, doorman & check-in",
+              "Booking, arrival & first impressions",
               "Room quality & housekeeping",
-              "Concierge & guest requests",
-              "Restaurant & bar service",
-              "Spa & wellness facilities",
+              "Dining, bar & in-room service",
+              "Concierge, spa & facilities",
               "Complaint handling & recovery",
               "Check-out & departure",
             ],
           },
         ]}
         deliverable={{
-          heading: "You Receive",
+          heading: "What You Get",
           list: [
-            "Scored performance across all touchpoints",
+            "Scored report across all touchpoints",
             "Behavioral observations per department",
             "Service gap analysis",
-            "Prioritized improvement roadmap",
+            "Prioritized action plan",
           ],
         }}
       />
 
       <ServiceDetail
         number="02"
-        title="Quality & Operational Certification"
-        tagline="Where Standards Meet Execution."
-        description="A systematic, department-by-department evaluation of your hotel's operational reality. We certify the alignment between your brand standards and what's actually happening on the floor — across front office, F&B, housekeeping, and leadership."
+        title="Quality Certification"
+        tagline="Your standards on paper vs. your standards on the floor."
+        description="We evaluate every department against your own brand standards and industry benchmarks — then certify where you actually stand."
         reversed
         dark
         items={[
           {
-            heading: "Hotel Areas Covered",
+            heading: "Areas Covered",
             list: [
               "Front office & reception",
               "Food & beverage operations",
-              "Housekeeping & laundry",
-              "Engineering & maintenance",
+              "Housekeeping & maintenance",
               "Spa, pool & leisure",
               "Staff training & readiness",
             ],
           },
         ]}
         deliverable={{
-          heading: "You Receive",
+          heading: "What You Get",
           list: [
             "Department performance scores",
             "SOP compliance findings",
-            "Risk indicators & critical gaps",
+            "Risk indicators & gaps",
             "Strategic improvement roadmap",
           ],
         }}
       />
 
       <ImageDivider
-        src="/images/mountain-chalet.jpg"
-        alt="Swiss mountain chalet in alpine setting"
+        src="/images/hotel-room-view.jpg"
+        alt="Luxury hotel room with elegant interiors"
         height={480}
-        overlayOpacity={0.2}
-        position="center 40%"
-        fadeTop="rgba(15, 35, 71, 0.5)"
-        fadeBottom="rgba(15, 35, 71, 0.5)"
+        overlayOpacity={0.08}
+        position="center 45%"
+        fadeTop="rgba(15, 35, 71, 0.2)"
+        fadeBottom="rgba(15, 35, 71, 0.2)"
       />
 
       <Recognition />
@@ -114,52 +111,52 @@ export default function Home() {
       <ServiceDetail
         id="advisory"
         number="04"
-        title="Executive Quality Advisory"
-        tagline="Targeted Strategic Guidance."
-        description="After we certify your hotel, we sit with your leadership team. Not a long-term consultancy retainer — a focused session to translate our findings into action. We help GMs, hotel directors, and ownership groups understand exactly where to invest attention."
+        title="Executive Advisory"
+        tagline="Findings become action. One session."
+        description="After certification, we sit with your leadership team and translate every finding into a focused action plan. No retainers. No fluff."
         items={[
           {
             heading: "Advisory Includes",
             list: [
-              "Executive debrief on certification findings",
-              "Guest journey design refinement",
+              "Executive debrief on all findings",
+              "Guest journey refinement",
               "Service recovery strategy",
-              "Leadership & team alignment",
+              "Leadership alignment",
             ],
           },
         ]}
-        footnote="We provide diagnostic clarity and strategic direction — not ongoing retainers."
+        footnote="Hotels that act on our advisory see measurable improvement within 90 days."
       />
 
       <ServiceDetail
         id="insights"
         number="05"
         title="Hospitality Intelligence"
-        tagline="Observations from the Field."
-        description="Drawing from hundreds of hotel assessments across global markets, we publish independent insights on what's working, what's declining, and what separates good hotels from exceptional ones."
+        tagline="What the top 10% do differently."
+        description="Insights drawn from hundreds of assessments worldwide — the patterns, benchmarks, and trends that separate good hotels from unforgettable ones."
         reversed
         dark
         items={[
           {
-            heading: "We Publish",
+            heading: "Insights On",
             list: [
-              "Guest experience quality trends",
-              "Hotel operational performance signals",
+              "Guest experience trends",
+              "Operational performance benchmarks",
               "Service excellence case studies",
-              "Emerging patterns across luxury, boutique & chain hotels",
+              "Competitive market patterns",
             ],
           },
         ]}
       />
 
       <ImageDivider
-        src="/images/hotel-terrace.jpg"
-        alt="Hotel terrace overlooking the landscape"
+        src="/images/swiss-alps.jpg"
+        alt="Swiss alpine landscape with mountain peaks"
         height={440}
-        overlayOpacity={0.15}
-        position="center 40%"
-        fadeTop="rgba(15, 35, 71, 0.5)"
-        fadeBottom="rgba(243, 243, 245, 0.5)"
+        overlayOpacity={0.06}
+        position="center 45%"
+        fadeTop="rgba(15, 35, 71, 0.15)"
+        fadeBottom="rgba(243, 243, 245, 0.2)"
       />
 
       <Footer />

@@ -8,17 +8,17 @@ const levels = [
   {
     icon: Shield,
     title: "Verified Quality",
-    description: "Hotels that demonstrate consistent operational standards and reliable service delivery.",
+    description: "Your hotel passed. Your operations are sound, your service is consistent, and your guests notice. This is where credibility begins.",
   },
   {
     icon: Star,
     title: "Commended Excellence",
-    description: "Properties showing sustained above-standard performance in guest experience and service culture.",
+    description: "Reserved for the top 20% of assessed properties. These hotels don't just meet standards — they set them. Guests return because they can't find better.",
   },
   {
     icon: Crown,
     title: "Distinguished Hospitality",
-    description: "Exceptional establishments with measurable excellence across every dimension of hospitality.",
+    description: "The highest tier. Fewer than 1 in 10 hotels reach this level. These are the properties that define what hospitality should feel like.",
   },
 ];
 
@@ -30,9 +30,9 @@ const principles = [
 ];
 
 const benefits = [
-  "Official recognition certificate",
-  "Digital quality seal",
-  "Public listing on SwissHospitality.com",
+  "Official recognition certificate & quality seal",
+  "Featured listing on SwissHospitality.com",
+  "Use of the SHC quality mark in marketing & sales",
 ];
 
 export default function Recognition() {
@@ -41,6 +41,7 @@ export default function Recognition() {
   const [r3, s3] = useReveal({ delay: 0.2 });
   const [r4, s4] = useReveal({ delay: 0.35 });
   const [hovered, setHovered] = useState<number | null>(null);
+  const [tagHovered, setTagHovered] = useState<number | null>(null);
 
   return (
     <section id="recognition" style={{ padding: "180px 0", backgroundColor: "var(--blue)" }}>
@@ -53,12 +54,12 @@ export default function Recognition() {
             Recognition Program
           </h2>
           <p style={{ fontSize: 14, fontWeight: 400, color: "var(--silver)", letterSpacing: "0.08em", fontStyle: "italic", opacity: 0.5 }}>
-            Recognition Earned Through Assessment.
+            You Can&apos;t Buy It. You Earn It.
           </p>
         </div>
         <div ref={r2} style={{ ...s2, maxWidth: 640, marginBottom: 88 }}>
           <p style={{ fontSize: 17, color: "var(--silver)", fontWeight: 300, lineHeight: 1.9, opacity: 0.55 }}>
-            The Swiss Hospitality Recognition Program acknowledges hotels that demonstrate measurable excellence in service quality and operational integrity.
+            No sponsorship. No membership fee. The Swiss Hospitality recognition is awarded exclusively through independent assessment — making it the most credible quality signal a hotel can carry.
           </p>
         </div>
 
@@ -72,24 +73,51 @@ export default function Recognition() {
             return (
               <div
                 key={level.title}
+                className="rec-card"
                 style={{
                   flex: 1,
+                  position: "relative",
                   padding: "60px 44px 52px",
-                  border: `1px solid ${isHovered ? "rgba(218,220,226,0.15)" : "rgba(218,220,226,0.06)"}`,
-                  transition: "all 0.6s cubic-bezier(0.22, 1, 0.36, 1)",
-                  backgroundColor: isHovered ? "rgba(218,220,226,0.03)" : "transparent",
+                  border: `1px solid ${isHovered ? "rgba(218,220,226,0.18)" : "rgba(218,220,226,0.06)"}`,
+                  transition: "all 0.7s cubic-bezier(0.22, 1, 0.36, 1)",
+                  backgroundColor: isHovered ? "rgba(218,220,226,0.04)" : "transparent",
                   cursor: "default",
+                  overflow: "hidden",
+                  transform: isHovered ? "translateY(-4px)" : "translateY(0)",
                 }}
                 onMouseEnter={() => setHovered(i)}
                 onMouseLeave={() => setHovered(null)}
               >
-                <div style={{ marginBottom: 36, color: isHovered ? "var(--white)" : "var(--silver)", transition: "color 0.5s", opacity: isHovered ? 0.7 : 0.3 }}>
+                {/* Shimmer — only visible on hover */}
+                <div
+                  style={{
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    background: "linear-gradient(135deg, transparent 30%, rgba(218,220,226,0.06) 50%, transparent 70%)",
+                    backgroundSize: "200% 200%",
+                    backgroundPosition: isHovered ? "0% 0%" : "100% 100%",
+                    opacity: isHovered ? 1 : 0,
+                    transition: "background-position 1s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1)",
+                    pointerEvents: "none",
+                  }}
+                />
+
+                <div style={{
+                  marginBottom: 36,
+                  color: isHovered ? "var(--white)" : "var(--silver)",
+                  transition: "all 0.6s cubic-bezier(0.22, 1, 0.36, 1)",
+                  opacity: isHovered ? 0.8 : 0.3,
+                  transform: isHovered ? "scale(1.08)" : "scale(1)",
+                }}>
                   <level.icon size={28} color="currentColor" />
                 </div>
-                <h3 style={{ fontSize: 22, fontWeight: 300, color: "var(--white)", marginBottom: 16 }}>
+                <h3 style={{ fontSize: 22, fontWeight: 300, color: "var(--white)", marginBottom: 16, position: "relative" }}>
                   {level.title}
                 </h3>
-                <p style={{ fontSize: 15, color: "var(--silver)", lineHeight: 1.8, fontWeight: 300, opacity: 0.5 }}>
+                <p style={{ fontSize: 15, color: "var(--silver)", lineHeight: 1.8, fontWeight: 300, opacity: isHovered ? 0.6 : 0.45, transition: "opacity 0.5s", position: "relative" }}>
                   {level.description}
                 </p>
               </div>
@@ -113,17 +141,22 @@ export default function Recognition() {
               Recognition Is
             </h4>
             <div style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
-              {principles.map((p) => (
+              {principles.map((p, i) => (
                 <span
                   key={p}
                   style={{
                     padding: "10px 22px",
-                    border: "1px solid rgba(218,220,226,0.12)",
+                    border: `1px solid ${tagHovered === i ? "rgba(218,220,226,0.25)" : "rgba(218,220,226,0.12)"}`,
                     fontSize: 13,
                     color: "var(--silver)",
                     fontWeight: 300,
                     letterSpacing: "0.03em",
+                    transition: "all 0.5s cubic-bezier(0.22, 1, 0.36, 1)",
+                    transform: tagHovered === i ? "translateY(-2px)" : "translateY(0)",
+                    cursor: "default",
                   }}
+                  onMouseEnter={() => setTagHovered(i)}
+                  onMouseLeave={() => setTagHovered(null)}
                 >
                   {p}
                 </span>
@@ -146,7 +179,7 @@ export default function Recognition() {
         </div>
 
         <p style={{ marginTop: 56, fontSize: 15, fontStyle: "italic", color: "var(--silver)", fontWeight: 300, opacity: 0.35 }}>
-          Recognition reflects verified performance, not sponsorship.
+          If your hotel earns it, your competitors will notice.
         </p>
       </div>
 

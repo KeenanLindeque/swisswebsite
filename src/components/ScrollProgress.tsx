@@ -9,7 +9,7 @@ export default function ScrollProgress() {
   const target = useRef(0);
 
   const lerp = useCallback(() => {
-    current.current += (target.current - current.current) * 0.08;
+    current.current += (target.current - current.current) * 0.06;
     if (barRef.current) {
       barRef.current.style.transform = `scaleX(${current.current}) translate3d(0,0,0)`;
     }
@@ -35,19 +35,33 @@ export default function ScrollProgress() {
   return (
     <div
       ref={barRef}
+      className="scroll-progress-bar"
       style={{
         position: "fixed",
         top: 0,
         left: 0,
         height: 2,
         width: "100%",
-        backgroundColor: "var(--silver)",
-        opacity: 0.4,
+        background: "linear-gradient(90deg, rgba(218,220,226,0.3), rgba(218,220,226,0.5))",
         zIndex: 200,
         transformOrigin: "left",
         transform: "scaleX(0) translate3d(0,0,0)",
         willChange: "transform",
       }}
-    />
+    >
+      <style>{`
+        .scroll-progress-bar::after {
+          content: '';
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 80px;
+          height: 100%;
+          background: linear-gradient(90deg, transparent, rgba(218,220,226,0.3));
+          filter: blur(3px);
+          pointer-events: none;
+        }
+      `}</style>
+    </div>
   );
 }
