@@ -85,12 +85,11 @@ export default function ServiceDetail({
               fontSize: 72,
               fontWeight: 200,
               color: text,
-              opacity: 0.04,
               lineHeight: 1,
               display: "block",
               marginBottom: -8,
               transition: "opacity 1.5s cubic-bezier(0.22, 1, 0.36, 1)",
-              ...(headerVis ? { opacity: 0.04 } : { opacity: 0 }),
+              opacity: headerVis ? 0.04 : 0,
             }}>
               {number}
             </span>
