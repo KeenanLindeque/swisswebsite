@@ -321,7 +321,7 @@ export default function BrandGuidelines() {
               <div style={{ flex: 1, backgroundColor: WHITE, border: "1px solid rgba(218,220,226,0.4)", borderRadius: 2, display: "flex", alignItems: "center", justifyContent: "center", padding: 40 }}>
                 <img src="/logo.svg" alt="SHC Logo Dark" style={{ height: 48, filter: LOGO_FILTER }} />
               </div>
-              <p style={{ fontSize: 8, color: "var(--blue)", opacity: 0.2, marginTop: 10, fontFamily: "monospace" }}>logo-dark.svg — #0F2347</p>
+              <p style={{ fontSize: 8, color: "var(--blue)", opacity: 0.2, marginTop: 10, fontFamily: "monospace" }}>logo.svg — #0F2347 (with CSS filter)</p>
             </div>
             <div style={{ flex: 1, display: "flex", flexDirection: "column" }}>
               <SectionTitle>On Dark Backgrounds</SectionTitle>

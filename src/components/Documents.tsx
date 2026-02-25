@@ -116,13 +116,6 @@ export default function Documents() {
           el.style.animation = "none";
         });
 
-        clone.querySelectorAll<HTMLImageElement>("img").forEach((img) => {
-          if (img.src.includes("logo.svg") && !img.src.includes("logo-dark")) {
-            img.src = img.src.replace("logo.svg", "logo-dark.svg");
-            img.style.filter = "none";
-          }
-        });
-
         const origInputs = page.querySelectorAll<HTMLInputElement | HTMLTextAreaElement>("input, textarea");
         const cloneInputs = clone.querySelectorAll<HTMLInputElement | HTMLTextAreaElement>("input, textarea");
         cloneInputs.forEach((input, idx) => {

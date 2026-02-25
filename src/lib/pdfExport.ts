@@ -2,7 +2,7 @@
  * Clean, editable PDF export using jsPDF text/vector API only (no images).
  * All content is real text — selectable and editable in any PDF viewer.
  *
- * Font: Optima (from public/fonts/Optima-*.ttf if present, else Libertinus Sans from public/fonts).
+ * Font: Helvetica (built-in to jsPDF).
  * Sizes and weights match the UI; letter-spacing on labels via charSpace.
  */
 
@@ -32,7 +32,7 @@ function line(pdf: jsPDF, x1: number, y1: number, x2: number, y2: number, opacit
 }
 
 /**
- * Draw text once. Uses Optima (or helvetica fallback). Use xRight for right-edge position.
+ * Draw text once. Uses Helvetica. Use xRight for right-edge position.
  */
 function text(
   pdf: jsPDF,

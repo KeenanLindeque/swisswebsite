@@ -97,7 +97,7 @@ export default function TypographyGuide() {
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 32 }}>
           <div>
             <img src="/logo.svg" alt="SHC" style={{ height: 36, marginBottom: 20, filter: LOGO_FILTER }} />
-            <p style={{ ...LABEL, marginBottom: 14 }}>Brand Typography System</p>
+            <p style={{ ...LABEL, marginBottom: 14 }}>Helvetica Neue Typography System</p>
             <Accent w={64} />
             <h1 style={{ fontSize: 32, fontWeight: 200, color: "var(--blue)", lineHeight: 1.2 }}>
               Document <span style={{ fontWeight: 600 }}>Text Styles</span>

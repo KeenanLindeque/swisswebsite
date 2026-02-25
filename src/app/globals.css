@@ -20,7 +20,7 @@ body {
   color: var(--blue);
   overflow-x: hidden;
   line-height: 1.6;
-  font-family: "Optima Pro", "Optima", "Optima Nova", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  font-family: "Helvetica Neue", "Helvetica", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
