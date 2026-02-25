@@ -18,13 +18,19 @@ interface ServiceDetailProps {
 function useVisible(threshold = 0.15) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
+  const [mounted, setMounted] = useState(false);
   useEffect(() => {
+    const raf = requestAnimationFrame(() => setMounted(true));
+    return () => cancelAnimationFrame(raf);
+  }, []);
+  useEffect(() => {
+    if (!mounted) return;
     const el = ref.current;
     if (!el) return;
     const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) { setVisible(true); obs.unobserve(el); } }, { threshold });
     obs.observe(el);
     return () => obs.disconnect();
-  }, [threshold]);
+  }, [threshold, mounted]);
   return [ref, visible] as const;
 }
 

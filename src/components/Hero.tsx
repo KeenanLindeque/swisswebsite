@@ -84,10 +84,10 @@ export default function Hero() {
             Independent Hotel Quality Certification
           </p>
 
-          <h1 style={{ ...t(0.32), fontSize: "clamp(2.8rem, 6vw, 5rem)", fontWeight: 200, color: "var(--white)", lineHeight: 1.06, marginBottom: 48, letterSpacing: "-0.025em" }}>
+          <h1 style={{ ...t(0.32), fontSize: "clamp(2.2rem, 4.5vw, 3.6rem)", fontWeight: 200, color: "var(--white)", lineHeight: 1.12, marginBottom: 48, letterSpacing: "-0.02em" }}>
             Excellence claimed is nothing.
             <br />
-            <span style={{ fontWeight: 600, letterSpacing: "-0.02em" }}>Excellence certified is everything.</span>
+            <span style={{ fontWeight: 600, letterSpacing: "-0.015em" }}>Excellence certified is everything.</span>
           </h1>
 
           <p style={{ ...t(0.5), color: "var(--silver)", fontSize: 17, maxWidth: 560, fontWeight: 300, lineHeight: 1.9, marginBottom: 64 }}>

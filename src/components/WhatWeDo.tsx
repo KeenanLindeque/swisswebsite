@@ -39,20 +39,27 @@ const pillars = [
 export default function WhatWeDo() {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const [hovered, setHovered] = useState<number | null>(null);
 
   useEffect(() => {
+    const raf = requestAnimationFrame(() => setMounted(true));
+    return () => cancelAnimationFrame(raf);
+  }, []);
+
+  useEffect(() => {
+    if (!mounted) return;
     const el = ref.current;
     if (!el) return;
     const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) { setVisible(true); obs.unobserve(el); } }, { threshold: 0.1 });
     obs.observe(el);
     return () => obs.disconnect();
-  }, []);
+  }, [mounted]);
 
   const anim = (delay: number) => ({
     opacity: visible ? 1 : 0,
     transform: visible ? "translate3d(0,0,0)" : "translate3d(0,28px,0)",
-    transition: `opacity 1.8s cubic-bezier(0.22, 1, 0.36, 1) ${delay}s, transform 1.8s cubic-bezier(0.22, 1, 0.36, 1) ${delay}s`,
+    transition: mounted ? `opacity 1.8s cubic-bezier(0.22, 1, 0.36, 1) ${delay}s, transform 1.8s cubic-bezier(0.22, 1, 0.36, 1) ${delay}s` : "none",
     willChange: "opacity, transform" as const,
   });
 

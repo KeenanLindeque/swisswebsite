@@ -90,8 +90,15 @@ function StatItem({ value, suffix, label, visible, delay, isLast }: { value: num
 export default function Stats() {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    const raf = requestAnimationFrame(() => setMounted(true));
+    return () => cancelAnimationFrame(raf);
+  }, []);
+
+  useEffect(() => {
+    if (!mounted) return;
     const el = ref.current;
     if (!el) return;
     const obs = new IntersectionObserver(([entry]) => {
@@ -102,7 +109,7 @@ export default function Stats() {
     }, { threshold: 0.3 });
     obs.observe(el);
     return () => obs.disconnect();
-  }, []);
+  }, [mounted]);
 
   return (
     <section style={{ padding: "110px 0", backgroundColor: "var(--blue)", borderTop: "1px solid rgba(218,220,226,0.06)" }}>

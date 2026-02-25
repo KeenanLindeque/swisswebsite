@@ -17,8 +17,15 @@ export function useReveal({
 }: RevealOptions = {}): [React.RefObject<HTMLDivElement | null>, CSSProperties] {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    const raf = requestAnimationFrame(() => setMounted(true));
+    return () => cancelAnimationFrame(raf);
+  }, []);
+
+  useEffect(() => {
+    if (!mounted) return;
     const el = ref.current;
     if (!el) return;
     const observer = new IntersectionObserver(
@@ -34,12 +41,14 @@ export function useReveal({
     );
     observer.observe(el);
     return () => observer.disconnect();
-  }, [threshold, once]);
+  }, [threshold, once, mounted]);
 
   const style: CSSProperties = {
     opacity: visible ? 1 : 0,
     transform: visible ? "translate3d(0,0,0)" : `translate3d(0,${y}px,0)`,
-    transition: `opacity 2s cubic-bezier(0.22, 1, 0.36, 1) ${delay}s, transform 2s cubic-bezier(0.22, 1, 0.36, 1) ${delay}s`,
+    transition: mounted
+      ? `opacity 2s cubic-bezier(0.22, 1, 0.36, 1) ${delay}s, transform 2s cubic-bezier(0.22, 1, 0.36, 1) ${delay}s`
+      : "none",
     willChange: "opacity, transform",
   };
 
