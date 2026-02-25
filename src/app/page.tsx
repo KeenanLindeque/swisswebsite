@@ -23,13 +23,13 @@ export default function Home() {
       <WhatWeDo />
 
       <ImageDivider
-        src="/images/hotel-bedroom.jpg"
-        alt="Luxury hotel suite with morning light"
+        src="/images/luxury-lobby.jpg"
+        alt="Grand luxury hotel lobby"
         height={560}
-        overlayOpacity={0.08}
+        overlayOpacity={0.55}
         position="center 40%"
-        fadeTop="rgba(243, 243, 245, 0.25)"
-        fadeBottom="rgba(15, 35, 71, 0.2)"
+        fadeTop="transparent"
+        fadeBottom="transparent"
       />
 
       <WhoWeServe />
@@ -97,13 +97,13 @@ export default function Home() {
       />
 
       <ImageDivider
-        src="/images/hotel-room-view.jpg"
-        alt="Luxury hotel room with elegant interiors"
+        src="/images/luxury-suite.jpg"
+        alt="Five-star luxury hotel suite"
         height={480}
-        overlayOpacity={0.08}
+        overlayOpacity={0.55}
         position="center 45%"
-        fadeTop="rgba(15, 35, 71, 0.2)"
-        fadeBottom="rgba(15, 35, 71, 0.2)"
+        fadeTop="transparent"
+        fadeBottom="transparent"
       />
 
       <Recognition />
@@ -153,10 +153,10 @@ export default function Home() {
         src="/images/swiss-alps.jpg"
         alt="Swiss alpine landscape with mountain peaks"
         height={440}
-        overlayOpacity={0.06}
+        overlayOpacity={0.5}
         position="center 45%"
-        fadeTop="rgba(15, 35, 71, 0.15)"
-        fadeBottom="rgba(243, 243, 245, 0.2)"
+        fadeTop="transparent"
+        fadeBottom="transparent"
       />
 
       <Footer />
