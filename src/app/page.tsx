@@ -7,7 +7,6 @@ import Stats from "@/components/Stats";
 import ServiceDetail from "@/components/ServiceDetail";
 import Recognition from "@/components/Recognition";
 import ImageDivider from "@/components/ImageDivider";
-import Documents from "@/components/Documents";
 import Footer from "@/components/Footer";
 import ScrollProgress from "@/components/ScrollProgress";
 
@@ -162,8 +161,6 @@ export default function Home() {
         fadeTop="rgba(15, 35, 71, 0.5)"
         fadeBottom="rgba(243, 243, 245, 0.5)"
       />
-
-      <Documents />
 
       <Footer />
     </>
