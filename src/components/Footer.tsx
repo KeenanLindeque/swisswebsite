@@ -23,7 +23,7 @@ export default function Footer() {
       >
         <div style={{ maxWidth: 1400, margin: "0 auto", padding: "0 48px", textAlign: "center" }}>
           <div ref={r1} style={s1}>
-            <div style={{ width: 40, height: 1, backgroundColor: "var(--blue)", opacity: 0.1, margin: "0 auto 32px" }} />
+            <div style={{ width: 40, height: 1, backgroundColor: "var(--accent)", opacity: 0.4, margin: "0 auto 32px" }} />
             <p style={{ color: "var(--blue)", fontSize: 10, letterSpacing: "0.25em", textTransform: "uppercase", fontWeight: 400, opacity: 0.35, marginBottom: 48 }}>
               Limited Availability
             </p>
@@ -41,14 +41,14 @@ export default function Footer() {
                 position: "relative",
                 display: "inline-block",
                 padding: "24px 72px",
-                backgroundColor: ctaHover ? "transparent" : "var(--blue)",
-                color: ctaHover ? "var(--blue)" : "var(--white)",
+                backgroundColor: ctaHover ? "transparent" : "var(--accent)",
+                color: ctaHover ? "var(--accent)" : "var(--white)",
                 fontSize: 10,
                 letterSpacing: "0.25em",
                 textTransform: "uppercase",
                 fontWeight: 500,
                 transition: "all 1s cubic-bezier(0.22, 1, 0.36, 1)",
-                border: "1px solid var(--blue)",
+                border: "1px solid var(--accent)",
                 overflow: "hidden",
               }}
               onMouseEnter={() => setCtaHover(true)}

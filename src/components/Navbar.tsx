@@ -3,10 +3,10 @@
 import { useState, useEffect } from "react";
 
 const navLinks = [
-  { label: "Services", href: "#services" },
-  { label: "Recognition", href: "#recognition" },
-  { label: "Advisory", href: "#advisory" },
-  { label: "Insights", href: "#insights" },
+  { label: "Services", href: "#what-we-do" },
+  { label: "Recognition", href: "/services/recognition" },
+  { label: "Advisory", href: "/services/executive-advisory" },
+  { label: "Intelligence", href: "/services/hospitality-intelligence" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -114,8 +114,8 @@ export default function Navbar() {
           left: 0;
           width: 0;
           height: 1px;
-          background: var(--white);
-          opacity: 0.4;
+          background: var(--accent);
+          opacity: 0.7;
           transition: width 0.5s cubic-bezier(0.22, 1, 0.36, 1);
         }
         .nav-link:hover::after {

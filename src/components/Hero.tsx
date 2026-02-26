@@ -77,7 +77,7 @@ export default function Hero() {
         <div style={{ maxWidth: 820 }}>
           {/* Accent line with grow animation */}
           <div style={{ ...t(0.0), overflow: "hidden" }}>
-            <div className="hero-accent-line" style={{ width: 48, height: 1, backgroundColor: "var(--silver)", opacity: 0.15, marginBottom: 48, transformOrigin: "left" }} />
+            <div className="hero-accent-line" style={{ width: 48, height: 1, backgroundColor: "var(--accent)", opacity: 0.5, marginBottom: 48, transformOrigin: "left" }} />
           </div>
 
           <p style={{ ...t(0.15), color: "var(--silver)", fontSize: 10, letterSpacing: "0.25em", textTransform: "uppercase", marginBottom: 48, fontWeight: 400, opacity: 0.4 }}>
@@ -103,19 +103,19 @@ export default function Hero() {
                 display: "inline-flex",
                 alignItems: "center",
                 gap: 12,
-                color: "var(--blue)",
-                backgroundColor: "var(--white)",
+                color: "var(--white)",
+                backgroundColor: "var(--accent)",
                 fontSize: 10,
                 letterSpacing: "0.25em",
                 textTransform: "uppercase",
                 fontWeight: 500,
                 padding: "20px 48px",
                 transition: `all 1s ${ease}`,
-                border: "1px solid var(--white)",
+                border: "1px solid var(--accent)",
                 overflow: "hidden",
               }}
-              onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = "transparent"; e.currentTarget.style.color = "var(--white)"; }}
-              onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = "var(--white)"; e.currentTarget.style.color = "var(--blue)"; }}
+              onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = "transparent"; e.currentTarget.style.color = "var(--white)"; e.currentTarget.style.borderColor = "var(--white)"; }}
+              onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = "var(--accent)"; e.currentTarget.style.color = "var(--white)"; e.currentTarget.style.borderColor = "var(--accent)"; }}
             >
               See What We Find
             </a>

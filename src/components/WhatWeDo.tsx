@@ -9,30 +9,40 @@ const pillars = [
     number: "01",
     title: "Mystery Guest Assessments",
     description: "We stay at your hotel as a real guest and document the entire experience — so you see exactly what your guests see.",
+    tags: ["Incognito Stay", "Full Guest Journey", "Unfiltered Report"],
+    href: "/services/mystery-guest",
   },
   {
     icon: Clipboard,
     number: "02",
     title: "Quality Certification",
     description: "An independent, department-by-department certification of your hotel's operational standards and service delivery.",
+    tags: ["SOP Audit", "All Departments", "Scored Results"],
+    href: "/services/quality-certification",
   },
   {
     icon: Award,
     number: "03",
     title: "Recognition Program",
     description: "Hotels that meet our standard earn the most credible quality recognition in the industry. Less than 12% qualify.",
+    tags: ["3 Tiers", "Assessment-Based", "Earned Only"],
+    href: "/services/recognition",
   },
   {
     icon: ConciergeBell,
     number: "04",
     title: "Executive Advisory",
     description: "A focused session with your leadership team to turn assessment findings into a clear action plan.",
+    tags: ["Leadership Debrief", "Action Plan", "90-Day Impact"],
+    href: "/services/executive-advisory",
   },
   {
     icon: TrendingUp,
     number: "05",
     title: "Hospitality Intelligence",
     description: "Data-driven insights from hundreds of assessments — what top-performing hotels do differently.",
+    tags: ["Benchmarks", "Trend Data", "Competitive Intel"],
+    href: "/services/hospitality-intelligence",
   },
 ];
 
@@ -69,7 +79,7 @@ export default function WhatWeDo() {
     <section id="what-we-do" style={{ padding: "200px 0 180px", backgroundColor: "var(--white)" }}>
       <div ref={ref} style={{ maxWidth: 1400, margin: "0 auto", padding: "0 48px" }}>
         <div style={{ ...anim(0), marginBottom: 24 }}>
-          <div className="wwd-accent" style={{ width: 40, height: 1, backgroundColor: "var(--blue)", opacity: 0.1, marginBottom: 24 }} />
+          <div className="wwd-accent" style={{ width: 40, height: 1, backgroundColor: "var(--accent)", opacity: 0.4, marginBottom: 24 }} />
           <p style={{ color: "var(--blue)", fontSize: 10, letterSpacing: "0.25em", textTransform: "uppercase", fontWeight: 400, opacity: 0.35 }}>
             What We Do
           </p>
@@ -85,8 +95,9 @@ export default function WhatWeDo() {
           {pillars.map((p, i) => {
             const isHovered = hovered === i;
             return (
-              <div
+              <a
                 key={p.number}
+                href={p.href}
                 className="wwd-row"
                 style={{
                   ...anim(0.15 + i * 0.08),
@@ -96,14 +107,15 @@ export default function WhatWeDo() {
                   gap: 44,
                   padding: "44px 0",
                   borderTop: "1px solid rgba(15,35,71,0.08)",
-                  cursor: "default",
+                  cursor: "pointer",
                   transition: "padding-left 1s cubic-bezier(0.22, 1, 0.36, 1)",
                   paddingLeft: isHovered ? 20 : 0,
+                  textDecoration: "none",
+                  color: "inherit",
                 }}
                 onMouseEnter={() => setHovered(i)}
                 onMouseLeave={() => setHovered(null)}
               >
-                {/* Subtle left accent line on hover */}
                 <div style={{
                   position: "absolute",
                   left: 0,
@@ -111,9 +123,9 @@ export default function WhatWeDo() {
                   transform: "translateY(-50%)",
                   width: 2,
                   height: isHovered ? "50%" : "0%",
-                  backgroundColor: "var(--blue)",
-                  opacity: 0.1,
-                  transition: "height 1s cubic-bezier(0.22, 1, 0.36, 1)",
+                  backgroundColor: "var(--accent)",
+                  opacity: isHovered ? 0.6 : 0,
+                  transition: "height 1s cubic-bezier(0.22, 1, 0.36, 1), opacity 1s cubic-bezier(0.22, 1, 0.36, 1)",
                   borderRadius: 1,
                 }} />
 
@@ -137,8 +149,8 @@ export default function WhatWeDo() {
                   alignItems: "center",
                   justifyContent: "center",
                   flexShrink: 0,
-                  backgroundColor: isHovered ? "var(--blue)" : "transparent",
-                  border: `1px solid ${isHovered ? "var(--blue)" : "rgba(15,35,71,0.1)"}`,
+                  backgroundColor: isHovered ? "var(--accent)" : "transparent",
+                  border: `1px solid ${isHovered ? "var(--accent)" : "rgba(15,35,71,0.1)"}`,
                   transition: "all 1s cubic-bezier(0.22, 1, 0.36, 1)",
                   color: isHovered ? "var(--white)" : "var(--blue)",
                   transform: isHovered ? "scale(1.06)" : "scale(1)",
@@ -158,24 +170,51 @@ export default function WhatWeDo() {
                     maxWidth: 500,
                     opacity: isHovered ? 0.75 : 0.5,
                     transition: "opacity 1s cubic-bezier(0.22, 1, 0.36, 1)",
+                    marginBottom: 16,
                   }}>
                     {p.description}
                   </p>
+                  <div style={{
+                    display: "flex",
+                    flexWrap: "wrap",
+                    gap: 8,
+                    opacity: isHovered ? 1 : 0.6,
+                    transition: "opacity 1s cubic-bezier(0.22, 1, 0.36, 1)",
+                  }}>
+                    {p.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        style={{
+                          fontSize: 11,
+                          fontWeight: 400,
+                          color: "var(--blue)",
+                          letterSpacing: "0.04em",
+                          padding: "5px 14px",
+                          border: "1px solid rgba(15,35,71,0.1)",
+                          opacity: 0.55,
+                          lineHeight: 1,
+                        }}
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
 
                 <div style={{
-                  opacity: isHovered ? 1 : 0,
-                  transform: isHovered ? "translateX(0)" : "translateX(-12px)",
+                  opacity: isHovered ? 1 : 0.15,
+                  transform: isHovered ? "translateX(0)" : "translateX(-8px)",
                   transition: "all 1s cubic-bezier(0.22, 1, 0.36, 1)",
                   display: "flex",
                   alignItems: "center",
                   paddingTop: 8,
+                  flexShrink: 0,
                 }}>
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                    <path d="M5 12h14M12 5l7 7-7 7" stroke="var(--blue)" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" opacity="0.3" />
+                    <path d="M5 12h14M12 5l7 7-7 7" stroke="var(--blue)" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" opacity="0.4" />
                   </svg>
                 </div>
-              </div>
+              </a>
             );
           })}
           <div style={{ borderTop: "1px solid rgba(15,35,71,0.08)" }} />

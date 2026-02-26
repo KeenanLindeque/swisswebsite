@@ -2,6 +2,7 @@
   --white: #fffaef;
   --blue: #0f2347;
   --silver: #dadce2;
+  --accent: #dadce2;
 }
 
 * {
@@ -35,7 +36,7 @@ ul {
 }
 
 ::selection {
-  background: var(--blue);
+  background: var(--accent);
   color: var(--white);
 }
 

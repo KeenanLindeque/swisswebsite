@@ -61,7 +61,7 @@ function StatItem({ value, suffix, label, visible, delay, isLast }: { value: num
           transform: hovered ? "scale(1.04)" : "scale(1)",
         }}>
           {count}
-          <span style={{ fontSize: "0.5em", color: "var(--silver)", opacity: 0.3, transition: "opacity 0.8s", ...(hovered ? { opacity: 0.6 } : {}) }}>{suffix}</span>
+          <span style={{ fontSize: "0.5em", color: "var(--accent)", opacity: 0.4, transition: "opacity 0.8s", ...(hovered ? { opacity: 0.7 } : {}) }}>{suffix}</span>
         </div>
         <p style={{
           fontSize: 10,

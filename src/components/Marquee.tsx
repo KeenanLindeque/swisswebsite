@@ -43,9 +43,13 @@ export default function Marquee() {
               padding: "0 36px",
               flexShrink: 0,
               transition: "opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1)",
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 36,
             }}
           >
             {word}
+            <span style={{ width: 4, height: 4, borderRadius: "50%", backgroundColor: "var(--accent)", opacity: 0.35, flexShrink: 0 }} />
           </span>
         ))}
       </div>
