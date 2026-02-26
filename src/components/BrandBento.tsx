@@ -19,8 +19,8 @@ function useVisible(threshold = 0.1) {
 /* ── Color Swatches ──────────────────────────── */
 function ColorSwatches() {
   const colors = [
-    { name: "Alpine Blue", value: "#0f2347", text: "#F3F3F5" },
-    { name: "Snow White", value: "#F3F3F5", text: "#0f2347" },
+    { name: "Alpine Blue", value: "#0f2347", text: "#fffaef" },
+    { name: "Ivory White", value: "#fffaef", text: "#0f2347" },
     { name: "Silver Standard", value: "#dadce2", text: "#0f2347" },
   ];
   return (

@@ -4,7 +4,7 @@ const LOGO_FILTER = "brightness(0) saturate(100%) invert(11%) sepia(30%) saturat
 const LABEL: React.CSSProperties = { fontSize: 9, color: "var(--blue)", opacity: 0.3, textTransform: "uppercase", letterSpacing: "0.15em", fontWeight: 400 };
 const BLUE = "#0f2347";
 const SILVER = "#dadce2";
-const WHITE = "#F3F3F5";
+const WHITE = "#fffaef";
 const TOTAL_PAGES = 15;
 
 function Accent({ w = 48 }: { w?: number }) {
@@ -328,7 +328,7 @@ export default function BrandGuidelines() {
               <div style={{ flex: 1, backgroundColor: BLUE, borderRadius: 2, display: "flex", alignItems: "center", justifyContent: "center", padding: 40 }}>
                 <img src="/logo.svg" alt="SHC Logo Light" style={{ height: 48 }} />
               </div>
-              <p style={{ fontSize: 8, color: "var(--blue)", opacity: 0.2, marginTop: 10, fontFamily: "monospace" }}>logo.svg — #F3F3F5</p>
+              <p style={{ fontSize: 8, color: "var(--blue)", opacity: 0.2, marginTop: 10, fontFamily: "monospace" }}>logo.svg — #FFFAEF</p>
             </div>
           </div>
           <div style={{ marginTop: 24 }}>
@@ -336,7 +336,7 @@ export default function BrandGuidelines() {
             <Accent w={32} />
             {["The primary logo must always appear in full — never crop or partially obscure.",
               "Maintain the original aspect ratio at all times.",
-              "The logo must only appear in the approved brand colors: Navy (#0F2347) or Off-White (#F3F3F5).",
+              "The logo must only appear in the approved brand colors: Navy (#0F2347) or Ivory (#FFFAEF).",
             ].map((n) => (
               <div key={n} style={{ display: "flex", alignItems: "flex-start", gap: 10, padding: "8px 0" }}>
                 <div style={{ width: 4, height: 4, borderRadius: "50%", backgroundColor: "var(--blue)", opacity: 0.15, marginTop: 7, flexShrink: 0 }} />
@@ -434,10 +434,10 @@ export default function BrandGuidelines() {
               </div>
               <div style={{ flex: 1, display: "flex", flexDirection: "column" }}>
                 <div style={{ flex: 1, backgroundColor: WHITE, border: "1px solid rgba(218,220,226,0.5)", borderRadius: 2, marginBottom: 12 }} />
-                <p style={{ fontSize: 13, color: "var(--blue)", fontWeight: 500 }}>Off-White</p>
-                <p style={{ fontSize: 9, color: "var(--blue)", opacity: 0.3, fontFamily: "monospace", marginTop: 6 }}>HEX #F3F3F5</p>
-                <p style={{ fontSize: 8, color: "var(--blue)", opacity: 0.22, fontFamily: "monospace" }}>RGB 243, 243, 245</p>
-                <p style={{ fontSize: 8, color: "var(--blue)", opacity: 0.22, fontFamily: "monospace" }}>CMYK 1, 1, 0, 4</p>
+                <p style={{ fontSize: 13, color: "var(--blue)", fontWeight: 500 }}>Ivory White</p>
+                <p style={{ fontSize: 9, color: "var(--blue)", opacity: 0.3, fontFamily: "monospace", marginTop: 6 }}>HEX #FFFAEF</p>
+                <p style={{ fontSize: 8, color: "var(--blue)", opacity: 0.22, fontFamily: "monospace" }}>RGB 255, 250, 239</p>
+                <p style={{ fontSize: 8, color: "var(--blue)", opacity: 0.22, fontFamily: "monospace" }}>CMYK 0, 2, 6, 0</p>
                 <p style={{ fontSize: 9, color: "var(--blue)", opacity: 0.25, marginTop: 6 }}>Primary light color. Backgrounds, reversed text.</p>
               </div>
               <div style={{ flex: 1, display: "flex", flexDirection: "column" }}>
