@@ -12,58 +12,58 @@ export default function Footer() {
 
   return (
     <>
-      {/* Contact CTA */}
       <section
         id="contact"
         style={{
-          padding: "220px 0",
+          padding: "260px 0",
           backgroundColor: "var(--white)",
-          borderTop: "1px solid rgba(15,35,71,0.08)",
+          borderTop: "1px solid rgba(15,35,71,0.06)",
         }}
       >
         <div style={{ maxWidth: 1400, margin: "0 auto", padding: "0 48px", textAlign: "center" }}>
           <div ref={r1} style={s1}>
-            <div style={{ width: 40, height: 1, backgroundColor: "var(--accent)", opacity: 0.4, margin: "0 auto 32px" }} />
-            <p style={{ color: "var(--blue)", fontSize: 10, letterSpacing: "0.25em", textTransform: "uppercase", fontWeight: 400, opacity: 0.35, marginBottom: 48 }}>
+            <div style={{ width: 48, height: 1, backgroundColor: "var(--blue)", opacity: 0.08, margin: "0 auto 40px" }} />
+
+            <p style={{ color: "var(--blue)", fontSize: 10, letterSpacing: "0.3em", textTransform: "uppercase", fontWeight: 400, opacity: 0.25, marginBottom: 56 }}>
               Limited Availability
             </p>
-            <h2 style={{ fontSize: "clamp(2rem, 4vw, 3.4rem)", fontWeight: 200, color: "var(--blue)", lineHeight: 1.15, marginBottom: 28, maxWidth: 700, margin: "0 auto 28px", letterSpacing: "-0.01em" }}>
-              Your competitors are already<br />
-              <span style={{ fontWeight: 500, letterSpacing: "-0.01em" }}>asking about us.</span>
+
+            <h2 style={{ fontSize: "clamp(2.2rem, 4.5vw, 3.6rem)", fontWeight: 200, color: "var(--blue)", lineHeight: 1.1, marginBottom: 40, maxWidth: 600, margin: "0 auto 40px", letterSpacing: "-0.02em" }}>
+              Request an assessment.
             </h2>
-            <p style={{ fontSize: 16, color: "#717580", fontWeight: 300, lineHeight: 1.9, maxWidth: 480, margin: "0 auto 56px", opacity: 0.8 }}>
-              We accept a limited number of assessment engagements per quarter to maintain the independence and depth our clients expect. If you&apos;re serious about quality, let&apos;s talk.
+
+            <p style={{ fontSize: 16, color: "var(--blue)", fontWeight: 300, lineHeight: 2, maxWidth: 440, margin: "0 auto 72px", opacity: 0.35 }}>
+              We accept a limited number of engagements per quarter. Assessment is by application only.
             </p>
+
             <a
               href="mailto:info@swisshospitality.com"
               className="footer-cta"
               style={{
                 position: "relative",
                 display: "inline-block",
-                padding: "24px 72px",
-                backgroundColor: ctaHover ? "transparent" : "var(--accent)",
-                color: ctaHover ? "var(--accent)" : "var(--white)",
+                padding: "22px 64px",
+                backgroundColor: ctaHover ? "transparent" : "var(--blue)",
+                color: ctaHover ? "var(--blue)" : "var(--white)",
                 fontSize: 10,
-                letterSpacing: "0.25em",
+                letterSpacing: "0.3em",
                 textTransform: "uppercase",
-                fontWeight: 500,
+                fontWeight: 400,
                 transition: "all 1s cubic-bezier(0.22, 1, 0.36, 1)",
-                border: "1px solid var(--accent)",
+                border: "1px solid var(--blue)",
                 overflow: "hidden",
               }}
               onMouseEnter={() => setCtaHover(true)}
               onMouseLeave={() => setCtaHover(false)}
             >
-              <span style={{ position: "relative", zIndex: 1 }}>Request an Assessment</span>
+              <span style={{ position: "relative", zIndex: 1 }}>Apply for Assessment</span>
             </a>
           </div>
         </div>
       </section>
 
-      {/* Documents panel */}
       {showDocs && <Documents />}
 
-      {/* Footer */}
       <footer
         style={{
           padding: "64px 0",
@@ -89,7 +89,7 @@ export default function Footer() {
               className="footer-templates-btn"
               style={{
                 background: "none",
-                border: "1px solid rgba(218,220,226,0.08)",
+                border: "1px solid rgba(218,220,226,0.06)",
                 color: "var(--silver)",
                 fontSize: 9,
                 letterSpacing: "0.2em",
@@ -97,17 +97,17 @@ export default function Footer() {
                 fontWeight: 300,
                 padding: "8px 16px",
                 cursor: "pointer",
-                opacity: 0.25,
+                opacity: 0.2,
                 transition: "all 0.8s cubic-bezier(0.22, 1, 0.36, 1)",
                 fontFamily: "inherit",
               }}
-              onMouseEnter={(e) => { e.currentTarget.style.opacity = "0.7"; e.currentTarget.style.borderColor = "rgba(218,220,226,0.2)"; }}
-              onMouseLeave={(e) => { e.currentTarget.style.opacity = "0.25"; e.currentTarget.style.borderColor = "rgba(218,220,226,0.08)"; }}
+              onMouseEnter={(e) => { e.currentTarget.style.opacity = "0.5"; e.currentTarget.style.borderColor = "rgba(218,220,226,0.15)"; }}
+              onMouseLeave={(e) => { e.currentTarget.style.opacity = "0.2"; e.currentTarget.style.borderColor = "rgba(218,220,226,0.06)"; }}
             >
               {showDocs ? "Hide" : "Templates"}
             </button>
-            <p style={{ fontSize: 11, color: "var(--silver)", opacity: 0.25, fontWeight: 300, letterSpacing: "0.06em" }}>
-              &copy; {new Date().getFullYear()} Swiss Hospitality Company. All rights reserved.
+            <p style={{ fontSize: 11, color: "var(--silver)", opacity: 0.2, fontWeight: 300, letterSpacing: "0.06em" }}>
+              &copy; {new Date().getFullYear()} Swiss Hospitality Company
             </p>
           </div>
         </div>
@@ -121,7 +121,7 @@ export default function Footer() {
           left: -100%;
           width: 60%;
           height: 100%;
-          background: linear-gradient(90deg, transparent, rgba(218,220,226,0.1), transparent);
+          background: linear-gradient(90deg, transparent, rgba(218,220,226,0.06), transparent);
           transition: left 1s cubic-bezier(0.22, 1, 0.36, 1);
           pointer-events: none;
         }
@@ -129,7 +129,7 @@ export default function Footer() {
           left: 140%;
         }
         .footer-logo:hover img {
-          transform: scale(1.04);
+          transform: scale(1.03);
           opacity: 0.8;
         }
       `}</style>

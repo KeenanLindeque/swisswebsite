@@ -1,9 +1,10 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Marquee from "@/components/Marquee";
-import WhatWeDo from "@/components/WhatWeDo";
 import WhoWeServe from "@/components/WhoWeServe";
 import Stats from "@/components/Stats";
+import Recognition from "@/components/Recognition";
+import WhatWeDo from "@/components/WhatWeDo";
 import ImageDivider from "@/components/ImageDivider";
 import Footer from "@/components/Footer";
 import ScrollProgress from "@/components/ScrollProgress";
@@ -14,11 +15,15 @@ export default function Home() {
       <ScrollProgress />
       <Navbar />
 
+      {/* 1. Authority — who we are */}
       <Hero />
 
       <Marquee />
 
-      <WhatWeDo />
+      {/* 2. Credibility — institutional positioning + proof */}
+      <WhoWeServe />
+
+      <Stats />
 
       <ImageDivider
         src="/images/luxury-lobby.jpg"
@@ -30,9 +35,8 @@ export default function Home() {
         fadeBottom="transparent"
       />
 
-      <WhoWeServe />
-
-      <Stats />
+      {/* 3. Scarcity — the crown jewel */}
+      <Recognition />
 
       <ImageDivider
         src="/images/luxury-suite.jpg"
@@ -43,6 +47,9 @@ export default function Home() {
         fadeTop="transparent"
         fadeBottom="transparent"
       />
+
+      {/* 4. Mechanics — what we do (services last) */}
+      <WhatWeDo />
 
       <ImageDivider
         src="/images/swiss-alps.jpg"

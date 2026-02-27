@@ -1,47 +1,31 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { UserCheck, Clipboard, Award, ConciergeBell, TrendingUp } from "./Icons";
 
-const pillars = [
+const services = [
   {
-    icon: UserCheck,
     number: "01",
     title: "Mystery Guest Assessments",
-    description: "We stay at your hotel as a real guest and document the entire experience — so you see exactly what your guests see.",
-    tags: ["Incognito Stay", "Full Guest Journey", "Unfiltered Report"],
     href: "/services/mystery-guest",
   },
   {
-    icon: Clipboard,
     number: "02",
     title: "Quality Certification",
-    description: "An independent, department-by-department certification of your hotel's operational standards and service delivery.",
-    tags: ["SOP Audit", "All Departments", "Scored Results"],
     href: "/services/quality-certification",
   },
   {
-    icon: Award,
     number: "03",
     title: "Recognition Program",
-    description: "Hotels that meet our standard earn the most credible quality recognition in the industry. Less than 12% qualify.",
-    tags: ["3 Tiers", "Assessment-Based", "Earned Only"],
     href: "/services/recognition",
   },
   {
-    icon: ConciergeBell,
     number: "04",
     title: "Executive Advisory",
-    description: "A focused session with your leadership team to turn assessment findings into a clear action plan.",
-    tags: ["Leadership Debrief", "Action Plan", "90-Day Impact"],
     href: "/services/executive-advisory",
   },
   {
-    icon: TrendingUp,
     number: "05",
     title: "Hospitality Intelligence",
-    description: "Data-driven insights from hundreds of assessments — what top-performing hotels do differently.",
-    tags: ["Benchmarks", "Trend Data", "Competitive Intel"],
     href: "/services/hospitality-intelligence",
   },
 ];
@@ -71,161 +55,91 @@ export default function WhatWeDo() {
   const anim = (delay: number) => ({
     opacity: visible ? 1 : 0,
     transform: visible ? "translate3d(0,0,0)" : "translate3d(0,28px,0)",
-    transition: mounted ? `opacity 1.8s cubic-bezier(0.22, 1, 0.36, 1) ${delay}s, transform 1.8s cubic-bezier(0.22, 1, 0.36, 1) ${delay}s` : "none",
+    transition: mounted ? `opacity 2s cubic-bezier(0.22, 1, 0.36, 1) ${delay}s, transform 2s cubic-bezier(0.22, 1, 0.36, 1) ${delay}s` : "none",
     willChange: "opacity, transform" as const,
   });
 
   return (
-    <section id="what-we-do" style={{ padding: "200px 0 180px", backgroundColor: "var(--white)" }}>
+    <section id="what-we-do" style={{ padding: "240px 0", backgroundColor: "var(--white)" }}>
       <div ref={ref} style={{ maxWidth: 1400, margin: "0 auto", padding: "0 48px" }}>
-        <div style={{ ...anim(0), marginBottom: 24 }}>
-          <div className="wwd-accent" style={{ width: 40, height: 1, backgroundColor: "var(--accent)", opacity: 0.4, marginBottom: 24 }} />
-          <p style={{ color: "var(--blue)", fontSize: 10, letterSpacing: "0.25em", textTransform: "uppercase", fontWeight: 400, opacity: 0.35 }}>
+
+        <div style={{ ...anim(0), marginBottom: 40 }}>
+          <div style={{ width: 48, height: 1, backgroundColor: "var(--blue)", opacity: 0.08, marginBottom: 32 }} />
+          <p style={{ color: "var(--blue)", fontSize: 10, letterSpacing: "0.3em", textTransform: "uppercase", fontWeight: 400, opacity: 0.3 }}>
             What We Do
           </p>
         </div>
-        <div style={{ ...anim(0.1), maxWidth: 720, marginBottom: 120 }}>
-          <h2 style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)", fontWeight: 200, color: "var(--blue)", lineHeight: 1.25, letterSpacing: "-0.02em" }}>
-            Five ways we help you{" "}
-            <span style={{ fontWeight: 500, letterSpacing: "-0.01em" }}>earn it.</span>
+
+        <div style={{ ...anim(0.1), maxWidth: 560, marginBottom: 140 }}>
+          <h2 style={{ fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 200, color: "var(--blue)", lineHeight: 1.15, letterSpacing: "-0.02em" }}>
+            Assessment. Certification.<br />Recognition.
           </h2>
         </div>
 
-        <div className="wwd-grid" style={{ display: "flex", flexDirection: "column", gap: 0 }}>
-          {pillars.map((p, i) => {
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          {services.map((s, i) => {
             const isHovered = hovered === i;
             return (
               <a
-                key={p.number}
-                href={p.href}
-                className="wwd-row"
+                key={s.number}
+                href={s.href}
                 style={{
-                  ...anim(0.15 + i * 0.08),
-                  position: "relative",
+                  ...anim(0.15 + i * 0.06),
                   display: "flex",
-                  alignItems: "flex-start",
-                  gap: 44,
-                  padding: "44px 0",
-                  borderTop: "1px solid rgba(15,35,71,0.08)",
-                  cursor: "pointer",
-                  transition: "padding-left 1s cubic-bezier(0.22, 1, 0.36, 1)",
-                  paddingLeft: isHovered ? 20 : 0,
+                  alignItems: "center",
+                  gap: 48,
+                  padding: "40px 0",
+                  borderTop: "1px solid rgba(15,35,71,0.06)",
                   textDecoration: "none",
                   color: "inherit",
+                  cursor: "pointer",
+                  transition: "padding-left 1s cubic-bezier(0.22, 1, 0.36, 1)",
+                  paddingLeft: isHovered ? 16 : 0,
                 }}
                 onMouseEnter={() => setHovered(i)}
                 onMouseLeave={() => setHovered(null)}
               >
-                <div style={{
-                  position: "absolute",
-                  left: 0,
-                  top: "50%",
-                  transform: "translateY(-50%)",
-                  width: 2,
-                  height: isHovered ? "50%" : "0%",
-                  backgroundColor: "var(--accent)",
-                  opacity: isHovered ? 0.6 : 0,
-                  transition: "height 1s cubic-bezier(0.22, 1, 0.36, 1), opacity 1s cubic-bezier(0.22, 1, 0.36, 1)",
-                  borderRadius: 1,
-                }} />
-
                 <span style={{
-                  fontSize: 12,
-                  fontWeight: 500,
+                  fontSize: 13,
+                  fontWeight: 300,
                   color: "var(--blue)",
-                  opacity: isHovered ? 0.5 : 0.25,
+                  opacity: isHovered ? 0.4 : 0.15,
                   letterSpacing: "0.1em",
-                  minWidth: 32,
-                  paddingTop: 4,
-                  transition: "all 1s cubic-bezier(0.22, 1, 0.36, 1)",
+                  minWidth: 36,
+                  transition: "opacity 1s cubic-bezier(0.22, 1, 0.36, 1)",
                 }}>
-                  {p.number}
+                  {s.number}
                 </span>
 
-                <div style={{
-                  width: 44,
-                  height: 44,
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  flexShrink: 0,
-                  backgroundColor: isHovered ? "var(--accent)" : "transparent",
-                  border: `1px solid ${isHovered ? "var(--accent)" : "rgba(15,35,71,0.1)"}`,
-                  transition: "all 1s cubic-bezier(0.22, 1, 0.36, 1)",
-                  color: isHovered ? "var(--white)" : "var(--blue)",
-                  transform: isHovered ? "scale(1.06)" : "scale(1)",
+                <h3 style={{
+                  fontSize: "clamp(1.2rem, 2.5vw, 1.8rem)",
+                  fontWeight: 200,
+                  color: "var(--blue)",
+                  letterSpacing: "-0.01em",
+                  flex: 1,
+                  opacity: isHovered ? 1 : 0.6,
+                  transition: "opacity 1s cubic-bezier(0.22, 1, 0.36, 1)",
                 }}>
-                  <p.icon size={20} color="currentColor" />
-                </div>
+                  {s.title}
+                </h3>
 
-                <div style={{ flex: 1 }}>
-                  <h3 style={{ fontSize: 20, fontWeight: 300, color: "var(--blue)", marginBottom: 12, lineHeight: 1.3, letterSpacing: "-0.01em" }}>
-                    {p.title}
-                  </h3>
-                  <p style={{
-                    fontSize: 15,
-                    color: "var(--blue)",
-                    fontWeight: 300,
-                    lineHeight: 1.8,
-                    maxWidth: 500,
-                    opacity: isHovered ? 0.75 : 0.5,
-                    transition: "opacity 1s cubic-bezier(0.22, 1, 0.36, 1)",
-                    marginBottom: 16,
-                  }}>
-                    {p.description}
-                  </p>
-                  <div style={{
-                    display: "flex",
-                    flexWrap: "wrap",
-                    gap: 8,
-                    opacity: isHovered ? 1 : 0.6,
-                    transition: "opacity 1s cubic-bezier(0.22, 1, 0.36, 1)",
-                  }}>
-                    {p.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        style={{
-                          fontSize: 11,
-                          fontWeight: 400,
-                          color: "var(--blue)",
-                          letterSpacing: "0.04em",
-                          padding: "5px 14px",
-                          border: "1px solid rgba(15,35,71,0.1)",
-                          opacity: 0.55,
-                          lineHeight: 1,
-                        }}
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                <div style={{
-                  opacity: isHovered ? 1 : 0.15,
-                  transform: isHovered ? "translateX(0)" : "translateX(-8px)",
-                  transition: "all 1s cubic-bezier(0.22, 1, 0.36, 1)",
-                  display: "flex",
-                  alignItems: "center",
-                  paddingTop: 8,
-                  flexShrink: 0,
-                }}>
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                    <path d="M5 12h14M12 5l7 7-7 7" stroke="var(--blue)" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" opacity="0.4" />
-                  </svg>
-                </div>
+                <svg
+                  width="20" height="20" viewBox="0 0 24 24" fill="none"
+                  style={{
+                    opacity: isHovered ? 0.3 : 0.08,
+                    transform: isHovered ? "translateX(0)" : "translateX(-8px)",
+                    transition: "all 1s cubic-bezier(0.22, 1, 0.36, 1)",
+                    flexShrink: 0,
+                  }}
+                >
+                  <path d="M5 12h14M12 5l7 7-7 7" stroke="var(--blue)" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
               </a>
             );
           })}
-          <div style={{ borderTop: "1px solid rgba(15,35,71,0.08)" }} />
+          <div style={{ borderTop: "1px solid rgba(15,35,71,0.06)" }} />
         </div>
       </div>
-
-      <style>{`
-        @media (max-width: 768px) {
-          .wwd-grid > div { flex-wrap: wrap !important; gap: 16px !important; }
-        }
-      `}</style>
     </section>
   );
 }

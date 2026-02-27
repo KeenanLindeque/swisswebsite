@@ -3,10 +3,10 @@
 import { useEffect, useRef, useState } from "react";
 
 const stats = [
-  { value: 250, suffix: "+", label: "Hotels Assessed Worldwide" },
-  { value: 40, suffix: "+", label: "Countries & Territories" },
-  { value: 98, suffix: "%", label: "Client Retention Rate" },
-  { value: 15, suffix: "+", label: "Years Setting the Standard" },
+  { value: 250, suffix: "+", label: "Hotels Assessed" },
+  { value: 40, suffix: "+", label: "Countries" },
+  { value: 98, suffix: "%", label: "Retention" },
+  { value: 15, suffix: "+", label: "Years" },
 ];
 
 function useCounter(target: number, visible: boolean) {
@@ -14,7 +14,7 @@ function useCounter(target: number, visible: boolean) {
   useEffect(() => {
     if (!visible) return;
     let frame: number;
-    const duration = 3800;
+    const duration = 4200;
     const start = performance.now();
     const step = (now: number) => {
       const elapsed = now - start;
@@ -29,60 +29,40 @@ function useCounter(target: number, visible: boolean) {
   return count;
 }
 
-function StatItem({ value, suffix, label, visible, delay, isLast }: { value: number; suffix: string; label: string; visible: boolean; delay: number; isLast: boolean }) {
+function StatItem({ value, suffix, label, visible, delay }: { value: number; suffix: string; label: string; visible: boolean; delay: number }) {
   const count = useCounter(value, visible);
-  const [hovered, setHovered] = useState(false);
 
   return (
     <div
       style={{
-        flex: 1,
         textAlign: "center",
-        padding: "0 24px",
+        padding: "0 48px",
         opacity: visible ? 1 : 0,
         transform: visible ? "translate3d(0,0,0)" : "translate3d(0,24px,0)",
-        transition: `all 1.6s cubic-bezier(0.22, 1, 0.36, 1) ${delay}s`,
-        display: "flex",
-        alignItems: "center",
-        gap: 0,
-        cursor: "default",
+        transition: `all 2s cubic-bezier(0.22, 1, 0.36, 1) ${delay}s`,
       }}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
     >
-      <div style={{ flex: 1 }}>
-        <div style={{
-          fontSize: "clamp(2.4rem, 5vw, 4.2rem)",
-          fontWeight: 100,
-          color: "var(--white)",
-          lineHeight: 1,
-          marginBottom: 12,
-          transition: "transform 1s cubic-bezier(0.22, 1, 0.36, 1)",
-          transform: hovered ? "scale(1.04)" : "scale(1)",
-        }}>
-          {count}
-          <span style={{ fontSize: "0.5em", color: "var(--accent)", opacity: 0.4, transition: "opacity 0.8s", ...(hovered ? { opacity: 0.7 } : {}) }}>{suffix}</span>
-        </div>
-        <p style={{
-          fontSize: 10,
-          color: "var(--silver)",
-          letterSpacing: "0.25em",
-          textTransform: "uppercase",
-          fontWeight: 300,
-          opacity: hovered ? 0.6 : 0.25,
-          transition: "opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1)",
-        }}>
-          {label}
-        </p>
+      <div style={{
+        fontSize: "clamp(4rem, 8vw, 7rem)",
+        fontWeight: 100,
+        color: "var(--white)",
+        lineHeight: 1,
+        marginBottom: 20,
+        letterSpacing: "-0.03em",
+      }}>
+        {count}
+        <span style={{ fontSize: "0.4em", color: "var(--silver)", opacity: 0.25, letterSpacing: "0" }}>{suffix}</span>
       </div>
-      {!isLast && (
-        <div style={{
-          width: 1,
-          height: 48,
-          background: "linear-gradient(to bottom, transparent, rgba(218,220,226,0.08), transparent)",
-          flexShrink: 0,
-        }} />
-      )}
+      <p style={{
+        fontSize: 10,
+        color: "var(--silver)",
+        letterSpacing: "0.3em",
+        textTransform: "uppercase",
+        fontWeight: 300,
+        opacity: 0.2,
+      }}>
+        {label}
+      </p>
     </div>
   );
 }
@@ -114,7 +94,7 @@ export default function Stats() {
   }, [mounted]);
 
   return (
-    <section style={{ padding: "160px 0", backgroundColor: "var(--blue)", borderTop: "1px solid rgba(218,220,226,0.04)" }}>
+    <section style={{ padding: "200px 0", backgroundColor: "var(--blue)", borderTop: "1px solid rgba(218,220,226,0.04)" }}>
       <div
         ref={ref}
         className="stats-grid"
@@ -123,17 +103,18 @@ export default function Stats() {
           margin: "0 auto",
           padding: "0 48px",
           display: "flex",
-          gap: 0,
+          justifyContent: "center",
+          gap: 80,
         }}
       >
         {stats.map((s, i) => (
-          <StatItem key={s.label} {...s} visible={visible} delay={i * 0.12} isLast={i === stats.length - 1} />
+          <StatItem key={s.label} {...s} visible={visible} delay={i * 0.15} />
         ))}
       </div>
       <style>{`
         @media (max-width: 768px) {
-          .stats-grid { flex-wrap: wrap !important; gap: 48px !important; }
-          .stats-grid > div { flex: 0 0 50% !important; }
+          .stats-grid { flex-wrap: wrap !important; gap: 64px !important; }
+          .stats-grid > div { flex: 0 0 45% !important; }
         }
       `}</style>
     </section>

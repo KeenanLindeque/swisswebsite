@@ -1,18 +1,18 @@
 "use client";
 
 const words = [
-  "Independent Certification",
-  "Mystery Assessments",
-  "Operational Excellence",
-  "Guest Experience",
-  "Service Culture",
-  "Swiss Precision",
-  "Quality Benchmarking",
-  "Trusted by 250+ Hotels",
+  "Independent",
+  "Impartial",
+  "Assessment-Based",
   "40+ Countries",
+  "250+ Hotels",
+  "15 Years",
+  "Certification Authority",
+  "Swiss Precision",
+  "Global Standard",
+  "Earned Recognition",
   "98% Retention",
-  "Assessment-Based Recognition",
-  "The Standard in Hospitality",
+  "Institutional",
 ];
 
 export default function Marquee() {
@@ -22,7 +22,7 @@ export default function Marquee() {
     <div
       style={{
         overflow: "hidden",
-        padding: "36px 0",
+        padding: "40px 0",
         backgroundColor: "var(--blue)",
         borderTop: "1px solid rgba(218,220,226,0.04)",
         borderBottom: "1px solid rgba(218,220,226,0.04)",
@@ -34,22 +34,18 @@ export default function Marquee() {
             key={`${word}-${i}`}
             className="marquee-word"
             style={{
-              fontSize: 11,
-              letterSpacing: "0.35em",
+              fontSize: 10,
+              letterSpacing: "0.4em",
               textTransform: "uppercase",
               color: "var(--silver)",
               fontWeight: 300,
-              opacity: 0.18,
-              padding: "0 36px",
+              opacity: 0.12,
+              padding: "0 40px",
               flexShrink: 0,
               transition: "opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1)",
-              display: "inline-flex",
-              alignItems: "center",
-              gap: 36,
             }}
           >
             {word}
-            <span style={{ width: 4, height: 4, borderRadius: "50%", backgroundColor: "var(--accent)", opacity: 0.35, flexShrink: 0 }} />
           </span>
         ))}
       </div>
@@ -60,13 +56,13 @@ export default function Marquee() {
           100% { transform: translateX(-50%); }
         }
         .marquee-track {
-          animation: marquee 100s linear infinite;
+          animation: marquee 120s linear infinite;
         }
         .marquee-track:hover {
           animation-play-state: paused;
         }
         .marquee-word:hover {
-          opacity: 0.5 !important;
+          opacity: 0.35 !important;
         }
       `}</style>
     </div>
