@@ -4,15 +4,15 @@ const words = [
   "Independent",
   "Impartial",
   "Assessment-Based",
-  "40+ Countries",
   "250+ Hotels",
-  "15 Years",
+  "40+ Countries",
   "Certification Authority",
   "Swiss Precision",
   "Global Standard",
-  "Earned Recognition",
   "98% Retention",
-  "Institutional",
+  "15 Years",
+  "Earned Recognition",
+  "Hotel Quality",
 ];
 
 export default function Marquee() {
@@ -22,30 +22,34 @@ export default function Marquee() {
     <div
       style={{
         overflow: "hidden",
-        padding: "40px 0",
+        padding: "32px 0",
         backgroundColor: "var(--blue)",
         borderTop: "1px solid rgba(218,220,226,0.04)",
         borderBottom: "1px solid rgba(218,220,226,0.04)",
       }}
     >
-      <div className="marquee-track" style={{ display: "flex", gap: 0, whiteSpace: "nowrap" }}>
+      <div className="marquee-track" style={{ display: "flex", whiteSpace: "nowrap" }}>
         {repeated.map((word, i) => (
           <span
             key={`${word}-${i}`}
             className="marquee-word"
             style={{
-              fontSize: 10,
-              letterSpacing: "0.4em",
+              fontSize: 11,
+              letterSpacing: "0.35em",
               textTransform: "uppercase",
               color: "var(--silver)",
               fontWeight: 300,
-              opacity: 0.12,
-              padding: "0 40px",
+              opacity: 0.15,
+              padding: "0 32px",
               flexShrink: 0,
-              transition: "opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1)",
+              transition: "opacity 0.4s",
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 32,
             }}
           >
             {word}
+            <span style={{ width: 3, height: 3, borderRadius: "50%", backgroundColor: "var(--silver)", opacity: 0.2, flexShrink: 0 }} />
           </span>
         ))}
       </div>
@@ -55,15 +59,9 @@ export default function Marquee() {
           0% { transform: translateX(0); }
           100% { transform: translateX(-50%); }
         }
-        .marquee-track {
-          animation: marquee 120s linear infinite;
-        }
-        .marquee-track:hover {
-          animation-play-state: paused;
-        }
-        .marquee-word:hover {
-          opacity: 0.35 !important;
-        }
+        .marquee-track { animation: marquee 90s linear infinite; }
+        .marquee-track:hover { animation-play-state: paused; }
+        .marquee-word:hover { opacity: 0.45 !important; }
       `}</style>
     </div>
   );
