@@ -86,12 +86,9 @@ export default function RecognitionPage() {
   const [r4, s4] = useReveal({ delay: 0 });
   const [r5, s5] = useReveal({ delay: 0 });
   const [r6, s6] = useReveal({ delay: 0 });
-  const [r7, s7] = useReveal({ delay: 0 });
-
   const [hoveredTier, setHoveredTier] = useState<number | null>(null);
   const [hoveredPrinciple, setHoveredPrinciple] = useState<number | null>(null);
   const [hoveredBenefit, setHoveredBenefit] = useState<number | null>(null);
-  const [ctaHover, setCtaHover] = useState(false);
 
   return (
     <>
@@ -640,74 +637,8 @@ export default function RecognitionPage() {
         </div>
       </section>
 
-      {/* ── CTA ───────────────────────────────────────────────────── */}
-      <section
-        style={{
-          padding: "160px 0 180px",
-          backgroundColor: "var(--blue)",
-          textAlign: "center",
-        }}
-      >
-        <div
-          ref={r7}
-          style={{ ...s7, maxWidth: 700, margin: "0 auto", padding: "0 48px" }}
-        >
-          <p
-            style={{
-              fontSize: "clamp(1.4rem, 2.5vw, 1.8rem)",
-              fontWeight: 200,
-              color: "var(--white)",
-              lineHeight: 1.5,
-              marginBottom: 48,
-              fontStyle: "italic",
-              opacity: 0.7,
-            }}
-          >
-            If your hotel earns it, your competitors will notice.
-          </p>
-          <a
-            href="/"
-            style={{
-              display: "inline-block",
-              padding: "18px 52px",
-              backgroundColor: ctaHover ? "transparent" : "var(--accent)",
-              color: "var(--white)",
-              fontSize: 13,
-              fontWeight: 400,
-              letterSpacing: "0.15em",
-              textTransform: "uppercase" as const,
-              textDecoration: "none",
-              transition: "all 0.5s cubic-bezier(0.22, 1, 0.36, 1)",
-              transform: ctaHover ? "translateY(-2px)" : "translateY(0)",
-              boxShadow: ctaHover
-                ? "0 12px 40px rgba(218,220,226,0.15)"
-                : "0 4px 16px rgba(218,220,226,0.08)",
-            }}
-            onMouseEnter={() => setCtaHover(true)}
-            onMouseLeave={() => setCtaHover(false)}
-          >
-            Start Your Assessment
-          </a>
-          <div style={{ marginTop: 48 }}>
-            <a
-              href="/"
-              style={{
-                fontSize: 13,
-                fontWeight: 300,
-                color: "var(--silver)",
-                textDecoration: "none",
-                opacity: 0.35,
-                letterSpacing: "0.04em",
-                transition: "opacity 0.4s",
-              }}
-              onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.7")}
-              onMouseLeave={(e) => (e.currentTarget.style.opacity = "0.35")}
-            >
-              &larr; Back to Home
-            </a>
-          </div>
-        </div>
-      </section>
+
+
 
       {/* ── Responsive overrides ──────────────────────────────────── */}
       <style>{`

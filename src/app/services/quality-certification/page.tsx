@@ -197,7 +197,6 @@ export default function QualityCertificationPage() {
   const [deptRef, deptVis] = useVisible(0.08);
   const [stepsRef, stepsVis] = useVisible(0.1);
   const [delivRef, delivVis] = useVisible(0.1);
-  const [ctaRef, ctaVis] = useVisible(0.2);
 
   return (
     <main style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}>
@@ -614,67 +613,8 @@ export default function QualityCertificationPage() {
         </div>
       </section>
 
-      {/* ═══ CTA ═══ */}
-      <section
-        ref={ctaRef}
-        style={{
-          backgroundColor: "var(--blue)",
-          padding: "160px 0",
-          textAlign: "center",
-        }}
-      >
-        <div style={{ maxWidth: 1400, margin: "0 auto", padding: "0 48px" }}>
-          <h2
-            style={{
-              fontSize: "clamp(1.6rem, 3vw, 2.4rem)",
-              fontWeight: 200,
-              color: "var(--white)",
-              letterSpacing: "-0.01em",
-              lineHeight: 1.3,
-              marginBottom: 40,
-              ...anim(ctaVis, 0),
-            }}
-          >
-            Know exactly where you stand.
-          </h2>
 
-          <Link
-            href="/"
-            className="qc-cta-btn"
-            style={{
-              display: "inline-block",
-              padding: "18px 52px",
-              backgroundColor: "var(--accent)",
-              color: "var(--white)",
-              fontSize: 14,
-              fontWeight: 400,
-              letterSpacing: "0.08em",
-              textDecoration: "none",
-              textTransform: "uppercase",
-              ...anim(ctaVis, 0.12),
-            }}
-          >
-            Request Certification
-          </Link>
 
-          <div style={{ marginTop: 48 }}>
-            <Link
-              href="/"
-              style={{
-                fontSize: 13,
-                fontWeight: 300,
-                color: "var(--silver)",
-                textDecoration: "none",
-                opacity: 0.4,
-                letterSpacing: "0.04em",
-                ...anim(ctaVis, 0.2),
-              }}
-            >
-              ← Back to home
-            </Link>
-          </div>
-        </div>
-      </section>
 
       {/* ═══ GLOBAL STYLES ═══ */}
       <style>{`
@@ -692,13 +632,6 @@ export default function QualityCertificationPage() {
         .qc-deliv-card:hover {
           transform: translateY(-3px) !important;
           border-color: rgba(218,220,226,0.25) !important;
-        }
-        .qc-cta-btn {
-          transition: background-color 0.4s ${ease}, transform 0.4s ${ease} !important;
-        }
-        .qc-cta-btn:hover {
-          filter: brightness(1.15);
-          transform: translateY(-1px) !important;
         }
         @media (max-width: 900px) {
           .qc-dept-grid { flex-direction: column !important; }

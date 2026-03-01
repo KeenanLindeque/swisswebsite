@@ -109,7 +109,6 @@ export default function ExecutiveAdvisoryPage() {
   const process = useReveal();
   const covered = useReveal();
   const outcomesSection = useReveal();
-  const cta = useReveal();
 
   const transition = (visible: boolean, delay = 0): React.CSSProperties => ({
     opacity: visible ? 1 : 0,
@@ -500,53 +499,8 @@ export default function ExecutiveAdvisoryPage() {
         </div>
       </section>
 
-      {/* ─── CTA ─── */}
-      <section
-        ref={cta.ref}
-        style={{
-          padding: "180px 24px",
-          background: BLUE,
-          color: WHITE,
-          textAlign: "center",
-        }}
-      >
-        <div style={{ maxWidth: 700, margin: "0 auto" }}>
-          <h2
-            style={{
-              fontSize: "clamp(28px, 3.8vw, 48px)",
-              fontWeight: 200,
-              margin: "0 0 48px",
-              lineHeight: 1.25,
-              ...transition(cta.visible),
-            }}
-          >
-            Ready to turn findings into results?
-          </h2>
 
-          <div style={transition(cta.visible, 0.15)}>
-            <Link
-              href="/contact"
-              style={{
-                display: "inline-block",
-                padding: "20px 56px",
-                background: ACCENT,
-                color: WHITE,
-                fontSize: 14,
-                fontWeight: 400,
-                letterSpacing: "0.14em",
-                textDecoration: "none",
-                textTransform: "uppercase",
-                borderRadius: 3,
-                transition: "opacity 0.3s",
-              }}
-              onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.opacity = "0.85")}
-              onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.opacity = "1")}
-            >
-              Schedule Advisory
-            </Link>
-          </div>
-        </div>
-      </section>
+
     </main>
   );
 }

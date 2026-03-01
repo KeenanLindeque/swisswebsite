@@ -197,7 +197,6 @@ export default function HospitalityIntelligencePage() {
   const insights = useReveal();
   const dataSources = useReveal();
   const cases = useReveal();
-  const cta = useReveal();
 
   const transition = (visible: boolean, delay = 0): React.CSSProperties => ({
     opacity: visible ? 1 : 0,
@@ -567,53 +566,8 @@ export default function HospitalityIntelligencePage() {
         </div>
       </section>
 
-      {/* ─── CTA ─── */}
-      <section
-        ref={cta.ref}
-        style={{
-          padding: "180px 24px",
-          background: BLUE,
-          color: WHITE,
-          textAlign: "center",
-        }}
-      >
-        <div style={{ maxWidth: 700, margin: "0 auto" }}>
-          <h2
-            style={{
-              fontSize: "clamp(28px, 3.8vw, 48px)",
-              fontWeight: 200,
-              margin: "0 0 48px",
-              lineHeight: 1.25,
-              ...transition(cta.visible),
-            }}
-          >
-            Intelligence that separates leaders from followers.
-          </h2>
 
-          <div style={transition(cta.visible, 0.15)}>
-            <Link
-              href="/contact"
-              style={{
-                display: "inline-block",
-                padding: "20px 56px",
-                background: ACCENT,
-                color: WHITE,
-                fontSize: 14,
-                fontWeight: 400,
-                letterSpacing: "0.14em",
-                textDecoration: "none",
-                textTransform: "uppercase",
-                borderRadius: 3,
-                transition: "opacity 0.3s",
-              }}
-              onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.opacity = "0.85")}
-              onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.opacity = "1")}
-            >
-              Request Intelligence Report
-            </Link>
-          </div>
-        </div>
-      </section>
+
     </main>
   );
 }

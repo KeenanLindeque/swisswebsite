@@ -621,70 +621,8 @@ export default function MysteryGuestPage() {
         </div>
       </Section>
 
-      {/* ━━ CTA ━━ */}
-      <Section bg={W} color={B} mounted={mounted} style={{ padding: "120px 40px 180px", textAlign: "center" as const }}>
-        <h2
-          style={{
-            fontSize: "clamp(24px, 3vw, 40px)",
-            fontWeight: 200,
-            margin: "0 0 40px",
-            lineHeight: 1.25,
-          }}
-        >
-          Ready to see what your guests
-          <br />
-          actually experience?
-        </h2>
 
-        <a
-          href="mailto:info@swisshospitalitycompany.com?subject=Mystery%20Guest%20Assessment%20Inquiry"
-          style={{
-            display: "inline-block",
-            background: A,
-            color: W,
-            padding: "16px 48px",
-            fontSize: 13,
-            fontWeight: 400,
-            letterSpacing: "0.12em",
-            textTransform: "uppercase" as const,
-            textDecoration: "none",
-            borderRadius: 4,
-            transition: "opacity 0.3s ease",
-            marginBottom: 32,
-          }}
-          onMouseEnter={(e) => {
-            (e.currentTarget as HTMLAnchorElement).style.opacity = "0.85";
-          }}
-          onMouseLeave={(e) => {
-            (e.currentTarget as HTMLAnchorElement).style.opacity = "1";
-          }}
-        >
-          Request an Assessment
-        </a>
 
-        <div>
-          <Link
-            href="/#services"
-            style={{
-              color: B,
-              fontSize: 13,
-              fontWeight: 300,
-              textDecoration: "none",
-              opacity: 0.45,
-              letterSpacing: "0.06em",
-              transition: "opacity 0.3s ease",
-            }}
-            onMouseEnter={(e) => {
-              (e.currentTarget as HTMLAnchorElement).style.opacity = "0.8";
-            }}
-            onMouseLeave={(e) => {
-              (e.currentTarget as HTMLAnchorElement).style.opacity = "0.45";
-            }}
-          >
-            ← Back to Services
-          </Link>
-        </div>
-      </Section>
     </main>
   );
 }
