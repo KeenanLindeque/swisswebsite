@@ -180,7 +180,6 @@ export default function RecognitionPage() {
                 lineHeight: 1.8,
                 margin: "36px 0 0",
                 opacity: 0.75,
-                opacity: 0.55,
               }}
             >
               No sponsorship. No membership fee. The Swiss Hospitality
