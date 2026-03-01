@@ -222,24 +222,26 @@ export default function HospitalityIntelligencePage() {
           justifyContent: "center",
         }}
       >
-        <div
+        <span
           style={{
             position: "absolute",
+            right: "5%",
             top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            fontSize: "clamp(280px, 40vw, 600px)",
+            transform: "translateY(-50%)",
+            fontSize: "clamp(280px, 40vw, 500px)",
             fontWeight: 100,
-            opacity: 0.04,
-            color: WHITE,
             lineHeight: 1,
-            userSelect: "none",
+            color: WHITE,
+            opacity: hero.visible ? 0.03 : 0,
+            transition: "opacity 2s cubic-bezier(0.22, 1, 0.36, 1)",
             pointerEvents: "none",
+            userSelect: "none",
+            letterSpacing: "-0.04em",
+            zIndex: 0,
           }}
         >
           05
-        </div>
-
+        </span>
         <div style={{ maxWidth: 900, margin: "0 auto", position: "relative", zIndex: 1, width: "100%" }}>
           <div style={transition(hero.visible)}>
             <Link

@@ -36,7 +36,7 @@ export default function Hero() {
         style={{
           position: "absolute",
           inset: 0,
-          backgroundImage: "url(/images/luxury-resort.jpg)",
+          backgroundImage: "url(/images/hero-hotel.jpg)",
           backgroundSize: "cover",
           backgroundPosition: "center 35%",
           opacity: phase >= 1 ? 1 : 0,

@@ -262,60 +262,67 @@ export default function MysteryGuestPage() {
   return (
     <main style={{ fontFamily: FONT, background: W, color: B, overflowX: "hidden" }}>
       {/* ━━ HERO ━━ */}
-      <div
+      <section
         style={{
+          position: "relative",
           background: B,
           color: W,
-          padding: "80px 40px 180px",
-          position: "relative",
+          padding: "180px 24px 200px",
           overflow: "hidden",
+          minHeight: "80vh",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
         }}
       >
-        <div style={{ maxWidth: 1200, margin: "0 auto", position: "relative", zIndex: 1 }}>
+        <span
+          style={{
+            position: "absolute",
+            right: "5%",
+            top: "50%",
+            transform: "translateY(-50%)",
+            fontSize: "clamp(280px, 40vw, 500px)",
+            fontWeight: 100,
+            lineHeight: 1,
+            color: W,
+            opacity: mounted ? 0.03 : 0,
+            transition: "opacity 2s cubic-bezier(0.22, 1, 0.36, 1)",
+            pointerEvents: "none",
+            userSelect: "none",
+            letterSpacing: "-0.04em",
+            zIndex: 0,
+          }}
+        >
+          01
+        </span>
+        <div style={{ maxWidth: 900, margin: "0 auto", position: "relative", zIndex: 1, width: "100%" }}>
           <Link
             href="/"
             style={{
-              color: S,
+              color: W,
               textDecoration: "none",
-              fontSize: 13,
+              fontSize: 14,
+              letterSpacing: "0.12em",
               fontWeight: 300,
-              letterSpacing: "0.08em",
-              opacity: mounted ? 0.65 : 0,
-              transition: "opacity 0.8s ease",
+              opacity: mounted ? 0.6 : 0,
+              transition: "opacity 1s cubic-bezier(0.22, 1, 0.36, 1)",
               display: "inline-block",
-              marginBottom: 80,
+              marginBottom: 64,
             }}
           >
             ← Back
           </Link>
 
-          <p
-            style={{
-              fontSize: "clamp(100px, 14vw, 200px)",
-              fontWeight: 200,
-              lineHeight: 1,
-              margin: 0,
-              opacity: 0.04,
-              position: "absolute",
-              top: 40,
-              right: -20,
-              userSelect: "none",
-              pointerEvents: "none",
-            }}
-          >
-            01
-          </p>
-
           <h1
             style={{
-              fontSize: "clamp(36px, 5vw, 72px)",
+              fontSize: "clamp(42px, 6vw, 80px)",
               fontWeight: 200,
+              letterSpacing: "-0.02em",
               lineHeight: 1.1,
-              margin: "0 0 24px",
-              maxWidth: 700,
+              margin: 0,
               opacity: mounted ? 1 : 0,
-              transform: mounted ? "translateY(0)" : "translateY(24px)",
-              transition: "opacity 1s ease, transform 1s ease",
+              transform: mounted ? "translateY(0)" : "translateY(40px)",
+              transition: "opacity 0.9s cubic-bezier(0.22,1,0.36,1) 0.1s, transform 0.9s cubic-bezier(0.22,1,0.36,1) 0.1s",
             }}
           >
             Mystery Guest
@@ -325,12 +332,13 @@ export default function MysteryGuestPage() {
 
           <p
             style={{
-              fontSize: "clamp(16px, 1.8vw, 22px)",
+              fontSize: "clamp(18px, 2.2vw, 24px)",
               fontWeight: 300,
               fontStyle: "italic",
               opacity: mounted ? 0.5 : 0,
-              margin: "0 0 40px",
-              transition: "opacity 1.2s ease 0.2s",
+              margin: "28px 0 0",
+              lineHeight: 1.5,
+              transition: "opacity 1.2s cubic-bezier(0.22,1,0.36,1) 0.2s",
             }}
           >
             We check in. Your staff won&rsquo;t know.
@@ -338,13 +346,13 @@ export default function MysteryGuestPage() {
 
           <p
             style={{
-              fontSize: "clamp(15px, 1.2vw, 18px)",
+              fontSize: "clamp(16px, 1.6vw, 20px)",
               fontWeight: 300,
-              lineHeight: 1.75,
-              maxWidth: 560,
-              opacity: mounted ? 0.72 : 0,
-              transition: "opacity 1.2s ease 0.35s",
-              margin: 0,
+              lineHeight: 1.8,
+              maxWidth: 640,
+              margin: "36px 0 0",
+              opacity: mounted ? 0.75 : 0,
+              transition: "opacity 1.2s cubic-bezier(0.22,1,0.36,1) 0.35s",
             }}
           >
             We stay at your hotel as a real guest and document the entire
@@ -353,7 +361,7 @@ export default function MysteryGuestPage() {
             unfiltered truth about what your guests actually experience.
           </p>
         </div>
-      </div>
+      </section>
 
       {/* ━━ JOURNEY INFOGRAPHIC ━━ */}
       <Section bg={W} color={B} mounted={mounted}>

@@ -98,81 +98,91 @@ export default function RecognitionPage() {
       {/* ── Hero ──────────────────────────────────────────────────── */}
       <section
         style={{
-          padding: "180px 0 200px",
-          backgroundColor: "var(--blue)",
           position: "relative",
+          backgroundColor: "var(--blue)",
+          color: "var(--white)",
+          padding: "180px 24px 200px",
           overflow: "hidden",
+          minHeight: "80vh",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
         }}
       >
-        <div style={{ maxWidth: 1400, margin: "0 auto", padding: "0 48px" }}>
+        <span
+          style={{
+            position: "absolute",
+            right: "5%",
+            top: "50%",
+            transform: "translateY(-50%)",
+            fontSize: "clamp(280px, 40vw, 500px)",
+            fontWeight: 100,
+            lineHeight: 1,
+            color: "var(--white)",
+            opacity: 0.03,
+            pointerEvents: "none",
+            userSelect: "none",
+            letterSpacing: "-0.04em",
+            zIndex: 0,
+          }}
+        >
+          03
+        </span>
+        <div style={{ maxWidth: 900, margin: "0 auto", position: "relative", zIndex: 1, width: "100%" }}>
           <a
             href="/"
             style={{
-              display: "inline-block",
-              marginBottom: 80,
-              fontSize: 13,
-              fontWeight: 300,
-              color: "var(--silver)",
+              color: "var(--white)",
               textDecoration: "none",
-              letterSpacing: "0.04em",
-              opacity: 0.45,
+              fontSize: 14,
+              letterSpacing: "0.12em",
+              fontWeight: 300,
+              opacity: 0.6,
+              display: "inline-block",
+              marginBottom: 64,
               transition: "opacity 0.4s",
             }}
             onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.8")}
-            onMouseLeave={(e) => (e.currentTarget.style.opacity = "0.45")}
+            onMouseLeave={(e) => (e.currentTarget.style.opacity = "0.6")}
           >
             &larr; Back
           </a>
 
           <div ref={r1} style={s1}>
-            <span
-              style={{
-                fontSize: "clamp(72px, 10vw, 120px)",
-                fontWeight: 200,
-                color: "var(--white)",
-                opacity: 0.04,
-                lineHeight: 1,
-                display: "block",
-                marginBottom: -12,
-                userSelect: "none",
-              }}
-            >
-              03
-            </span>
             <h1
               style={{
-                fontSize: "clamp(2.2rem, 5vw, 3.6rem)",
+                fontSize: "clamp(42px, 6vw, 80px)",
                 fontWeight: 200,
-                color: "var(--white)",
-                lineHeight: 1.15,
-                marginBottom: 20,
-                letterSpacing: "-0.01em",
+                letterSpacing: "-0.02em",
+                lineHeight: 1.1,
+                margin: 0,
               }}
             >
               Recognition Program
             </h1>
             <p
               style={{
-                fontSize: 15,
-                fontWeight: 400,
-                color: "var(--silver)",
-                letterSpacing: "0.08em",
+                fontSize: "clamp(18px, 2.2vw, 24px)",
+                fontWeight: 300,
                 fontStyle: "italic",
                 opacity: 0.5,
-                marginBottom: 48,
+                margin: "28px 0 0",
+                lineHeight: 1.5,
               }}
             >
               You Can&apos;t Buy It. You Earn It.
             </p>
           </div>
 
-          <div ref={r2} style={{ ...s2, maxWidth: 660 }}>
+          <div ref={r2} style={{ ...s2, maxWidth: 640 }}>
             <p
               style={{
-                fontSize: 17,
-                color: "var(--silver)",
+                fontSize: "clamp(16px, 1.6vw, 20px)",
+                color: "var(--white)",
                 fontWeight: 300,
-                lineHeight: 1.9,
+                lineHeight: 1.8,
+                margin: "36px 0 0",
+                opacity: 0.75,
                 opacity: 0.55,
               }}
             >

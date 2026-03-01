@@ -206,53 +206,60 @@ export default function QualityCertificationPage() {
         style={{
           position: "relative",
           backgroundColor: "var(--blue)",
-          padding: "180px 0 200px",
+          color: "var(--white)",
+          padding: "180px 24px 200px",
           overflow: "hidden",
+          minHeight: "80vh",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
         }}
       >
-        <div style={{ maxWidth: 1400, margin: "0 auto", padding: "0 48px", position: "relative" }}>
+        <span
+          style={{
+            position: "absolute",
+            right: "5%",
+            top: "50%",
+            transform: "translateY(-50%)",
+            fontSize: "clamp(280px, 40vw, 500px)",
+            fontWeight: 100,
+            lineHeight: 1,
+            color: "var(--white)",
+            opacity: mounted ? 0.03 : 0,
+            transition: "opacity 2s cubic-bezier(0.22, 1, 0.36, 1)",
+            pointerEvents: "none",
+            userSelect: "none",
+            letterSpacing: "-0.04em",
+            zIndex: 0,
+          }}
+        >
+          02
+        </span>
+        <div style={{ maxWidth: 900, margin: "0 auto", position: "relative", zIndex: 1, width: "100%" }}>
           <Link
             href="/"
             style={{
-              position: "absolute",
-              top: -100,
-              left: 48,
-              fontSize: 13,
-              fontWeight: 300,
-              color: "var(--silver)",
+              color: "var(--white)",
               textDecoration: "none",
-              letterSpacing: "0.04em",
-              opacity: mounted ? 0.5 : 0,
-              transition: `opacity 1.6s ${ease}`,
+              fontSize: 14,
+              letterSpacing: "0.12em",
+              fontWeight: 300,
+              opacity: mounted ? 0.6 : 0,
+              transition: "opacity 1s cubic-bezier(0.22, 1, 0.36, 1)",
+              display: "inline-block",
+              marginBottom: 64,
             }}
           >
             ← Back
           </Link>
 
-          <span
-            style={{
-              fontSize: "clamp(6rem, 14vw, 11rem)",
-              fontWeight: 200,
-              color: "var(--white)",
-              lineHeight: 1,
-              display: "block",
-              opacity: mounted ? 0.04 : 0,
-              transition: `opacity 2.4s ${ease}`,
-              userSelect: "none",
-              marginBottom: -20,
-            }}
-          >
-            02
-          </span>
-
           <h1
             style={{
-              fontSize: "clamp(2.2rem, 5vw, 3.6rem)",
+              fontSize: "clamp(42px, 6vw, 80px)",
               fontWeight: 200,
-              color: "var(--white)",
-              lineHeight: 1.15,
-              marginBottom: 20,
-              letterSpacing: "-0.015em",
+              letterSpacing: "-0.02em",
+              lineHeight: 1.1,
+              margin: 0,
               ...anim(mounted, 0.1),
             }}
           >
@@ -261,14 +268,13 @@ export default function QualityCertificationPage() {
 
           <p
             style={{
-              fontSize: 15,
-              fontStyle: "italic",
-              color: "var(--silver)",
-              opacity: mounted ? 0.5 : 0,
+              fontSize: "clamp(18px, 2.2vw, 24px)",
               fontWeight: 300,
-              letterSpacing: "0.03em",
-              marginBottom: 40,
-              transition: `opacity 2s ${ease} 0.2s`,
+              fontStyle: "italic",
+              opacity: mounted ? 0.5 : 0,
+              margin: "28px 0 0",
+              lineHeight: 1.5,
+              transition: `opacity 1.2s ${ease} 0.2s`,
             }}
           >
             Your standards on paper vs. your standards on the floor.
@@ -276,13 +282,13 @@ export default function QualityCertificationPage() {
 
           <p
             style={{
-              fontSize: 17,
-              lineHeight: 1.9,
-              color: "var(--white)",
+              fontSize: "clamp(16px, 1.6vw, 20px)",
+              lineHeight: 1.8,
               fontWeight: 300,
-              maxWidth: 620,
-              ...anim(mounted, 0.25),
-              opacity: mounted ? 0.5 : 0,
+              maxWidth: 640,
+              margin: "36px 0 0",
+              opacity: mounted ? 0.75 : 0,
+              transition: `opacity 1.2s ${ease} 0.35s`,
             }}
           >
             We evaluate every department against your own brand standards and

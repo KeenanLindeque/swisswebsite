@@ -32,18 +32,16 @@ export default function WhatWeDo() {
     return () => obs.disconnect();
   }, [mounted]);
 
-  const anim = (delay: number) => ({
-    opacity: visible ? 1 : 0,
-    transform: visible ? "translate3d(0,0,0)" : "translate3d(0,32px,0)",
-    transition: mounted ? `opacity 2s cubic-bezier(0.22, 1, 0.36, 1) ${delay}s, transform 2s cubic-bezier(0.22, 1, 0.36, 1) ${delay}s` : "none",
-    willChange: "opacity, transform" as const,
-  });
-
   return (
-    <section id="what-we-do" style={{ padding: "200px 0", backgroundColor: "var(--white)" }}>
+    <section id="what-we-do" style={{ padding: "200px 0 120px", backgroundColor: "var(--white)" }}>
       <div ref={ref} style={{ maxWidth: 1400, margin: "0 auto", padding: "0 48px" }}>
 
-        <div style={{ ...anim(0), marginBottom: 120 }}>
+        <div style={{
+          opacity: visible ? 1 : 0,
+          transform: visible ? "translateY(0)" : "translateY(32px)",
+          transition: mounted ? "opacity 2s cubic-bezier(0.22, 1, 0.36, 1), transform 2s cubic-bezier(0.22, 1, 0.36, 1)" : "none",
+          marginBottom: 120,
+        }}>
           <p style={{ color: "var(--blue)", fontSize: 11, letterSpacing: "0.25em", textTransform: "uppercase", fontWeight: 400, opacity: 0.35, marginBottom: 24 }}>
             What We Do
           </p>
@@ -56,50 +54,54 @@ export default function WhatWeDo() {
         <div style={{ display: "flex", flexDirection: "column" }}>
           {services.map((s, i) => {
             const isHovered = hovered === i;
+            const revealDelay = 0.1 + i * 0.06;
             return (
               <a
                 key={s.number}
                 href={s.href}
-                className="svc-row"
                 style={{
-                  ...anim(0.1 + i * 0.06),
                   display: "flex",
                   alignItems: "center",
                   gap: 40,
-                  padding: "44px 0 44px 0",
+                  padding: "40px 0",
+                  paddingLeft: isHovered ? 24 : 0,
                   borderTop: "1px solid rgba(15,35,71,0.06)",
                   textDecoration: "none",
                   color: "inherit",
                   cursor: "pointer",
-                  transition: "all 0.5s cubic-bezier(0.22, 1, 0.36, 1)",
-                  paddingLeft: isHovered ? 24 : 0,
-                  backgroundColor: isHovered ? "rgba(15,35,71,0.015)" : "transparent",
+                  backgroundColor: isHovered ? "rgba(15,35,71,0.02)" : "transparent",
+                  opacity: visible ? 1 : 0,
+                  transform: visible
+                    ? isHovered ? "translateY(-1px)" : "translateY(0)"
+                    : "translateY(24px)",
+                  transition: mounted
+                    ? `opacity 1.6s cubic-bezier(0.22, 1, 0.36, 1) ${revealDelay}s, transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), padding-left 0.5s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.5s cubic-bezier(0.22, 1, 0.36, 1)`
+                    : "none",
                 }}
                 onMouseEnter={() => setHovered(i)}
                 onMouseLeave={() => setHovered(null)}
               >
                 <span style={{
-                  fontSize: 48,
+                  fontSize: 42,
                   fontWeight: 100,
                   color: "var(--blue)",
                   opacity: isHovered ? 0.15 : 0.06,
                   letterSpacing: "-0.02em",
-                  minWidth: 80,
-                  transition: "opacity 0.5s",
+                  minWidth: 72,
+                  transition: "opacity 0.4s",
                   lineHeight: 1,
                 }}>
                   {s.number}
                 </span>
 
-                <div style={{ flex: 1 }}>
+                <div style={{ flex: 1, minWidth: 0 }}>
                   <h3 style={{
-                    fontSize: "clamp(1.4rem, 2.5vw, 2rem)",
+                    fontSize: "clamp(1.3rem, 2.5vw, 1.8rem)",
                     fontWeight: 300,
                     color: "var(--blue)",
                     letterSpacing: "-0.01em",
-                    marginBottom: 6,
-                    opacity: isHovered ? 1 : 0.7,
-                    transition: "opacity 0.5s",
+                    opacity: isHovered ? 1 : 0.65,
+                    transition: "opacity 0.4s",
                   }}>
                     {s.title}
                   </h3>
@@ -107,21 +109,20 @@ export default function WhatWeDo() {
                     fontSize: 14,
                     fontWeight: 300,
                     color: "var(--blue)",
-                    opacity: isHovered ? 0.45 : 0,
-                    transition: "opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1)",
-                    maxHeight: isHovered ? 30 : 0,
-                    overflow: "hidden",
+                    opacity: isHovered ? 0.4 : 0,
+                    transition: "opacity 0.4s",
+                    marginTop: 4,
                   }}>
                     {s.sub}
                   </p>
                 </div>
 
                 <svg
-                  width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  width="20" height="20" viewBox="0 0 24 24" fill="none"
                   style={{
-                    opacity: isHovered ? 0.4 : 0,
-                    transform: isHovered ? "translateX(0)" : "translateX(-16px)",
-                    transition: "all 0.5s cubic-bezier(0.22, 1, 0.36, 1)",
+                    opacity: isHovered ? 0.35 : 0,
+                    transform: isHovered ? "translateX(0)" : "translateX(-10px)",
+                    transition: "all 0.4s cubic-bezier(0.22, 1, 0.36, 1)",
                     flexShrink: 0,
                   }}
                 >
